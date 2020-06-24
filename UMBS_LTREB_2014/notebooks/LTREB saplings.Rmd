@@ -1,0 +1,117 @@
+---
+title: "LTREB Saplings R Notebook"
+output: html_notebook
+---
+
+This is an R notebook detailing the cleaning process for LTREB saplings 2014 data
+
+```{r}
+library(tidyverse)
+library(dataMaid)
+library(lubridate)
+```
+
+Read in csv file
+```{r}
+saplings <- read_csv("../raw/corrected sapling tally and biomass for Alina.csv")
+saplings <- saplings %>% select(1:16,18:25,27)
+head(saplings)
+```
+
+
+Clean up column headers
+```{r}
+saplings <- saplings %>% rename("DBH_0_to_2" = `0-2`, "DBH_0_to_2_dead" = `0-2, Dead`, "DBH_2_to_4" = `2-4`, "DBH_2_to_4_dead" = `2-4, dead`, "DBH_4_to_6" = `4-6`, "DBH_4_to_6_dead" = `4-6, dead`, "DBH_6_to_8" = `6-8`, "DBH_6_to_8_dead" = `6-8, dead`, "Biomass_0_to_2" = `Biomass 0-2`, "Biomass_0_to_2_dead" = `Biomass 0-2, dead`, "Biomass_2_to_4" = `Biomass 2-4`, "Biomass_2_to_4_dead" = `Biomass 2-4, dead`, "Biomass_4_to_6" = `Biomass 4-6`, "Biomass_4_to_6_dead" = `Biomass 4-6, dead`, "Biomass_6_to_8" = `Biomass 6-8`, "Biomass_6_to_8_dead" = `Biomass 6-8, dead`, "Mean_height_0_to_2" =`0-2 Mean Height`, "Mean_height_2_to_4" =`2-4 Mean Height`, "Mean_height_4_to_6" =`4-6 Mean Height`, "Mean_height_6_to_8" =`6-8 Mean Height`)
+
+saplings$"Mean_height_0_to_2_dead" = saplings$Mean_height_0_to_2
+saplings$"Mean_height_2_to_4_dead" = saplings$Mean_height_2_to_4
+saplings$"Mean_height_4_to_6_dead" = saplings$Mean_height_4_to_6
+saplings$"Mean_height_6_to_8_dead" = saplings$Mean_height_6_to_8
+
+head(saplings)
+```
+
+Fix up tally date column
+```{r}
+saplings$`Tally Date` <- mdy(saplings$`Tally Date`)
+head(saplings)
+#glimpse(saplings)
+```
+
+
+
+Merge/gather columns to have "size class" "tally" "biomass" columns, ie wide to long
+Done by splitting into two data frames (tally and biomass), gather and reorder separately, and then bind necessary columns
+
+```{r}
+saplings_dbh <- saplings %>% select(1:5,7,8,10,11,13,14,15,25)
+saplings_bio <- saplings %>% select(1,2,3,15, 17:25)
+saplings_mean <- saplings %>% select(1:3, 6, 26, 9, 27, 12, 28, 16, 29, 15, 25)
+
+saplings_dbh <- saplings_dbh %>% gather(DBH_size_class, Tally, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
+
+saplings_bio <- saplings_bio %>% gather(DBH_size_class, Biomass, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
+
+saplings_mean <- saplings_mean %>% gather(DBH_size_class, Mean_Height, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
+
+head(saplings_mean)
+```
+
+Edit out "DBH" and "Biomass" from size class column
+```{r}
+saplings_dbh <- saplings_dbh %>% mutate(DBH_size_class = str_sub(DBH_size_class, 5, -1))
+saplings_bio <- saplings_bio %>% mutate(DBH_size_class = str_sub(DBH_size_class, 9, -1))
+saplings_mean <- saplings_mean %>% mutate(DBH_size_class = str_sub(DBH_size_class, 13, -1))
+
+
+glimpse(saplings_dbh)
+glimpse(saplings_bio)
+glimpse(saplings_mean)
+```
+
+Merge and reorder
+```{r}
+saplings_tidy <- cbind(saplings_dbh, Biomass = saplings_bio[[7]], Mean_height = saplings_mean[[7]])
+head(saplings_tidy)
+saplings_tidy <- saplings_tidy %>%  select(2:4, 6:9, 5)
+glimpse(saplings_tidy)
+```
+
+Mutate size class column into size class and status
+```{r}
+saplings_tidy <- saplings_tidy %>% mutate(Status = ifelse(str_sub(DBH_size_class, -1, -1) =="d", "Dead", "Alive"))
+head(saplings_tidy)
+saplings_tidy <- saplings_tidy %>% mutate(DBH_size_class = str_sub(DBH_size_class, 1, 6)) %>% select(1:4, 9, 5:7)
+
+```
+
+fix tally, change NA to 0
+```{r}
+saplings_tidy$Tally[is.na(saplings_tidy$Tally)] <- 0
+saplings_tidy$Biomass[is.na(saplings_tidy$Biomass)] <- 0
+```
+
+rename columns
+```{r}
+saplings_tidy <- saplings_tidy %>% rename("Tally_date" = `Tally Date`) %>% select(1:7)
+```
+
+fix plot names to match AGB
+```{r}
+saplings_tidy$Plot[saplings_tidy$Plot == "DNR#1"] <- "DNR1"
+saplings_tidy$Plot[saplings_tidy$Plot == "DNR#2"] <- "DNR2"
+saplings_tidy$Plot[saplings_tidy$Plot == "DNR#3"] <- "DNR3"
+plot_names <- unique(saplings_tidy$Plot)
+plot_names
+```
+
+
+
+Write output file
+```{r}
+write_csv(saplings_tidy, path = "../output/UMBS_Saplings_Inventory_2014_tidy.csv")
+```
+
+
+
+

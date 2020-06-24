@@ -1,0 +1,84 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+getwd()
+library(tidyverse)
+library(dataMaid)
+library(lubridate)
+library(data.table)
+library(compareDF)
+```
+
+Check AGB
+```{r}
+nb <- read_csv("../output/Master_AGB_data_for_UMBS_IMS_tree_list.csv")
+newmerge <- read_csv("../output_Alina/new_merge_master.csv")
+newmergeTest <- read_csv("../output/TEST_Biomass_w_2014.csv")
+spaces <- read_csv("../output_Alina/Master AGB data for UMBS IMS tree list tidy.csv")
+underscores <- read_csv("../output_Alina/Master_AGB_data_for_UMBS_IMS_tree_list.csv")
+edi <- read_csv("../edi/UMBS_LTREB_AboveGroundBiomass.csv")
+# tidy <- read_csv("../output_Alina/Master_AGB_data_for_UMBS_IMS_tree_list_tidy.csv")
+```
+
+```{r}
+# which are redundant?
+all.equal(spaces, newmerge, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(underscores, newmerge, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(underscores, spaces, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(newmerge, newmergeTest, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(spaces, newmergeTest, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(underscores, newmergeTest, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+
+# are any the correct final output?
+all.equal(newmerge, edi, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(underscores, edi, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE) # TRUE (file that should be output from notebook)
+all.equal(spaces, edi, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+
+# which is the cleaning script's output?
+all.equal(nb, newmerge, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(nb, spaces, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+```
+
+
+```{r}
+# maybe newmerge and spaces are useless partial steps
+# then what is left to do in the cleaning script to get notebook output to match edi?
+all.equal(nb, underscores, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+# my out has correct columns but is not clean:
+# too many rows
+# correction/replacement in plot, common name, species code
+# needs more NAs in old_tag, Distance, Azimuth
+
+# fsetdiff(data.table(nb), data.table(edi))
+# fintersect(data.table(nb), data.table(edi))
+
+glimpse(edi)
+glimpse(nb)
+```
+
+Check CWD - FIXED IN BOTTOM OF CWD.Rmd
+```{r}
+edi <- read_csv("../edi/UMBS_LTREB_CoarseWoodyDebris.csv")
+alina <- read_csv("../output_Alina/Complete_CWD_Data.csv")
+nb <- read_csv("../output/Complete_CWD_Data.csv")
+
+all.equal(edi, alina, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(edi, nb, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE) 
+```
+
+Check saplings - OK
+```{r}
+nb <- read_csv("../output/UMBS_Saplings_Inventory_2014_tidy.csv")
+alina <- read_csv("../output_Alina/UMBS_Saplings_Inventory_2014_tidy.csv")
+edi <- read_csv("../edi/UMBS_Saplings_Inventory_2014.csv")
+
+all.equal(edi, alina, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(alina, nb, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+all.equal(edi, nb, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+```
+
+

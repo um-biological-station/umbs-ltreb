@@ -1,0 +1,41 @@
+---
+title: "LTREB 2014 R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(dataMaid)
+library(lubridate)
+```
+
+```{r}
+getwd()
+```
+
+```{r}
+LTREB_soils <- read_csv("../data/LTREB_2014_soils_merged data.csv")
+glimpse(LTREB_soils)
+```
+```{r}
+View(LTREB_soils)
+```
+
+
+```{r}
+LTREB_soils_clean <- LTREB_soils %>% select(1:9, 24:29)
+LTREB_soils_clean
+View(LTREB_soils_clean)
+```
+
+Fix depth column headers
+##Todo: fix other column headers to be EDI compliant later once confirmed w Luke which columns##
+```{r}
+LTREB_soils_clean <- LTREB_soils_clean %>% rename("Depth_category" = `DepthISH`, "Depth_as_collected" = `Depth`)
+```
+
+write output file
+```{r}
+write_csv(LTREB_soils_clean, path = "../data_outputs/LTREB_Soils_2014_merged.csv")
+```
+
