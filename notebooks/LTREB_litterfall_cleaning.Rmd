@@ -1,5 +1,6 @@
 ---
-title: "LTREB Litterfall 2015 R Notebook"
+title: "UMBS LTREB Litterfall Table Cleaning"
+author: "Alexandria Pawlik"
 output: html_notebook
 ---
 

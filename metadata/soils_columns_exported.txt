@@ -1,0 +1,37 @@
+Variable Name	Definition
+Plot	Standardized name of the LTREB long-term plot in which the soil sample was collected
+Profile ID	Unique identifier for the soil profile (parent) from which the soil sample (child) is derived. concatenated from the plot ID and the unique soil profile (n=2-4 per plot)
+Targeted sampling increment	the horizon or depth increment (in cm) intended to be collected
+Actual sampling increment	"the horizon or depth increment (in cm) that was actually collected. may differ from targeted depth, e.g., based upon sample slumping out of the bottom of the coring device during sample collections"
+Sampling increment thickness (cm)	"thickness, in cm, of the sampled depth increment. O and A horizons were collected as genetic horizons and thicknesses were not measured"
+Sample volume (cm^3)	"calculated volume of the sample, based upon its thickness and the diameter of the corer used to collect it"
+Archived sample ID	"unique identifier for the soil sample, corresponding to the archived physical sample in the UMBS SAFE"
+Fine earth 60¡ dry mass (g)	measured dry mass of the fine earth fraction (soil materials passing 2mm sieve)
+Root  60¡  dry mass (g)	measured dry mass of fine roots (<2mm diameter)
+Wood >2mm 60¡ dry mass (g)	"measured dry mass of woody roots (>2mm diameter) and woody materials not passing 2mm sieve (e.g., bark pieces, twigs, acorn fragments)"
+Stone Air Dry mass (g)	air dry mass of stones not passing 2mm sieve
+Stone volume (cm3)	"calculated volume of stones, assuming stones have specific density of 2.5 g cm-3"
+Sieving comments	comments noted by the individual while sieving the soil sample
+Fine earth mass density (Mg ha-1)	"for O and A horizons, which were sampled by a 15x15 cm template, the mass density of the fine earth fraction. Calculated from the mass (g) of fine earth per 225 cm2, scaled to mass in Mg (=1000000g) and area in ha (10000000 cm-2)"
+Fine earth bulk density (g cm-3)	"for mineral soil depth increments, sampled with a 2.6 cm inside diameter corer. The bulk density of the fine earth fraction, calculated as the g of fine earth per cm-3 of fine earth. Cubic centimeters of fine earth is calculated as the difference between the core volume and the stone volume."
+Bulk density code	"M for measured, G for gap-filled. Gap-filled values are the mean of measurements for that depth increment."
+Texture	"texture class of the fine earth fraction, assessed using feel and judgment"
+pH	pH of the sample in a 1:1 soil:distilled water paste. Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997.
+Loss on ignition (%)	Per cent mass loss of the oven-dried fine earth fraction after heating to 375 C. for Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997.
+Total C concentration (%)	per cent total carbon of the oven-dried fine earth fraction analyzed with an elemental analyzer. 
+C concentration code	"Five categories: 1. JML (samples run in 2015 in the Kling/Nadelhoffer Lab on a Perkin-Elmer 2400 CHNSO elemental analyzer). 2. UMBS (samples run in the UMBS Analytical Chemistry Laboratory in 2017 on a Costech Analytical CHN Analyzer). 3. AVG (average of JML and UMBS values when sample was run in duplicate; 10 samples total. Duplicated samples were correlated at R2=0.982 across the two instruments). 4. Plotxdepth_mean (missing value, gap-filled with the mean of measured values for that plot x depth combination). 5. Plotxdepth_est (missing value, gap-filled as a point-estimate from a single other measured value for that plot x depth combination)."
+Ca (mg kg-1)	"Exchangeable Ca concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+K (mg kg-1)	"Exchangeable K concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Mg (mg kg-1)	"Exchangeable Mg concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+P (mg kg-1)	"Exchangeable P concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Al (mg kg-1)	"Exchangeable Al concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Cu (mg kg-1)	"Exchangeable Cu concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Fe (mg kg-1)	"Exchangeable Fe concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Mn (mg kg-1)	"Exchangeable Mn concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Na (mg kg-1)	"Exchangeable Na concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+S (mg kg-1)	"Exchangeable S concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Zn (mg kg-1)	"Exchangeable Zn concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+acidity (meq 100 g-1)	"Exchangeable acidity, measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+ECEC (meq 100g-1)	"Effective cation exchange capacity, calculated by summation of exchangeable bases and acidity. Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997."
+Root C stock (Mg C ha-1)	"calculated fine root (<2mm diameter) carbon stock, based on sample fine root dry mass (g) and assuming a 47% C concentration. For O and A horizons, computation is fine root dry C mass (g) of the sample, collected from a 15x15cm (=225cm^2) template, scaled up to Mg (=1000000 g) ha-1 (=100000000 cm-2). For mineral soil horizons collected with a corer, calculated as the volumetric root mass (g roots per cm^3 of fine earth), converted to C mass, divided by the thickness of the increment to get g of root C per cm-2 of soil, scaled up to Mg ha-1."
+Soil C stock (Mg C ha-1)	"calculated soil carbon stock (for the <2mm fine earth fraction). For O and A horizons, computation is the C concentration times the mass density of the fine earth fraction (sampled from a 225cm2 template, scaled up to Mg ha-1). For mineral soil increments, calculated as the product of the C concentration (%/100) times the bulk density (g cm-3) times the increment thickness (cm) to yield g C cm-2, then scaled up to Mg (=1000000g) ha-1 (=1000000000 cm-2)."

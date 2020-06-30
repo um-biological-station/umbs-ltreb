@@ -1,41 +1,96 @@
 ---
-title: "LTREB 2014 R Notebook"
+title: "UMBS LTREB Soils Table Cleaning"
+author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
+Required packages
 ```{r}
 library(tidyverse)
-library(dataMaid)
 library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+soils_path <- "../raw/UMBS_LTREB_soils_from_Mfield.csv"
+output_path <- "../output/soils_2014.csv"
 ```
 
+Read in data
+*Input is from exported first sheet of raw/excel/UMBS_LTREB_soils_for_IMS.xlsx, downloaded from private Mfield dataset posted by Luke*
 ```{r}
-getwd()
+soils <- read_csv(soils_path, col_types = "ccccidcdddddcddccdddfiiidddddddddddi")
+glimpse(soils)
+
+# make sure missing values are all filled in
+lapply(soils, identifyMissing)
 ```
 
+Change column names to fit EDI standards
 ```{r}
-LTREB_soils <- read_csv("../data/LTREB_2014_soils_merged data.csv")
-glimpse(LTREB_soils)
+soils <- soils %>% 
+  rename(Plot_ID = Plot) %>% 
+  rename(Profile_ID = `Profile ID`) %>% 
+  rename(Targeted_Sampling_Increment = `Targeted sampling increment`) %>% 
+  rename(Actual_Sampling_Increment = `Actual sampling increment`) %>% 
+  rename(Sampling_Increment_Thickness = `Sampling increment thickness (cm)`) %>% 
+  rename(Sample_Volume = `Sample volume (cm^3)`) %>% 
+  rename(Archived_Sample_ID = `Archived sample ID`) %>% 
+  rename(Fine_Earth_Dry_Mass = `Fine earth 60 degrees dry mass (g)`) %>% 
+  rename(Root_Dry_Mass = `Root  60 degrees  dry mass (g)`) %>% 
+  rename(Wood_Dry_Mass = `Wood greater than 2mm 60 degrees dry mass (g)`) %>% 
+  rename(Stone_Dry_Mass = `Stone Air Dry mass (g)`) %>% 
+  rename(Stone_Volume = `Stone volume (cm3)`) %>% 
+  rename(Sieving_Comments = `Sieving comments`) %>% 
+  rename(Fine_Earth_Mass_Density = `Fine earth mass density (Mg ha-1)`) %>% 
+  rename(Fine_Earth_Bulk_Density = `Fine earth bulk density (g cm-3)`) %>% 
+  rename(Bulk_Density_Code = `Bulk density code`) %>% 
+  rename(PH = pH) %>% 
+  rename(Percent_Loss_On_Ignition = `Loss on ignition (%)`) %>% 
+  rename(Percent_C_Concentration = `Total C concentration (%)`) %>% 
+  rename(C_Concentration_Code = `C concentration code`) %>% 
+  rename(Ca_Concentration = `Ca (mg kg-1)`) %>% 
+  rename(K_Concentration = `K (mg kg-1)`) %>% 
+  rename(Mg_Concentration = `Mg (mg kg-1)`) %>% 
+  rename(P_Concentration = `P (mg kg-1)`) %>% 
+  rename(Al_Concentration = `Al (mg kg-1)`) %>% 
+  rename(Cu_Concentration = `Cu (mg kg-1)`) %>% 
+  rename(Fe_Concentration = `Fe (mg kg-1)`) %>% 
+  rename(Mn_Concentration = `Mn (mg kg-1)`) %>% 
+  rename(Na_Concentration = `Na (mg kg-1)`) %>% 
+  rename(S_Concentration = `S (mg kg-1)`) %>% 
+  rename(Zn_Concentration = `Zn (mg kg-1)`) %>% 
+  rename(Acidity = `acidity (meq 100 g-1)`) %>% 
+  rename(ECEC = `ECEC (meq 100g-1)`) %>% 
+  rename(Root_C_Stock = `Root C stock (Mg C ha-1)`) %>% 
+  rename(Soil_C_Stock = `Soil C stock (Mg C ha-1)`)
+
+# move unique ID column to be first
+soils <- soils %>% relocate(Archived_Sample_ID, .before = 1)
+
+glimpse(soils)
 ```
+
+Fix categorical values
 ```{r}
-View(LTREB_soils)
+soils$Texture[soils$Texture == "s. clay loam"] <- "sandy clay loam"
+soils$Sieving_Comments <- toupper(soils$Sieving_Comments)
+soils$Texture <- toupper(soils$Texture)
+soils$C_Concentration_Code <- toupper(soils$C_Concentration_Code)
+
+# fix missing values
+soils$Stone_Dry_Mass[soils$Stone_Volume == 0] <- 0
+```
+
+Output CSV
+```{r}
+write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
 ```
 
 
-```{r}
-LTREB_soils_clean <- LTREB_soils %>% select(1:9, 24:29)
-LTREB_soils_clean
-View(LTREB_soils_clean)
-```
 
-Fix depth column headers
-##Todo: fix other column headers to be EDI compliant later once confirmed w Luke which columns##
-```{r}
-LTREB_soils_clean <- LTREB_soils_clean %>% rename("Depth_category" = `DepthISH`, "Depth_as_collected" = `Depth`)
-```
 
-write output file
-```{r}
-write_csv(LTREB_soils_clean, path = "../data_outputs/LTREB_Soils_2014_merged.csv")
-```
+
 

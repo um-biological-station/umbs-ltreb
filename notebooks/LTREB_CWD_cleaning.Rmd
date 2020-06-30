@@ -1,6 +1,6 @@
 ---
 title: "UMBS LTREB Coarse Woody Debris Table Cleaning"
-author: "apawlik and ajdrebin"
+author: "Alexandria Pawlik"
 output: html_notebook
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: "LTREB Saplings R Notebook"
+title: "UMBS LTREB Saplings Table Cleaning"
+author: "Alexandria Pawlik"
 output: html_notebook
 ---
 

@@ -1,0 +1,8 @@
+attributeName	code	definition
+Bulk_Density_Code	M	Measured.
+Bulk_Density_Code	G	Gap-filled. The mean of measurements for that depth increment.
+C_Concentration_Code	UMBS	samples run in the UMBS Analytical Chemistry Laboratory in 2017 on a Costech Analytical CHN Analyzer.
+C_Concentration_Code	JML	Samples run in 2015 in the Kling/Nadelhoffer Lab on a Perkin-Elmer 2400 CHNSO elemental analyzer.
+C_Concentration_Code	AVG	Average of JML and UMBS values when sample was run in duplicate; 10 samples total. Duplicated samples were correlated at R2=0.982 across the two instruments.
+C_Concentration_Code	PLOTXDEPTH EST.	Missing value. Gap-filled as a point-estimate from a single other measured value for that plot x depth combination.
+C_Concentration_Code	PLOTXDEPTH MEAN	Missing value. Gap-filled with the mean of measured values for that plot x depth combination.

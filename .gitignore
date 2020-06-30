@@ -1,0 +1,8 @@
+*.html
+*.Rhistory
+*.Rproj
+*.Rapp.history
+
+.Rproj.user
+
+UMBS_LTREB_2014/*
