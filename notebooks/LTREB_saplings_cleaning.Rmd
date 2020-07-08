@@ -284,6 +284,7 @@ Fix species codes
 ```{r}
 saplings$Species[saplings$Species == "AMEL"] <- "AMSP"
 saplings$Species[saplings$Species == "Unknown"] <- NA
+saplings$Species[saplings$Species == "Other"] <- "OTHER"
 ```
 
 Export to CSV

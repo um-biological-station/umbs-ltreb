@@ -18,7 +18,8 @@ options(stringsAsFactors = FALSE)
 master_path_2014 <- "../raw/2014 exported/Master AGB data for UMBS IMS merged master tree list.csv"
 live_path_2014 <- "../raw/2014 exported/live inventory1.csv"
 dead_path_2014 <- "../raw/2014 exported/dead inventory.csv"
-clean_2014_path <- 
+clean_2014_path <- "../edi.243.2/UMBS_LTREB_AboveGroundBiomass.csv"
+raw_2019_path <- "../raw/AGB_2019_raw.csv"
 output_path <- "../output/agb.csv"
 ```
 
@@ -290,10 +291,7 @@ for (i in 1:length(plot_values)) {
 Migrate old tags from notes column
 ```{r}
 u_notes <- unique(new_master$Notes)
-#u_notes
-```
 
-```{r}
 new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 8)=="Old tag ", str_sub(Notes, 9, -1), Old_tag))
 new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 7)=="Old tag", str_sub(Notes, 8, -1), TEMP))
 new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 8)=="old tag ", str_sub(Notes, 9, -1), TEMP)) #note, this makes things like "old tag unreadable" into "unreadable" in Old_tag column, but maybe thats ok? easy to remove non-numerics later
@@ -303,14 +301,12 @@ new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 3)=="OT#", str_
 new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 9)=="Old Tag #", str_sub(Notes, 10, -1), TEMP))
 new_master <- mutate(new_master, TEMP = ifelse(str_sub(Notes, 1, 4)=="Tag ", str_sub(Notes, 5, -1), TEMP))
 
-
 # new_master$Old_tag[new_master$Old_tag == "112 - KJN - BS42B"] <- "112" #do we want this?
 # new_master$Old_tag[new_master$Old_tag == "23 - KJN - BS42B"] <- "23" #do we want this?
 ```
 
 
 Merge over from TEMP column, get rid of OT# in Old_tag column
-
 ```{r}
 new_master$Old_tag <- ifelse(is.na(new_master$Old_tag) & !is.na(new_master$TEMP), new_master$TEMP, new_master$Old_tag)
 
@@ -322,10 +318,7 @@ new_master$Old_tag[new_master$Old_tag == "g825"] <- "825"
 ```
 
 
-
-
 Fix up Old tags (remove # and whitespace)
-
 ```{r}
 
 new_master <- mutate(new_master, Old_tag = ifelse(str_sub(Old_tag, 1, 2)== " #",
@@ -333,8 +326,6 @@ new_master <- mutate(new_master, Old_tag = ifelse(str_sub(Old_tag, 1, 2)== " #",
 
 new_master <- mutate(new_master, Old_tag = ifelse(str_sub(Old_tag, 1, 1)== " ",
        str_sub(Old_tag, 2, -1), Old_tag))
-
-
 ```
 
 
@@ -481,8 +472,8 @@ plot_names
 
 Write merged data to new csv file titled "new_merge_master.csv"
 ```{r}
-# write_csv(new_master, path = )
+
 ```
 
-Pull in 2019 data and cleaned 2014 data
+
 

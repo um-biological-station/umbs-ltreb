@@ -1,0 +1,106 @@
+---
+title: "UMBS LTREB 2019 Above Ground Biomass Table Cleaning"
+author: "Alexandria Pawlik"
+output: html_notebook
+---
+
+Required packages and paths
+```{r}
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+# set these paths for your machine's specifics
+clean_2014_path <- "../edi.243.2/UMBS_LTREB_AboveGroundBiomass.csv"
+raw_2019_path <- "../raw/AGB_2019_raw.csv"
+output_path <- "../output/agb.csv"
+```
+
+
+Pull in 2019 data and cleaned 2014 data
+```{r}
+clean_14 <- read_csv(clean_2014_path, col_types = "icciDiiccccdcdddddcc")
+raw_19 <- read_csv(raw_2019_path, col_types = "ccddcccddcccccccc")
+
+# remove unnecessary columns and rows
+clean_14 <- clean_14 %>%
+  select(-Sort, -Common_name)
+
+raw_19 <- raw_19 %>% 
+  select(-X12, -X13, -X14, -X15, -X16, -X17) %>% 
+  filter_all(any_vars(!is.na(.)))
+```
+
+Fix up 2014 data first
+```{r}
+# reorder columns to put keys first
+clean_14 <- clean_14 %>% 
+  relocate(LTREB_tag, .before = 1) %>% 
+  relocate(Old_tag, .after = 1) %>% 
+  relocate(Species_code, .after = 2) %>% 
+  rename(Species = Species_code) %>% 
+  rename(Plot_ID = Plot)
+
+# fix tag NA values
+clean_14$LTREB_tag[clean_14$LTREB_tag == "?"] <- NA
+clean_14$Old_tag[clean_14$Old_tag == "?"] <- NA
+clean_14$Notes[clean_14$Old_tag == "unreadable"] <- "old tag unreadable"
+clean_14$Old_tag[clean_14$Old_tag == "unreadable"] <- NA
+clean_14$LTREB_tag[clean_14$LTREB_tag == "None"] <- NA
+clean_14$Old_tag[clean_14$Old_tag == "None"] <- NA
+clean_14$Notes[clean_14$Old_tag == "FALLEN, ALIVE"] <- "FALLEN, ALIVE"
+clean_14$Old_tag[clean_14$Old_tag == "FALLEN, ALIVE"] <- NA
+clean_14$Notes[clean_14$Old_tag == "eaten"] <- "tag eaten"
+clean_14$Old_tag[clean_14$Old_tag == "eaten"] <- NA
+
+# fix species
+clean_14$Species[clean_14$Species == "UNKNOWN"] <- NA
+
+# fix boolean columns
+clean_14$Outside_historic_plot[is.na(clean_14$Outside_historic_plot)] <- "N"
+clean_14$As_class[!is.na(clean_14$As_class)] <- "Y"
+clean_14$As_class[is.na(clean_14$As_class)] <- "N"
+
+# possible that we need both dead height and stem height
+clean_14 %>% 
+  filter(!is.na(Height_dead)) %>% 
+  filter(Status == "O" | Status == "C" | Status == "D" | Status == "C/O")
+# clean_14 %>% 
+#   filter(is.na(Height_dead)) %>% 
+#   filter(Status == "X/D" | Status == "X/C" | Status == "X/O" | Status == "X")
+clean_14 %>% 
+  filter(!is.na(Height_stem)) %>% 
+  filter(Status == "X/D" | Status == "X/C" | Status == "X/O" | Status == "X")
+# clean_14 %>% 
+#   filter(is.na(Height_stem)) %>% 
+#   filter(Status == "O" | Status == "C" | Status == "D" | Status == "C/O")
+clean_14 %>% 
+  filter(is.na(Status)) %>% 
+  filter(!is.na(Height_stem))
+clean_14 %>% 
+  filter(is.na(Status)) %>% 
+  filter(!is.na(Height_dead))
+```
+
+Clean up 2019 data
+```{r}
+# convert 2019 dates to proper format
+raw_19$Date <- as.Date(raw_19$Date, format = "%m/%d/%y")
+
+# convert tree heights to proper format
+
+```
+
+
+Rename columns and merge 2014 and 2019 data
+```{r}
+
+```
+
+
+
+
