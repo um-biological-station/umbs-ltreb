@@ -1,0 +1,114 @@
+---
+title: "Master Biomass with 2014 R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(dataMaid)
+library(lubridate)
+```
+
+```{r}
+master_data <- read_csv("../data/Master AGB data for UMBS IMS merged master tree list.csv")
+View(master_data)
+```
+
+```{r}
+live_data <- read_csv("../data/live inventory1.csv")
+#View(live_data)
+```
+
+```{r}
+dead_data <- read_csv("../data/dead inventory.csv")
+View(dead_data)
+```
+
+```{r}
+index <- c("POGR", "PIRE", "PIST", "ACRU", "QURU", "TSCA", "BEPA", "FAGR", "AMSP", "ACSA", "ACPE", "FRAM", "OSVI", "TIAM", "ULAM", "Unknown", "ABBA")
+values <- c("Populus grandidentata", "Pinus resinosa", "Pinus strobus", "Acer rubrum", "Quercus rubra", "Tsuga canadensis", "Betula papyrifera", "Fagus grandifolia", "Amelanchier", "Acer saccharum", "Acer pensylvanicum", "Fraxinus americana", "Ostrya virginiana", "Tilia americana","Ulmus americana", "Unknown", "Abies balsamea")
+live_data <- add_column(live_data, "Common Name" = NA, .after = 8)
+live_data$'Common Name' <- values[match(live_data$Species, index)]
+View(live_data)
+```
+
+```{r}
+dead_data <- add_column(dead_data, "Common Name" = NA, .after = 8)
+dead_data$'Common Name' <- values[match(dead_data$Species, index)]
+View(dead_data)
+```
+
+```{r}
+live_data_sorted <- live_data 
+live_data_sorted <- live_data_sorted[c(3, 9, 8, 13, 1, 11, 20, 12, 2, 4, 5, 6, 7, 10, 14, 15, 16, 17, 18, 19)]
+glimpse(live_data_sorted)
+```
+
+```{r}
+dead_data_sorted <- dead_data
+dead_data_sorted <- dead_data_sorted[c(3, 9, 8, 13, 1, 11, 22, 12, 2, 4, 5, 6, 7, 10, 14, 15, 16, 17, 18, 19, 20, 21)]
+#head(dead_data_sorted)
+```
+
+```{r}
+live_data_sorted <- add_column(live_data_sorted, "Measure Year" = 2014, .after = 4)
+live_data_sorted <- add_column(live_data_sorted, "Origin year" = NA, .after = 1)
+live_data_sorted <- add_column(live_data_sorted, "Stand Year" = NA, .after = 6)
+live_data_sorted <- add_column(live_data_sorted, "DBH (inches)" = NA, .before = 9)
+live_data_sorted <- add_column(live_data_sorted, "Sort" = NA, .before = 1)
+live_data_sorted <- add_column(live_data_sorted, "Old tag" = NA, .before = 6)
+glimpse(live_data_sorted)
+```
+
+```{r}
+dead_data_sorted <- add_column(dead_data_sorted, "Measure Year" = 2014, .after = 4)
+dead_data_sorted <- add_column(dead_data_sorted, "Stand Year" = 2014, .after = 5)
+dead_data_sorted <- add_column(dead_data_sorted, "Origin year" = NA, .after = 1)
+dead_data_sorted <- add_column(dead_data_sorted, "DBH (inches)" = NA, .before = 9)
+dead_data_sorted <- add_column(dead_data_sorted, "Sort" = NA, .before = 1)
+dead_data_sorted <- add_column(dead_data_sorted, "Old tag" = NA, .before = 6)
+#head(dead_data_sorted)
+
+```
+
+
+```{r}
+live_to_combine <- live_data_sorted
+live_to_combine <- live_to_combine[c(1:9, 11:14)]
+live_to_combine <- live_to_combine %>% rename("old tag" = `Old tag`, "Species code" = Species, "LTREB tag" = `Tag #`, "dbh (inches)" = `DBH (inches)`, "dbh (cm)" = `DBH (cm)`, "AGB (kg)" = `Biomass estimate (kg)`, "ht" = `Height (estimate)`)
+glimpse(live_to_combine)
+```
+
+```{r}
+dead_to_combine <- dead_data_sorted
+dead_to_combine <- dead_to_combine[c(1:9, 11:14)]
+dead_to_combine <- dead_to_combine %>% rename("old tag" = `Old tag`, "Species code" = Species, "LTREB tag" = `Tag #`, "dbh (inches)" = `DBH (inches)`, "dbh (cm)" = `DBH (cm)`, "AGB (kg)" = `Biomass estimate (kg)`, "ht" = `Height (m) estimate`)
+#head(dead_to_combine)
+```
+
+
+```{r}
+#m <- names(master_data)
+#l <- names(live_to_combine)
+#d <- names(dead_to_combine)
+
+#setdiff(m, l)
+#setdiff(m, d)
+#setdiff(l,d)
+new_master <- rbind(master_data, live_to_combine, dead_to_combine)
+#View(new_master)
+```
+
+
+```{r}
+sc <- unique(new_master["Species code"])
+sc
+new_master$'Common Name' <- values[match(new_master$"Species code", index)]
+cns <- unique(new_master["Common Name"])
+cns
+```
+
+
+
+
+

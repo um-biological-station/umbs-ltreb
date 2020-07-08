@@ -4,21 +4,28 @@ author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
-
-This is a notebook detailing the cleaning process for CWD LTREB data
+Required packages and paths
 ```{r}
 library(tidyverse)
-library(dataMaid)
 library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+# set these paths for your machine's specifics
+cwd_path_2014 <- "../raw/CWD_2014_raw.csv"
+cwd_path_2019 <- "../raw/CWD_2019_raw.csv"
+output_path <- "../output/cwd.csv"
 ```
 
-Read in input csv file
+
+
+Read in 2014 data
 ```{r}
-cwd <- read_csv("../raw/Complete CWD Data, 11.07.16.csv")
+cwd <- read_csv(cwd_path_2014)
 head(cwd_data)
-```
-
-```{r}
 species <- sort(unique(cwd_data$`Species code (if possible)`))
 species
 ```
@@ -113,7 +120,7 @@ cwd_data <- cwd_data[1:418,]
 
 
 
-Write csv file
+Pull in 2019 data and add date column
 ```{r}
 # AKP
 cwd_data <- cwd_data %>% 
@@ -122,6 +129,13 @@ cwd_data <- cwd_data %>%
   mutate(Estimated_mass_tapered_g = as.numeric(Estimated_mass_tapered_g))
 glimpse(cwd_data)
 
-write_csv(cwd_data, path = "../output/Complete_CWD_Data.csv")
+
+
 ```
+
+Write csv file
+```{r}
+write_csv(cwd_data, path = output_path)
+```
+
 

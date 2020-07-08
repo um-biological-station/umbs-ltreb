@@ -1,36 +1,46 @@
 ---
-title: "Master LTREB Biomass Merged R Notebook"
-author: Alina Drebin
+title: "UMBS LTREB Above Ground Biomass Table Cleaning"
+author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
-This notebook describes the merging process between the Master AGB data and the 2014 tree inventory. Currently only includes Live and Dead and excludes Sapling
-```{r}
-getwd()
-```
-
-
+Required packages and paths
 ```{r}
 library(tidyverse)
-library(dataMaid)
 library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+# set these paths for your machine's specifics
+master_path_2014 <- "../raw/2014 exported/Master AGB data for UMBS IMS merged master tree list.csv"
+live_path_2014 <- "../raw/2014 exported/live inventory1.csv"
+dead_path_2014 <- "../raw/2014 exported/dead inventory.csv"
+clean_2014_path <- 
+output_path <- "../output/agb.csv"
 ```
+
+*Note: This notebook describes the merging process between the Master AGB data and the 2014 tree inventory. Currently only includes Live and Dead and excludes Sapling*
+
+
 
 Read in merged master data (pulled from "Master AGB data for UMBS IMS.xlsx" tab "merged master tree list" as a csv file)
 ```{r}
-master_data <- read_csv("../raw/Master AGB data for UMBS IMS merged master tree list.csv")
+master_data <- read_csv(master_path_2014)
 glimpse(master_data)
 ```
 
 Read in Live OS data (pulled from "Tree Inventory - Master.xlsx" tab "Live OS Inventory" as a csv file)
 ```{r}
-live_data <- read_csv("../raw/live inventory1.csv")
+live_data <- read_csv(live_path_2014)
 glimpse(live_data)
 ```
 
 Read in Dead OS data (pulled from "Tree Inventory - Master.xlsx" tab "Dead OS Inventory" as a csv file)
 ```{r}
-dead_data <- read_csv("../raw/dead inventory.csv")
+dead_data <- read_csv(dead_path_2014)
 #glimpse(dead_data)
 ```
 
@@ -471,8 +481,8 @@ plot_names
 
 Write merged data to new csv file titled "new_merge_master.csv"
 ```{r}
-write_csv(new_master, path = "../output/Master_AGB_data_for_UMBS_IMS_tree_list.csv")
+# write_csv(new_master, path = )
 ```
 
-
+Pull in 2019 data and cleaned 2014 data
 

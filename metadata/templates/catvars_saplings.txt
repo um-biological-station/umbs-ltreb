@@ -1,0 +1,22 @@
+attributeName	code	definition
+Species	ACRU	
+Species	PIRE	
+Species	PIST	
+Species	QURU	
+Species	FAGR	
+Species	POGR	
+Species	ABBA	
+Species	Other	
+Species	AMSP	
+Species	PIBA	
+Species	BEPA	
+Species	ACSA	
+Species	COCO	
+Species	POTR	
+Species	ACPE	
+Species	PIGL	
+Species	TSCA	
+DBH_Size_Class	0_to_2	
+DBH_Size_Class	2_to_4	
+DBH_Size_Class	4_to_6	
+DBH_Size_Class	6_to_8	

@@ -1,1 +1,5 @@
 id	unitType	parentSI	multiplierToSI	description
+cubicCentimeter	volume	cubicMeter	0.000001	cubic centimeters
+megagramsPerHectare	arealMassDensity	kilogramsPerSquareMeter	0.1	megagrams per hectare
+milligramsPerKilogram	massPerMass	gramsPerGram	0.000001	milligrams per kilogram
+milliequivalentsPerHectogram	amountOfSubstanceWeight	molesPerKilogram	0.01	milliequivalents per 100 grams

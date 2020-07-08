@@ -1,0 +1,102 @@
+---
+title: "UMBS LTREB Litterfall Table Cleaning"
+author: "Alexandria Pawlik"
+output: html_notebook
+---
+
+Required packages and paths
+```{r}
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+# set these paths for your machine's specifics
+litter_path <- "../raw/Litter Fall LTREB 2015.csv"
+output_path <- "../output/litterfall_2019.csv"
+```
+
+
+
+Read input files
+```{r}
+litter <- read_csv(litter_path)
+View(litter)
+litter <- litter %>% add_column("Sort" = 1:nrow(litter), .before=1) %>% select(1:17)
+```
+
+Gather separate three-column groups, to bring back together with rbind later
+
+```{r}
+sticks <- litter %>% select(1:5) %>% add_column("Type" = "Sticks", .after = 2) %>% rename("Litter+Pan"= `Sticks+Pan`, "Pan" = `Pan`, "Litter Mass" = `Sticks Mass`)
+head(sticks)
+
+```
+
+```{r}
+quru <- litter %>% select(1,2,6:8) %>% add_column("Type" = "QURU", .after = 2) %>% rename("Litter+Pan"= `QURU+Pan`, "Pan" = `Pan_1`, "Litter Mass" = `QURU Mass`)
+head(quru)
+```
+
+```{r}
+pist <- litter %>% select(1,2,9:11)%>% add_column("Type" = "PIST", .after = 2) %>% rename("Litter+Pan"= `PIST+Pan`, "Pan" = `Pan_2`, "Litter Mass" = `PIST Mass`)
+head(pist)
+```
+
+```{r}
+pire <- litter %>% select(1,2,12:14)%>% add_column("Type" = "PIRE", .after = 2) %>% rename("Litter+Pan"= `PIRE+Pan`, "Pan" = `Pan_3`, "Litter Mass" = `PIRE Mass`)
+head(pire)
+```
+
+
+```{r}
+frgmt <- litter %>% select(1,2,15:17)%>% add_column("Type" = "Frgmnt", .after = 2) %>% rename("Litter+Pan"= `Frgmt+Pan`, "Pan" = `Pan_4`, "Litter Mass" = `Frgmt Mass`)
+head(frgmt)
+```
+
+Functions for rbinding many data frames
+```{r}
+#Bind a pair of dataframes together, doesn't require identical column names (ie, unique column names across both dataframes) 
+rbind.all.columns <- function(x, y) {
+ 
+    x.diff <- setdiff(colnames(x), colnames(y))
+    y.diff <- setdiff(colnames(y), colnames(x))
+ 
+    x[, c(as.character(y.diff))] <- NA
+ 
+    y[, c(as.character(x.diff))] <- NA
+ 
+    return(rbind(x, y))
+}
+
+#Binds an array of dataframes together using rbind.all.columns, retains same functionality as rbind.all.columns. ***NOTE: input must be in format list(dataframe1, dataframe2, datframe3...)
+rbind.many <- function(x){
+  output <- x[[1]]
+  for(i in 2:length(x)){
+    output <- rbind.all.columns(output, x[[i]])
+  }
+  return(output)
+}
+```
+
+Combine and clean up
+```{r}
+x <- list(sticks, quru, pist, pire, frgmt)
+litter_tidy <- rbind.many(x)
+litter_tidy <- litter_tidy %>%  rename("Pan Mass" = `Pan`, "Litter+Pan Mass" = `Litter+Pan`) %>% select(1:3, 6)%>% arrange(Plot) %>% mutate(Sort = c(1:nrow(litter_tidy))) 
+View(litter_tidy)
+```
+
+Write output file
+```{r}
+write_csv(litter_tidy, path = output_path)
+```
+
+
+
+
+
+

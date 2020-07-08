@@ -1,0 +1,8 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Plot_ID	Standardized name of the LTREB plot containing the saplings that were counted.	character				
+Species	Species of the saplings that were counted.	categorical			NA	Unable to determine the species of saplings in this count.
+DBH_Size_Class	Diameter at breast height size class in centimeters (listed as a range of values) of the saplings that were counted.	categorical				
+Year	Year that the sapling count was collected. Note: for dates that were not collected, year is still known.	Date		YYYY		
+Date	Date that the sapling count was collected.	Date		YYYY-MM-DD	NA	Attribute was not recorded for this sapling count.
+Count	Number of saplings observed on the given date in the given plot of the given species with the given DBH size class.	numeric	dimensionless			
+Biomass	Total calculated biomass in kilograms as a sum of the individual biomasses of each sapling involved in the given count.	numeric	kilogram		NA	Attribute was not calculated for this sapling count.

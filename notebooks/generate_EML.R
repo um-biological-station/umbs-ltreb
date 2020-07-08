@@ -11,7 +11,8 @@ library(EMLassemblyline)
 path_templates <- "~/Documents/Research/EDI/UMBS_LTREB/metadata/templates"
 path_data <- "~/Documents/Research/EDI/UMBS_LTREB/output"
 path_eml <- "~/Documents/Research/EDI/UMBS_LTREB/output"
-tables <- c("soils_2014.csv")
+# tables <- c("soils.csv", "agb.csv", "cwd.csv", "saplings.csv")
+tables <- c("soils.csv", "saplings.csv")
 
 # Create metadata templates ---------------------------------------------------
 

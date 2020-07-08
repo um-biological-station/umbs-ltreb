@@ -4,100 +4,136 @@ author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
-This is an R notebook detailing the cleaning process for LTREB saplings 2014 data
-
+Required packages and paths
 ```{r}
 library(tidyverse)
-library(dataMaid)
 library(lubridate)
+library(dplyr)
+library(xlsx)
+library(tibble)
+library(dataMaid)
+options(stringsAsFactors = FALSE)
+
+# set these paths for your machine's specifics
+saplings_path_2014 <- "../raw/saplings_2014_raw.csv"
+saplings_path_2019 <- "../raw/saplings_2019_raw.csv"
+
+# create a merged table of 2014 and 19, save copy of Alina's version of 2014
+output_path_2014 <- "../output/saplings_2014.csv"
+output_path_merge <- "../output/saplings.csv"
 ```
 
-Read in csv file
+
+# Create saplings_2014.csv
+
+
+Read in 2014 data
 ```{r}
-saplings <- read_csv("../raw/corrected sapling tally and biomass for Alina.csv")
+saplings <- read_csv(saplings_path_2014)
 saplings <- saplings %>% select(1:16,18:25,27)
 head(saplings)
 ```
 
-
 Clean up column headers
 ```{r}
-saplings <- saplings %>% rename("DBH_0_to_2" = `0-2`, "DBH_0_to_2_dead" = `0-2, Dead`, "DBH_2_to_4" = `2-4`, "DBH_2_to_4_dead" = `2-4, dead`, "DBH_4_to_6" = `4-6`, "DBH_4_to_6_dead" = `4-6, dead`, "DBH_6_to_8" = `6-8`, "DBH_6_to_8_dead" = `6-8, dead`, "Biomass_0_to_2" = `Biomass 0-2`, "Biomass_0_to_2_dead" = `Biomass 0-2, dead`, "Biomass_2_to_4" = `Biomass 2-4`, "Biomass_2_to_4_dead" = `Biomass 2-4, dead`, "Biomass_4_to_6" = `Biomass 4-6`, "Biomass_4_to_6_dead" = `Biomass 4-6, dead`, "Biomass_6_to_8" = `Biomass 6-8`, "Biomass_6_to_8_dead" = `Biomass 6-8, dead`, "Mean_height_0_to_2" =`0-2 Mean Height`, "Mean_height_2_to_4" =`2-4 Mean Height`, "Mean_height_4_to_6" =`4-6 Mean Height`, "Mean_height_6_to_8" =`6-8 Mean Height`)
+saplings <- saplings %>% 
+  rename("DBH_0_to_2" = `0-2`) %>% 
+  rename("DBH_0_to_2_Dead" = `0-2, Dead`) %>% 
+  rename("DBH_2_to_4" = `2-4`) %>% 
+  rename("DBH_2_to_4_Dead" = `2-4, dead`) %>% 
+  rename("DBH_4_to_6" = `4-6`) %>% 
+  rename("DBH_4_to_6_Dead" = `4-6, dead`) %>% 
+  rename("DBH_6_to_8" = `6-8`) %>% 
+  rename("DBH_6_to_8_Dead" = `6-8, dead`) %>% 
+  rename("Biomass_0_to_2" = `Biomass 0-2`) %>% 
+  rename("Biomass_0_to_2_Dead" = `Biomass 0-2, dead`) %>% 
+  rename("Biomass_2_to_4" = `Biomass 2-4`) %>% 
+  rename("Biomass_2_to_4_Dead" = `Biomass 2-4, dead`) %>% 
+  rename("Biomass_4_to_6" = `Biomass 4-6`) %>% 
+  rename("Biomass_4_to_6_Dead" = `Biomass 4-6, dead`) %>% 
+  rename("Biomass_6_to_8" = `Biomass 6-8`) %>% 
+  rename("Biomass_6_to_8_Dead" = `Biomass 6-8, dead`) %>% 
+  rename("Mean_Height_0_to_2" =`0-2 Mean Height`) %>% 
+  rename("Mean_Height_2_to_4" =`2-4 Mean Height`) %>% 
+  rename("Mean_Height_4_to_6" =`4-6 Mean Height`) %>% 
+  rename("Mean_Height_6_to_8" =`6-8 Mean Height`) %>% 
+  rename("Date" = `Tally Date`)
 
-saplings$"Mean_height_0_to_2_dead" = saplings$Mean_height_0_to_2
-saplings$"Mean_height_2_to_4_dead" = saplings$Mean_height_2_to_4
-saplings$"Mean_height_4_to_6_dead" = saplings$Mean_height_4_to_6
-saplings$"Mean_height_6_to_8_dead" = saplings$Mean_height_6_to_8
+saplings$"Mean_Height_0_to_2_Dead" = saplings$Mean_height_0_to_2
+saplings$"Mean_Height_2_to_4_Dead" = saplings$Mean_height_2_to_4
+saplings$"Mean_Height_4_to_6_Dead" = saplings$Mean_height_4_to_6
+saplings$"Mean_Height_6_to_8_Dead" = saplings$Mean_height_6_to_8
 
 head(saplings)
 ```
 
 Fix up tally date column
 ```{r}
-saplings$`Tally Date` <- mdy(saplings$`Tally Date`)
+saplings$Date <- mdy(saplings$Date)
 head(saplings)
 #glimpse(saplings)
 ```
 
-
-
 Merge/gather columns to have "size class" "tally" "biomass" columns, ie wide to long
 Done by splitting into two data frames (tally and biomass), gather and reorder separately, and then bind necessary columns
-
 ```{r}
 saplings_dbh <- saplings %>% select(1:5,7,8,10,11,13,14,15,25)
-saplings_bio <- saplings %>% select(1,2,3,15, 17:25)
-saplings_mean <- saplings %>% select(1:3, 6, 26, 9, 27, 12, 28, 16, 29, 15, 25)
+saplings_bio <- saplings %>% select(1:3,15, 17:25)
+saplings_mean <- saplings %>% select(1:3, 6, 21, 9, 22, 12, 23, 16, 24, 15, 25)
 
-saplings_dbh <- saplings_dbh %>% gather(DBH_size_class, Tally, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
+saplings_dbh <- saplings_dbh %>% 
+  gather(DBH_size_class, Tally, -Plot, -Species, -Date, -`Total Biomass (kg)`, -Index) %>% 
+  arrange(Index)
 
-saplings_bio <- saplings_bio %>% gather(DBH_size_class, Biomass, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
+saplings_bio <- saplings_bio %>% 
+  gather(DBH_size_class, Biomass, -Plot, -Species, -Date, -`Total Biomass (kg)`, -Index) %>% 
+  arrange(Index)
 
-saplings_mean <- saplings_mean %>% gather(DBH_size_class, Mean_Height, -Plot, -Species, -`Tally Date`, -`Total Biomass (kg)`, -Index) %>% arrange(Index)
-
-head(saplings_mean)
+saplings_mean <- saplings_mean %>% 
+  gather(DBH_size_class, Mean_Height, -Plot, -Species, -Date, -`Total Biomass (kg)`, -Index) %>% 
+  arrange(Index)
 ```
 
 Edit out "DBH" and "Biomass" from size class column
 ```{r}
-saplings_dbh <- saplings_dbh %>% mutate(DBH_size_class = str_sub(DBH_size_class, 5, -1))
-saplings_bio <- saplings_bio %>% mutate(DBH_size_class = str_sub(DBH_size_class, 9, -1))
-saplings_mean <- saplings_mean %>% mutate(DBH_size_class = str_sub(DBH_size_class, 13, -1))
+saplings_dbh <- saplings_dbh %>% 
+  mutate(DBH_size_class = str_sub(DBH_size_class, 5, -1))
 
+saplings_bio <- saplings_bio %>% 
+  mutate(DBH_size_class = str_sub(DBH_size_class, 9, -1))
 
-glimpse(saplings_dbh)
-glimpse(saplings_bio)
-glimpse(saplings_mean)
+saplings_mean <- saplings_mean %>% 
+  mutate(DBH_size_class = str_sub(DBH_size_class, 13, -1))
 ```
 
 Merge and reorder
 ```{r}
 saplings_tidy <- cbind(saplings_dbh, Biomass = saplings_bio[[7]], Mean_height = saplings_mean[[7]])
-head(saplings_tidy)
-saplings_tidy <- saplings_tidy %>%  select(2:4, 6:9, 5)
-glimpse(saplings_tidy)
+
+saplings_tidy <- saplings_tidy %>%  
+  select(2:4, 6:9, 5)
 ```
 
 Mutate size class column into size class and status
 ```{r}
-saplings_tidy <- saplings_tidy %>% mutate(Status = ifelse(str_sub(DBH_size_class, -1, -1) =="d", "Dead", "Alive"))
-head(saplings_tidy)
-saplings_tidy <- saplings_tidy %>% mutate(DBH_size_class = str_sub(DBH_size_class, 1, 6)) %>% select(1:4, 9, 5:7)
+saplings_tidy <- saplings_tidy %>% 
+  mutate(Status = ifelse(str_sub(DBH_size_class, -1, -1) =="d", "Dead", "Alive"))
 
+saplings_tidy <- saplings_tidy %>% 
+  mutate(DBH_size_class = str_sub(DBH_size_class, 1, 6)) %>% 
+  select(1:4, 9, 5:7)
 ```
 
-fix tally, change NA to 0
+Change NA to 0
 ```{r}
 saplings_tidy$Tally[is.na(saplings_tidy$Tally)] <- 0
-saplings_tidy$Biomass[is.na(saplings_tidy$Biomass)] <- 0
+saplings_tidy$Biomass[saplings_tidy$Tally == 0] <- 0
+
+# check
+saplings_tidy %>% filter(is.na(Biomass))
 ```
 
-rename columns
-```{r}
-saplings_tidy <- saplings_tidy %>% rename("Tally_date" = `Tally Date`) %>% select(1:7)
-```
-
-fix plot names to match AGB
+Fix plot names to match AGB
 ```{r}
 saplings_tidy$Plot[saplings_tidy$Plot == "DNR#1"] <- "DNR1"
 saplings_tidy$Plot[saplings_tidy$Plot == "DNR#2"] <- "DNR2"
@@ -106,13 +142,165 @@ plot_names <- unique(saplings_tidy$Plot)
 plot_names
 ```
 
-
-
-Write output file
+Write output file for 2014 data structure
 ```{r}
-write_csv(saplings_tidy, path = "../output/UMBS_Saplings_Inventory_2014_tidy.csv")
+saplings_tidy <- saplings_tidy %>% 
+  select(1:7)
+
+# write.csv(saplings_tidy, file = output_path_2014, eol = "\r\n", row.names = FALSE)
 ```
 
 
 
+# Create saplings_merge.csv
+
+Read in 2019 data and prep for merging with 2014
+```{r}
+saplings_19 = read_csv(saplings_path_2019)
+saplings_tidy <- as_tibble(saplings_tidy)
+
+# figure out what needs to be changed for 2019 data to match 2014
+glimpse(saplings_19)
+glimpse(saplings_tidy)
+```
+
+Convert dates
+```{r}
+saplings_19$Date <- mdy(saplings_19$Date)
+head(saplings_19)
+```
+
+Convert 2019 wide to long
+```{r}
+# fix column names to match DBH size classes
+saplings_19 <- saplings_19 %>% 
+  rename("0_to_2" = `<2 (cm)`) %>% 
+  rename("2_to_4" = `2-4 (cm)`) %>% 
+  rename("4_to_6" = `4-6 (cm)`) %>% 
+  rename("6_to_8" = `6-8 (cm)`)
+
+# wide to long
+saplings_19 <- saplings_19 %>% 
+  gather(key = "DBH_size_class", value = "Tally", -Plot, -Species, -Date)
+```
+
+Change NA to 0
+```{r}
+saplings_19$Tally[is.na(saplings_19$Tally)] <- 0
+```
+
+Fix plot names
+```{r}
+unique(saplings_19$Plot)
+
+# fix plot names to match AGB
+saplings_19$Plot[saplings_19$Plot == "DNR#1"] <- "DNR1"
+saplings_19$Plot[saplings_19$Plot == "DNR#2"] <- "DNR2"
+saplings_19$Plot[saplings_19$Plot == "DNR#3"] <- "DNR3"
+saplings_19$Plot[saplings_19$Plot == "PSA#1"] <- "PSA1"
+saplings_19$Plot[saplings_19$Plot == "PSA#2"] <- "PSA2"
+saplings_19$Plot[saplings_19$Plot == "PSA#3"] <- "PSA3"
+
+# # add notes column for Q plot name notation
+# saplings_19 <- saplings_19 %>% 
+#   mutate(Notes = NA)
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q1" | saplings_19$Plot == "BP98#2 Q1"] <- "Q1"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q2" | saplings_19$Plot == "BP98#2 Q2"] <- "Q2"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q3" | saplings_19$Plot == "BP98#2 Q3"] <- "Q3"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q4" | saplings_19$Plot == "BP98#2 Q4"] <- "Q4"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q5" | saplings_19$Plot == "BP98#2 Q5"] <- "Q5"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q6" | saplings_19$Plot == "BP98#2 Q6"] <- "Q6"
+# saplings_19$Notes[saplings_19$Plot == "BP98#1 Q7" | saplings_19$Plot == "BP98#2 Q7"] <- "Q7"
+
+# remove Q notation from plot names
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q1"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q2"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q3"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q4"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q5"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q6"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#1 Q7"] <- "BP98#1"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q1"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q2"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q3"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q4"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q5"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q6"] <- "BP98#2"
+saplings_19$Plot[saplings_19$Plot == "BP98#2 Q7"] <- "BP98#2"
+
+# combine observations from the same plot
+saplings_19 <- saplings_19 %>% 
+  group_by(Plot, Species, DBH_size_class, Date) %>% 
+  dplyr::summarize(Tally = sum(Tally))
+```
+
+Merge lines of same plot different status in 2014 
+*live and dead not differentiated in 2019
+```{r}
+saplings_tidy %>% filter(is.na(Date))
+# temporarily change missing dates to make summary easier
+saplings_tidy$Date[is.na(saplings_tidy$Date)] <- "3000-01-01"
+
+# collapse dead and alive rows into one
+# sum biomass and tally, drop status, merge all others
+saplings_14 <- saplings_tidy %>%
+  group_by(Plot, Species, DBH_size_class, Date) %>% 
+  dplyr::summarize(Tally_sum = sum(Tally), 
+            Biomass_sum = sum(Biomass))
+
+# makes dates back into NA
+saplings_14$Date[saplings_14$Date == "3000-01-01"] <- NA
+```
+
+Combine 2014 and 2019
+```{r}
+# add empty biomass column to 2019, rearrange columns
+saplings_19 <- saplings_19 %>% 
+  mutate(Biomass = NA) %>% 
+  relocate(Date, .after = 3)
+
+# rename columns
+saplings_14 <- saplings_14 %>% 
+  ungroup() %>% 
+  rename(Tally = Tally_sum) %>% 
+  rename(Biomass = Biomass_sum) 
+
+# add Year column for NA dates
+saplings_14 <- saplings_14 %>% 
+  mutate(Year = "2014", .after = 3)
+saplings_19 <- saplings_19 %>% 
+  mutate(Year = "2019", .after = 3)
+
+# combine
+saplings <- rbind(saplings_14, saplings_19)
+saplings <- saplings %>% 
+  rename(Plot_ID = Plot) %>% 
+  rename(DBH_Size_Class = DBH_size_class) %>% 
+  rename(Count = Tally)
+glimpse(saplings)
+```
+
+Fix species codes
+```{r}
+saplings$Species[saplings$Species == "AMEL"] <- "AMSP"
+saplings$Species[saplings$Species == "Unknown"] <- NA
+```
+
+Export to CSV
+```{r}
+# sort
+saplings <- saplings %>% 
+  arrange(Plot_ID, Species, DBH_Size_Class, Date)
+
+write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
+
+# saplings %>% filter(is.na(Plot_ID))
+# saplings %>% filter(is.na(Species))
+# saplings %>% filter(is.na(DBH_Size_Class))
+# saplings %>% filter(is.na(Date))
+# saplings %>% filter(is.na(Count))
+# saplings %>% filter(is.na(Biomass))
+
+saplings %>% filter(is.na(Date))
+```
 

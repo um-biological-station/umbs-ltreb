@@ -4,7 +4,7 @@ author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
-Required packages
+Required packages and paths
 ```{r}
 library(tidyverse)
 library(lubridate)
@@ -14,12 +14,15 @@ library(tibble)
 library(dataMaid)
 options(stringsAsFactors = FALSE)
 
-soils_path <- "../raw/UMBS_LTREB_soils_from_Mfield.csv"
-output_path <- "../output/soils_2014.csv"
+# set these paths for your machine's specifics
+soils_path <- "../raw/soils_2014_from_Mfield.csv"
+output_path <- "../output/soils.csv"
 ```
 
+
+
 Read in data
-*Input is from exported first sheet of raw/excel/UMBS_LTREB_soils_for_IMS.xlsx, downloaded from private Mfield dataset posted by Luke*
+*Input is from exported first sheet of ../raw/excel/UMBS_LTREB_soils_for_IMS.xlsx, downloaded from private Mfield dataset posted by Luke*
 ```{r}
 soils <- read_csv(soils_path, col_types = "ccccidcdddddcddccdddfiiidddddddddddi")
 glimpse(soils)
@@ -80,8 +83,21 @@ soils$Sieving_Comments <- toupper(soils$Sieving_Comments)
 soils$Texture <- toupper(soils$Texture)
 soils$C_Concentration_Code <- toupper(soils$C_Concentration_Code)
 
-# fix missing values
+# fix missing values for masses (NA is 0 mass)
 soils$Stone_Dry_Mass[soils$Stone_Volume == 0] <- 0
+soils$Root_Dry_Mass[is.na(soils$Root_Dry_Mass)] <- 0
+soils$Wood_Dry_Mass[is.na(soils$Wood_Dry_Mass)] <- 0
+soils$Stone_Dry_Mass[is.na(soils$Stone_Dry_Mass)] <- 0
+soils$Stone_Volume[soils$Stone_Dry_Mass == 0] <- 0 # zero mass is zero volume, fixes NAs
+```
+
+Fix precision based on lab procedure
+```{r}
+soils$Fine_Earth_Dry_Mass <- round(soils$Fine_Earth_Dry_Mass, digits = 2)
+soils$Root_Dry_Mass <- round(soils$Root_Dry_Mass, digits = 2)
+soils$Wood_Dry_Mass <- round(soils$Wood_Dry_Mass, digits = 2)
+soils$Stone_Dry_Mass <- round(soils$Stone_Dry_Mass, digits = 2)
+soils$Stone_Volume <- round(soils$Stone_Volume, digits = 1)
 ```
 
 Output CSV
