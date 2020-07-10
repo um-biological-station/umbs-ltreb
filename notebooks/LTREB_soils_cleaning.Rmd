@@ -17,6 +17,9 @@ options(stringsAsFactors = FALSE)
 # set these paths for your machine's specifics
 soils_path <- "../raw/soils_2014_from_Mfield.csv"
 output_path <- "../output/soils.csv"
+
+# output site IDs
+plots_path <- "../plots/soils_plots.csv"
 ```
 
 
@@ -103,6 +106,10 @@ soils$Stone_Volume <- round(soils$Stone_Volume, digits = 1)
 Output CSV
 ```{r}
 write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
+
+# output plot list
+# plots <- unique(soils$Plot_ID)
+# write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 
 

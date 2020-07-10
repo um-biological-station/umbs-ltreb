@@ -17,10 +17,14 @@ options(stringsAsFactors = FALSE)
 # set these paths for your machine's specifics
 saplings_path_2014 <- "../raw/saplings_2014_raw.csv"
 saplings_path_2019 <- "../raw/saplings_2019_raw.csv"
+biomass_path <- "../raw/saplings_biomass.csv"
 
 # create a merged table of 2014 and 19, save copy of Alina's version of 2014
 output_path_2014 <- "../output/saplings_2014.csv"
 output_path_merge <- "../output/saplings.csv"
+
+# output site IDs
+plots_path <- "../plots/saplings_plots.csv"
 ```
 
 
@@ -280,6 +284,18 @@ saplings <- saplings %>%
 glimpse(saplings)
 ```
 
+Import biomass calculations from separate Excel file from Luke Nave
+Merge biomass calculations into existing table
+```{r}
+bio <- read_csv(biomass_path)
+bio$Date <- mdy(bio$Date)
+bio <- bio %>% rename(Plot_ID = Plot) %>% rename(Count = Tally) %>% select(-Sort, -`Mid dbh`, -Height) %>% rename(DBH_Size_Class = DBH_size_class)
+
+saplings <- saplings %>% select(-Biomass)
+
+saplings <- left_join(saplings, bio, by = c("Plot_ID", "Species", "DBH_Size_Class", "Date", "Count"))
+```
+
 Fix species codes
 ```{r}
 saplings$Species[saplings$Species == "AMEL"] <- "AMSP"
@@ -302,6 +318,8 @@ write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
 # saplings %>% filter(is.na(Count))
 # saplings %>% filter(is.na(Biomass))
 
-saplings %>% filter(is.na(Date))
+# output plot list
+# plots <- unique(saplings$Plot_ID)
+# write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 

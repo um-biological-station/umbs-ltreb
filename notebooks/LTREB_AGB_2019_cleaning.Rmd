@@ -18,6 +18,9 @@ options(stringsAsFactors = FALSE)
 clean_2014_path <- "../edi.243.2/UMBS_LTREB_AboveGroundBiomass.csv"
 raw_2019_path <- "../raw/AGB_2019_raw.csv"
 output_path <- "../output/agb.csv"
+
+# output site IDs
+plots_path <- "../plots/agb_plots.csv"
 ```
 
 
@@ -35,55 +38,73 @@ raw_19 <- raw_19 %>%
   filter_all(any_vars(!is.na(.)))
 ```
 
-Fix up 2014 data first
+Fix all column names
 ```{r}
+# rename
+clean_14 <- clean_14 %>% 
+  rename(Species = Species_code) %>% 
+  rename(Plot_ID = Plot) %>% 
+  rename(LTREB_Tag = LTREB_tag) %>% 
+  rename(Old_Tag = Old_tag) %>% 
+  rename(Outside_Historic_Plot = Outside_historic_plot) %>% 
+  rename(Measure_Year = Measure_year) %>% 
+  rename(Origin_Year = Origin_year) %>% 
+  rename(Years_Standing = Stand_year) %>% 
+  rename(DBH = DBH_cm) %>% 
+  rename(As_Class = As_class) %>% 
+  rename(AGB = AGB_kg) 
+
+raw_19 <- raw_19 %>% 
+  rename(Plot_ID = Plot) %>% 
+  rename(Distance = `Dist (m)`) %>% 
+  rename(Azimuth = `Azi (°)`) %>% 
+  rename(Status = `Live or Dead?`) %>% 
+  rename(LTREB_Tag = `Tag #`) %>% 
+  rename(DBH = `DBH (cm)`) %>% 
+  rename(AGB = `AGB (kg)`) %>% 
+  rename(Estimated_Height = `Estimated height (m)`)
+
+# merge height columns in 2014
+clean_14 %>% filter(!is.na(Height_stem) & !is.na(Height_dead)) # never have both values
+
+clean_14 <- clean_14 %>%
+  mutate(Estimated_Height = ifelse(!is.na(Height_stem), Height_stem, Height_dead)) %>% 
+  select(-Height_stem, -Height_dead)
+
 # reorder columns to put keys first
 clean_14 <- clean_14 %>% 
-  relocate(LTREB_tag, .before = 1) %>% 
-  relocate(Old_tag, .after = 1) %>% 
-  relocate(Species_code, .after = 2) %>% 
-  rename(Species = Species_code) %>% 
-  rename(Plot_ID = Plot)
+  relocate(LTREB_Tag, .before = 1) %>% 
+  relocate(Old_Tag, .after = LTREB_Tag) %>% 
+  relocate(Species, .after = Old_Tag)
 
+raw_19 <- raw_19 %>% 
+  relocate(LTREB_Tag, .before = 1) %>% 
+  relocate(Species, .after = LTREB_Tag) %>% 
+  relocate(Plot_ID, .after = Species)
+```
+
+
+Fix up 2014 data first
+```{r}
 # fix tag NA values
-clean_14$LTREB_tag[clean_14$LTREB_tag == "?"] <- NA
-clean_14$Old_tag[clean_14$Old_tag == "?"] <- NA
-clean_14$Notes[clean_14$Old_tag == "unreadable"] <- "old tag unreadable"
-clean_14$Old_tag[clean_14$Old_tag == "unreadable"] <- NA
-clean_14$LTREB_tag[clean_14$LTREB_tag == "None"] <- NA
-clean_14$Old_tag[clean_14$Old_tag == "None"] <- NA
-clean_14$Notes[clean_14$Old_tag == "FALLEN, ALIVE"] <- "FALLEN, ALIVE"
-clean_14$Old_tag[clean_14$Old_tag == "FALLEN, ALIVE"] <- NA
-clean_14$Notes[clean_14$Old_tag == "eaten"] <- "tag eaten"
-clean_14$Old_tag[clean_14$Old_tag == "eaten"] <- NA
+clean_14$LTREB_Tag[clean_14$LTREB_Tag == "?"] <- NA
+clean_14$Old_Tag[clean_14$Old_Tag == "?"] <- NA
+clean_14$Notes[clean_14$Old_Tag == "unreadable"] <- "old tag unreadable"
+clean_14$Old_Tag[clean_14$Old_Tag == "unreadable"] <- NA
+clean_14$LTREB_Tag[clean_14$LTREB_Tag == "None"] <- NA
+clean_14$Old_Tag[clean_14$Old_Tag == "None"] <- NA
+clean_14$Notes[clean_14$Old_Tag == "FALLEN, ALIVE"] <- "FALLEN, ALIVE"
+clean_14$Old_Tag[clean_14$Old_Tag == "FALLEN, ALIVE"] <- NA
+clean_14$Notes[clean_14$Old_Tag == "eaten"] <- "tag eaten"
+clean_14$Old_Tag[clean_14$Old_Tag == "eaten"] <- NA
 
 # fix species
 clean_14$Species[clean_14$Species == "UNKNOWN"] <- NA
 
 # fix boolean columns
-clean_14$Outside_historic_plot[is.na(clean_14$Outside_historic_plot)] <- "N"
-clean_14$As_class[!is.na(clean_14$As_class)] <- "Y"
-clean_14$As_class[is.na(clean_14$As_class)] <- "N"
-
-# possible that we need both dead height and stem height
-clean_14 %>% 
-  filter(!is.na(Height_dead)) %>% 
-  filter(Status == "O" | Status == "C" | Status == "D" | Status == "C/O")
-# clean_14 %>% 
-#   filter(is.na(Height_dead)) %>% 
-#   filter(Status == "X/D" | Status == "X/C" | Status == "X/O" | Status == "X")
-clean_14 %>% 
-  filter(!is.na(Height_stem)) %>% 
-  filter(Status == "X/D" | Status == "X/C" | Status == "X/O" | Status == "X")
-# clean_14 %>% 
-#   filter(is.na(Height_stem)) %>% 
-#   filter(Status == "O" | Status == "C" | Status == "D" | Status == "C/O")
-clean_14 %>% 
-  filter(is.na(Status)) %>% 
-  filter(!is.na(Height_stem))
-clean_14 %>% 
-  filter(is.na(Status)) %>% 
-  filter(!is.na(Height_dead))
+clean_14$Outside_Historic_Plot[is.na(clean_14$Outside_Historic_Plot)] <- "N"
+clean_14$As_Class[!is.na(clean_14$As_Class)] <- "Y"
+clean_14$As_Class[is.na(clean_14$As_Class)] <- "N"
 ```
 
 Clean up 2019 data
@@ -91,16 +112,71 @@ Clean up 2019 data
 # convert 2019 dates to proper format
 raw_19$Date <- as.Date(raw_19$Date, format = "%m/%d/%y")
 
-# convert tree heights to proper format
+# convert tree heights to proper format, move strings to Notes
+unique(raw_19$Estimated_Height)
 
+raw_19$Notes[is.na(raw_19$Notes) & 
+               !is.na(raw_19$Estimated_Height) & 
+               raw_19$Estimated_Height == "intact"] <- "intact" 
+
+raw_19$Notes[is.na(raw_19$Notes) & 
+               !is.na(raw_19$Estimated_Height) & 
+               raw_19$Estimated_Height == "full tree"] <- "full tree" 
+
+raw_19$Estimated_Height[raw_19$Estimated_Height == "intact"] <- NA
+raw_19$Estimated_Height[raw_19$Estimated_Height == "full tree"] <- NA
+
+# all caps
+raw_19$Notes <- toupper(raw_19$Notes)
+
+# move changed tag numbers to new column
+raw_19 <- raw_19 %>%
+  mutate(LTREB_Tag_2014 = ifelse(!is.na(Notes) & str_sub(Notes, 1, 16)=="FORMERLY TAGGED ", str_sub(Notes, 17, -1), LTREB_Tag), .after = LTREB_Tag) %>%
+  mutate(LTREB_Tag_2014 = ifelse(!is.na(Notes) & str_sub(Notes, 1, 16)=="NEW TREE", NA, LTREB_Tag_2014))
 ```
 
-
-Rename columns and merge 2014 and 2019 data
+Extract tree history to second table
 ```{r}
+# distinguish between LTREB 14 and 19 tags
+clean_14 <- clean_14 %>% 
+  rename(LTREB_Tag_2014 = LTREB_Tag)
+
+raw_19 <- raw_19 %>% 
+  rename(LTREB_Tag_2019 = LTREB_Tag)
+
+# tree_history table 
+tree_history <- 
+  full_join(clean_14, raw_19, by = c("LTREB_Tag_2014", "Species", "Plot_ID"), na_matches = "never") %>% 
+  select(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag, Species, Plot_ID, Outside_Historic_Plot, Origin_Year) %>% 
+  arrange(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag) %>% 
+  filter_all(any_vars(!is.na(.))) %>% 
+  rowid_to_column("Tree_ID")
+```
+
+Merge 2014 and 2019 data
+```{r}
+# match up columns
+agb14 <- clean_14 %>% 
+  select(-Outside_Historic_Plot, -Origin_Year, -Years_Standing)
+
+agb19 <- raw_19 %>% 
+  mutate(As_Class = NA)
+
+names(agb14)
+names(agb19)
+
+# look up tree IDs and add column using tree history
 
 ```
 
+Output to CSV
+```{r}
+# output plot list
+# plots19 <- unique(raw_19$Plot)
+# plots14 <- unique(clean_14$Plot_ID)
+# plots <- append(plots19, plots14)
+# write.csv(plots, file = plots_path, row.names = FALSE)
+```
 
 
 
