@@ -1,22 +1,22 @@
 attributeName	code	definition
-Species	ACRU	
-Species	PIRE	
-Species	PIST	
-Species	QURU	
-Species	FAGR	
-Species	POGR	
-Species	ABBA	
-Species	Other	
-Species	AMSP	
-Species	PIBA	
-Species	BEPA	
-Species	ACSA	
-Species	COCO	
-Species	POTR	
-Species	ACPE	
-Species	PIGL	
-Species	TSCA	
-DBH_Size_Class	0_to_2	
-DBH_Size_Class	2_to_4	
-DBH_Size_Class	4_to_6	
-DBH_Size_Class	6_to_8	
+Species	ACRU	Red maple (Acer rubrum)
+Species	PIRE	Red pine (Pinus resinosa)
+Species	PIST	Eastern white pine (Pinus strobus)
+Species	QURU	Northern red oak (Quercus rubra)
+Species	FAGR	American beech (Fagus grandifolia)
+Species	POGR	Bigtooth aspen (Populus grandidentata)
+Species	ABBA	Balsam fir (Abies balsamea)
+Species	OTHER	Species not listed.
+Species	AMSP	Serviceberry (Amelanchier spp)
+Species	PIBA	Jack pine (Pinus banksiana)
+Species	BEPA	Paper birch (Betula papyrifera)
+Species	ACSA	Sugar maple (Acer saccharum)
+Species	COCO	Beaked hazelnut (Corylus cornuta)
+Species	POTR	Quaking aspen (Populus tremuloides)
+Species	ACPE	Striped maple, moose maple (Acer pensylvanicum)
+Species	PIGL	White spruce (Picea glauca)
+Species	TSCA	Eastern hemlock (Tsuga canadensis)
+DBH_Size_Class	0_to_2	Diameter breast height is between 0 cm and 2 cm.
+DBH_Size_Class	2_to_4	Diameter breast height is between 2 cm and 4 cm.
+DBH_Size_Class	4_to_6	Diameter breast height is between 4 cm and 6 cm.
+DBH_Size_Class	6_to_8	Diameter breast height is between 6 cm and 8 cm.

@@ -1,0 +1,44 @@
+attributeName	code	definition
+Species	ACPE	Striped maple, moose maple (Acer pensylvanicum)
+Species	ACRU	Red maple (Acer rubrum)
+Species	ACSA	Sugar maple (Acer saccharum)
+Species	AMSP	Serviceberry (Amelanchier spp)
+Species	BEPA	Paper birch (Betula papyrifera)
+Species	FAGR	American beech (Fagus grandifolia)
+Species	FRAM	White ash (Fraxinus americana)
+Species	OSVI	Hophornbeam (Ostrya virginiana)
+Species	QURU	Red oak (Quercus rubra)
+Species	TIAM	American basswood (Tilia americana)
+Species	TSCA	Eastern hemlock (Tsuga canadensis)
+Species	ULAM	American elm (Ulmus americana)
+Species	PIRE	Red pine (Pinus resinosa)
+Species	PIST	Eastern white pine (Pinus strobus)
+Species	POGR	Bigtooth aspen (Populus grandidentata)
+Species	POTR	Quaking aspen (Populus tremuloides)
+Species	THOC	Northern white cedar (Thuja occidentalis)
+Species	ABBA	Balsam fir (Abies balsamea)
+Species	PIGL	White spruce (Picea glauca)
+Species	PRSE	Black cherry (Prunus serotina)
+Species	PRPE	Pin cherry (Prunus pennsylvanica)
+Species	BEAL	Yellow birch (Betula alleghaniensis)
+Species	COAL	Pagoda dogwood (Cornus alternifolia)
+Species	RHGL	Smooth sumac (Rhus glabra)
+Species	SASP	Willow (Salix spp)
+Species	CRRO	Red-stemmed cryptantha (Cryptantha rostellata )
+Species	VISP	Viburnum (Viburnum spp)
+Species	PYSP	Pear (Pyrus spp)
+Species	FRNI	Black ash (Fraxinus nigra)
+Species	PIMA	Black spruce (Picea mariana)
+Species	POBA	Balsam poplar (Populus balsamifera)
+Species	OTHER	Species not listed.
+Species	ALIN	Grey alder (Alnus incana)
+Species	LALA	Tamarack (Larix laricina)
+Status	O	Overtopped
+Status	C	Co-dominant
+Status	D	Dominant
+Status	C/O	Intermediate between codominant and overtopped
+Status	X/D	Dead, dominant
+Status	X/C	Dead, co-dominant
+Status	X/O	Dead, overtopped
+Status	X	Dead
+Status	L	Live

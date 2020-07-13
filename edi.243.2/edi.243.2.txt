@@ -1,0 +1,1520 @@
+
+  
+    
+      uid=EDI,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      uid=adrebin,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      uid=umbiologicalstat,o=EDI,dc=edirepository,dc=org
+      all
+    
+    
+      public
+      read
+    
+  
+  
+    doi:10.6073/pasta/375cedf9c64b0cab8d6435bfb8f94353
+    Forest tree, woody debris, and soil inventory data from long-term research plots at the University of Michigan Biological Station
+    
+      Knute Nadelhoffer
+      University of Michigan Biological Station
+      knute@umich.edu
+    
+    
+      Lucas Nave
+      University of Michigan Biological Station
+    
+    
+      Christopher Gough
+      University of Michigan Biological Station
+    
+    
+      Alina Drebin
+      University of Michigan Biological Station
+      Data Curator
+    
+    2018-09-17
+    
+      
+            Disturbances to forests, such as logging or wildfires, typically lead
+            to large losses of carbon and nutrients from both the plants and soils
+            of the ecosystem. Virtually all forests are in some state of recovery
+            from such disturbances, whether caused naturally or by humans.
+            Knowledge of the time required for a forest to recover its original
+            amounts of carbon and nutrients after a disturbance is not complete,
+            nor is an understanding of how regrowing plants, recovering soils and
+            the year to year variation in climate interact to control recovery as
+            a forest ages. This project takes advantage of long existing research
+            plots in forests at the University of Michigan Biological Station to
+            figure out how changes in forest structure, carbon and nitrogen
+            contents of the forests, and variations in climate act together
+            through time to influence how fast trees grow, nitrogen is retained,
+            and carbon is captured and stored in forests. Scientists and students
+            will make regular measurements of the types of trees, their stem sizes
+            and mass, their patterns of leaf arrangement, the amounts of carbon
+            and nitrogen in soils, and other factors in five forest that were cut
+            and burned in 1936, 1948, 1954, 1980, and 1998 and so today range from
+            15 years to 115 years old. Several nearby much older forests will also
+            be sampled. This will let the project link disturbances, climate and
+            ecology for forests that are broadly representative of those across
+            the northern United States, Canada, Europe and Asia.
+        
+    
+    
+      University of Michigan Biological Station
+      UMBS
+    
+    
+      aboveground biomass
+      soil carbon
+      soil nitrogen
+      LTER Controlled Vocabulary
+    
+    
+      
+            This information is released under the Creative Commons license -
+            Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/).
+            The consumer of these data ("Data User" herein) is required
+            to cite it appropriately in any publication that results from its use.
+            The Data User should realize that these data may be actively used by
+            others for ongoing research and that coordination may be necessary to
+            prevent duplicate publication. The Data User is urged to contact the
+            authors of these data if any questions about methodology or results
+            occur. Where appropriate, the Data User is encouraged to consider
+            collaboration or co-authorship with the authors. The Data User should
+            realize that misinterpretation of data may occur if used out of
+            context of the original study. While substantial efforts are made to
+            ensure the accuracy of data and associated documentation, complete
+            accuracy of data sets cannot be guaranteed. All data are made
+            available "as is." The Data User should be aware, however,
+            that data are updated periodically and it is the responsibility of the
+            Data User to check for new versions of the data. The data authors and
+            the repository where these data were obtained shall not be liable for
+            damages resulting from any use or misinterpretation of the data. Thank
+            you.
+        
+    
+    
+      
+        University of Michigan Biological Station
+        
+          -84.714524
+          -84.714524
+          45.558794
+          45.558794
+        
+      
+      
+        
+          
+            1934
+          
+          
+            2014
+          
+        
+      
+    
+    
+      ongoing
+    
+    
+      Jason Tallant
+      University of Michigan Biological Station
+      jtallant@umich.edu
+    
+    
+      
+        
+          
+                    Researchers used dbh tapes and / or calipers to measure the diameter
+                    at breast height (dbh, 1.37 above ground) of every tree within the
+                    boundaries of each plot. For some plots, the location (azimuth and
+                    distance) from plot center (or corner post) was determined. For some
+                    plots, dbh values were assigned as classes (e.g., 6-8 cm dbh) and the
+                    number of stems of each species within each diameter class was
+                    recorded.
+                
+          
+                    The equations below are to be used in conjunction with the Allometric_equations.csv file.
+                
+          
+                    Allometry AG biomass = a * dbh^b * height^c
+                
+          
+                    height = a*dbh^b
+                
+        
+      
+    
+    
+      LTREB: Drivers of temperate forest carbon storage from canopy closure through successional time
+      
+        Knute Nadelhoffer
+        knute@umich.edu
+        Principal Investigator
+      
+      National Science Foundation: 1353908
+      
+        No project title to report
+        
+          Lucas Nave
+          Principal Investigator
+        
+        No funding to report
+      
+      
+        No project title to report
+        
+          Christopher Gough
+          Principal Investigator
+        
+        No funding to report
+      
+    
+    
+      UMBS_LTREB_AboveGroundBiomass.csv
+      Above ground biomass data for UMBS LTREB
+      
+        UMBS_LTREB_AboveGroundBiomass.csv
+        4006442
+        e1207aa977ed4d2b11b2c2d81151f81c
+        
+          
+            1
+            \n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/edi/243/2/33f89d1967432e1d2f534a3eddd2ee06
+          
+        
+      
+      
+        
+          Sort
+          Entry ID number
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                natural
+                
+                  1
+                  43325
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Plot
+          Plot number where observations were made, corresponds to GPS location
+          string
+          
+            
+              
+                
+                  Plot number where observations were made, corresponds to GPS location
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Outside_historic_plot
+          Denotes whether the observation occurred outside of the historic plot, as a result of plot size standardization activities carried out during LTREB initiation.
+          string
+          
+            
+              
+                
+                  
+                    NA
+                    Not outside historic plot
+                  
+                  
+                    Y
+                    Measured outside historic plot
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Measure_year
+          Year measurement was taken
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                natural
+                
+                  1934
+                  2014
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Date
+          More specific date of measurement
+          date
+          
+            
+              YYYY-MM-DD
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Origin_year
+          Year of stand initiation. As best can be determined from historic records or dendrochronology, this is the year that the trees present on a plot became established after some significant disturbance (e.g., clearcutting or stand-replacing fire). Often assumed to be equal to the age of the oldest trees present on the plot.
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                natural
+                
+                  1712
+                  1998
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Stand_year
+          Age of the stand at the time of the plot census in which the tree was measured. Calculated as Measure_year - Origin_year
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                natural
+                
+                  16
+                  301
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Common_name
+          Common/Scientific name of plant species measured
+          string
+          
+            
+              
+                
+                  Common/Scientific name of plant species measured
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Species_code
+          A four-character code to represent the common name of the plant species measured. See the "Common_name" column for the full name of a given species code
+          string
+          
+            
+              
+                
+                  A four-character code to represent the common name of the plant species measured. See the "Common_name" column for the full name of a given species code
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Old_tag
+          Tree tag number (or letter, or combination) assigned as part of historic (pre-2014) plot censuses. In many of the long-term forest inventory plots, trees were never tagged, but were measured as individuals each time a census was performed. Thus, each row represents a unique measurement of a tree (not a duplicate). For large historic plots, LTREB plots installed within these plots sometimes encountered these old tags and their identities were transcribed into the LTREB plot inventory dataset to enable tracking across past inventory data.
+          string
+          
+            
+              
+                
+                  Tree tag number (or letter, or combination) assigned as part of historic (pre-2014) plot censuses. In many of the long-term forest inventory plots, trees were never tagged, but were measured as individuals each time a census was performed. Thus, each row represents a unique measurement of a tree (not a duplicate). For large historic plots, LTREB plots installed within these plots sometimes encountered these old tags and their identities were transcribed into the LTREB plot inventory dataset to enable tracking across past inventory data.
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          LTREB_tag
+          Tags installed as part of plot census during LTREB intiation in 2014. In plots never before sampled, but sampled first in 2014 for LTREB, all trees will have tag IDs. For LTREB plots within older historic plots, all trees within the LTREB 0.1 ha (18 m radius) plot will have these tag IDs (as well as perhaps an old_tag ID).
+          string
+          
+            
+              
+                
+                  Tags installed as part of plot census during LTREB intiation in 2014. In plots never before sampled, but sampled first in 2014 for LTREB, all trees will have tag IDs. For LTREB plots within older historic plots, all trees within the LTREB 0.1 ha (18 m radius) plot will have these tag IDs (as well as perhaps an old_tag ID).
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          DBH_cm
+          Diameter at breast height of tree being measured, in centimeters
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  0
+                  98.2
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          As_class
+          Marks DBH measurements that were taken in the form of a "size class" rather than an actual measurement ("Yes" if size class, "NA" if actual measurement)
+          string
+          
+            
+              
+                
+                  Marks DBH measurements that were taken in the form of a "size class" rather than an actual measurement ("Yes" if size class, "NA" if actual measurement)
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          AGB_kg
+          Above ground biomass
+          float
+          
+            
+              
+                kilogram
+              
+              
+                real
+                
+                  0
+                  16943.6
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Height_stem
+          Height of stem
+          float
+          
+            
+              
+                meter
+              
+              
+                real
+                
+                  1.2
+                  31.1
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Height_dead
+          Height of dead tree (estimated to the nearest 0.5 m)
+          float
+          
+            
+              
+                meter
+              
+              
+                real
+                
+                  1.4
+                  16
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Distance
+          Distance of individual tree from plot center
+          float
+          
+            
+              
+                meter
+              
+              
+                real
+                
+                  0.5
+                  21.5
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Azimuth
+          Compass direction in degrees, with a 6 degree declination
+          float
+          
+            
+              
+                degree
+              
+              
+                real
+                
+                  0
+                  385
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Status
+          Type of individual (ie dominant, co-dominant, overtopped, dead, etc)
+          string
+          
+            
+              
+                
+                  
+                    NA
+                    Status not available
+                  
+                  
+                    O
+                    Overtopped
+                  
+                  
+                    C
+                    Co-dominant
+                  
+                  
+                    D
+                    Dominant
+                  
+                  
+                    C/O
+                    Intermediate between codominant and overtopped
+                  
+                  
+                    X/D
+                    Dead, dominant
+                  
+                  
+                    X/C
+                    Dead, co-dominant
+                  
+                  
+                    X/O
+                    Dead, overtopped
+                  
+                  
+                    X
+                    Dead
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Notes
+          Field notes
+          string
+          
+            
+              
+                
+                  Field notes
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+      
+      43325
+    
+    
+      UMBS_Saplings_Inventory_2014.csv
+      Saplings inventory data for UMBS LTREB
+      
+        UMBS_Saplings_Inventory_2014.csv
+        59791
+        b2492bad8825dc6161db90ef29ca3649
+        
+          
+            1
+            \n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/edi/243/2/bb5f961937edf12bf56c26c4a6075081
+          
+        
+      
+      
+        
+          Plot
+          Plot name
+          string
+          
+            
+              
+                
+                  Plot name
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Species
+          Tree species being observed
+          string
+          
+            
+              
+                
+                  
+                    ACRU
+                    Acer rubrum
+                  
+                  
+                    PIRE
+                    Pinus resinosa
+                  
+                  
+                    PIST
+                    Pinus strobus
+                  
+                  
+                    QURU
+                    Quercus rubra
+                  
+                  
+                    FAGR
+                    Fagus grandifolia
+                  
+                  
+                    ABBA
+                    Abies balsamea
+                  
+                  
+                    Other
+                    Species not listed
+                  
+                  
+                    AMEL
+                    Amelanchier spp.
+                  
+                  
+                    POGR
+                    Populus grandidentata
+                  
+                  
+                    ACSA
+                    Acer saccharum
+                  
+                  
+                    BEPA
+                    Betula papyrifera
+                  
+                  
+                    POTR
+                    Populus tremuloides
+                  
+                  
+                    ACPE
+                    Acer pensylvanicum
+                  
+                  
+                    PIGL
+                    Picea glauca
+                  
+                  
+                    TSCA
+                    Tsuga canadensis
+                  
+                  
+                    Unknown
+                    Species not known
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Tally_date
+          Date of collection
+          date
+          
+            
+              YYYY-MM-DD
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          DBH_size_class
+          Diameter at breast height size class in centimeters (listed as range)
+          string
+          
+            
+              
+                
+                  
+                    0_to_2
+                    0 to 2 centimeters
+                  
+                  
+                    2_to_4
+                    2 to 4 centimeters
+                  
+                  
+                    4_to_6
+                    4 to 6 centimeters
+                  
+                  
+                    6_to_8
+                    6 to 8 centimeters
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Status
+          If the sapling is dead or alive
+          string
+          
+            
+              
+                
+                  
+                    Alive
+                    Saplings measured were alive
+                  
+                  
+                    Dead
+                    Saplings measured were dead
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Tally
+          Number of individual trees in the given plot of the same species, DBH, and status
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                whole
+                
+                  0
+                  395
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Biomass
+          Total biomass as the sum of all the biomasses for the trees with the same species, DBH, and status in the given plot
+          float
+          
+            
+              
+                kilogram
+              
+              
+                real
+                
+                  0
+                  2161.29
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+      
+      1464
+    
+    
+      UMBS_LTREB_CoarseWoodyDebris.csv
+      Coarse woody debris data for UMBS LTREB
+      
+        UMBS_LTREB_CoarseWoodyDebris.csv
+        43334
+        ef63a1c23e637652a12bc81d335339d3
+        
+          
+            1
+            \r
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/edi/243/2/3c9aeea5a611aacff49ae3843d2d9c87
+          
+        
+      
+      
+        
+          Plot
+          The name of the forest stand (multi-hectare area, sampled by a group of plots located within it) that is used by the LTREB project or is otherwise familiar to UMBS researchers.
+          string
+          
+            
+              
+                
+                  The name of the forest stand (multi-hectare area, sampled by a group of plots located within it) that is used by the LTREB project or is otherwise familiar to UMBS researchers.
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Date_sampled
+          Date when the particular tree was observed as part of a census. At a minimum, the year of the census; at best, the exact date.
+          date
+          
+            
+              YYYY-MM-DD
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          CWD_subplot_ID
+          Indicates which of the 3, 6mx6m subplots located in each LTREB 18m radius plot. As viewed from the plot center, subplots are located 6 m from plot center at compass headings of 0, 120, and 240 degrees. The innermost right-hand corner of each subplot is 6 m from plot center; thence, plots extend 6 m further out the transect.
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  0
+                  240
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Species_code
+          Four letter code for each species measured
+          string
+          
+            
+              
+                
+                  
+                    Unknown
+                    Species unknown, likely too decayed to tell
+                  
+                  
+                    POGR
+                    Populus grandidentata
+                  
+                  
+                    ACRU
+                    Acer rubrum
+                  
+                  
+                    QURU
+                    Quercus rubra
+                  
+                  
+                    PIST
+                    Pinus strobus
+                  
+                  
+                    BEPA
+                    Betula papyrifera
+                  
+                  
+                    PIRE
+                    Pinus resinosa
+                  
+                  
+                    FAGR
+                    Fagus grandifolia
+                  
+                  
+                    TSCA
+                    Tsuga canadensis
+                  
+                  
+                    NA
+                    Not available
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Status
+          If the tree measured was a stump or not
+          string
+          
+            
+              
+                
+                  
+                    NA
+                    Full tree (not a stump)
+                  
+                  
+                    Stump
+                    Stump of tree measured
+                  
+                  
+                    Stump Piece
+                    Part of tree stump measured
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Length_m
+          Length of the piece of CWD, in m. Lengths are either for the entire piece, if located entirely in the subplot, or for pieces that extend outside the subplot, the amount of length of the piece that is located within the subplot.
+          string
+          
+            
+              
+                
+                  Length of the piece of CWD, in m. Lengths are either for the entire piece, if located entirely in the subplot, or for pieces that extend outside the subplot, the amount of length of the piece that is located within the subplot.
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Endpoint_1_diameter_cm
+          Diameter, in cm, at one end of the piece of CWD. Measured to the nearest 0.1 cm using a caliper.
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  5
+                  77
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Midpoint_diameter_cm
+          Diameter, in cm, at the midpoint (center) of the piece of CWD. If the piece extends outside the subplot, this is the diameter at the midpoint relative to the portion of the piece that is within the subplot.
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  5
+                  85
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Endpoint_2_diamteter_cm
+          Diameter, in cm, at the other end of the piece of CWD. Measured to the nearest 0.1 cm using a caliper.
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  5
+                  154.5
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Decay_class_whole_piece
+          The observer's assigned decay class of the whole piece of CWD (i.e., visually "averaged" to best represent the decay class of the whole piece even when it consists of portions of differing decay classes. Decay classes are numeric but categorical
+          string
+          
+            
+              
+                
+                  
+                    5
+                    Decay Class 5: Sapwood and bark gone-heartwood decay substantial-original shape spreading but still distinguishable from soil
+                  
+                  
+                    1
+                    Decay Class 1: Recently downed material - tissue and bark intact throughout. Pine Stump- Decay Class 1: stump intact and possessing firm sapwood and heartwood
+                  
+                  
+                    4
+                    Decay Class 4: Sapwood and bark mostly gone with heartwood beginning to decay. Pine Stump- Decay Class 4: stump starting to lose its shape, heartwood soft and pieces of sapwood starting to break off and fall to the ground around stump ("stump pile").
+                  
+                  
+                    2
+                    Decay Class 2: Sapwood beginning to decay but completely present-  Bark beginning to crack. Pine Stump- Decay Class 2: Sapwood intact, half or more of the total stump height still has heartwood
+                  
+                  
+                    3
+                    Decay Class 3: Sapwood and bark mostly present-heartwood tissue intact. Pine Stump- Decay Class 3: Sapwood intact, less than half of the total stump height is full of heartwood (which is likely very soft)
+                  
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Avg_diameter_cm
+          The average diameter of the piece of CWD within the subplot, as computed from the three measured diameters.
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  5
+                  105.5
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Avg_radius_cm
+          Computed radius from computed diameter.
+          float
+          
+            
+              
+                centimeter
+              
+              
+                real
+                
+                  2.5
+                  52.75
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Avg_area_cm_squared
+          Calculated from diameter and length, with diameter taken as a representation of width (i.e., of a two-dimensional (flat) piece of CWD.
+          float
+          
+            
+              
+                squareCentimeters
+              
+              
+                real
+                
+                  19.63
+                  8741.68
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Density
+          The estimated specific density of CWD for that species X decay class. Estimated densities are based upon direct measurements of ACRU, BEPA, POGR, and QURU CWD across decay classes at UMBS~Flux AmeriFlux site in the late 1990s - early 2000's; these data are available upon request.
+          float
+          
+            
+              
+                gramsPerCubicCentimeter
+              
+              
+                real
+                
+                  0.07
+                  0.8
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Estimated_tapered_volume_cm_cubed
+          The computed volume based on the length and average diameter of the piece of CWD.
+          float
+          
+            
+              
+                centimeterCubed
+              
+              
+                real
+                
+                  3.93
+                  6195.05
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          Estimated_mass_tapered_g
+          The product of volume (cm^3) and density g (cm-3) for that piece of CWD
+          float
+          
+            
+              
+                gram
+              
+              
+                real
+                
+                  0.59
+                  2079.19
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+      
+      418
+    
+    
+      Allometric_equations.csv
+      Allometric equation constants for calculations in UMBS LTREB data
+      
+        Allometric_equations.csv
+        646
+        2acff2551fa294fc56d8f5c86db7cc92
+        
+          
+            1
+            \r\n
+            column
+            
+              ,
+              "
+            
+          
+        
+        
+          
+            https://pasta.lternet.edu/package/data/eml/edi/243/2/3b51e831c03637aa3bc37ee191bbcbec
+          
+        
+      
+      
+        
+          Species
+          Tree species code
+          string
+          
+            
+              
+                
+                  Tree species code
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          agb_a
+          Variable a for aboveground biomass equation
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  0.02
+                  0.19
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          agb_b
+          Variable b for aboveground biomass equation
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  1.33
+                  2.84
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          agb_c
+          Variable c for aboveground biomass equation
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  0.4
+                  1.77
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          range_cm
+          range of DBH measurements in centimeters
+          string
+          
+            
+              
+                
+                  range of DBH measurements in centimeters
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          height_a
+          Variable a for height equation
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  2.22
+                  4.93
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+        
+          height_b
+          Variable b for height equation
+          float
+          
+            
+              
+                dimensionless
+              
+              
+                real
+                
+                  0.39
+                  0.58
+                
+              
+            
+          
+          
+            NA
+            Value not recorded
+          
+        
+      
+      19
+    
+  
+  
+    
+      
+        
+          cubic centimeter
+        
+      
+    
+  

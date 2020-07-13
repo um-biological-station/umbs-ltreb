@@ -18,6 +18,7 @@ options(stringsAsFactors = FALSE)
 clean_2014_path <- "../edi.243.2/UMBS_LTREB_AboveGroundBiomass.csv"
 raw_2019_path <- "../raw/AGB_2019_raw.csv"
 output_path <- "../output/agb.csv"
+output_history_path <- "../output/tree_history.csv"
 
 # output site IDs
 plots_path <- "../plots/agb_plots.csv"
@@ -145,28 +146,77 @@ raw_19 <- raw_19 %>%
   rename(LTREB_Tag_2019 = LTREB_Tag)
 
 # tree_history table 
-tree_history <- 
-  full_join(clean_14, raw_19, by = c("LTREB_Tag_2014", "Species", "Plot_ID"), na_matches = "never") %>% 
-  select(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag, Species, Plot_ID, Outside_Historic_Plot, Origin_Year) %>% 
-  arrange(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag) %>% 
-  filter_all(any_vars(!is.na(.))) %>% 
-  rowid_to_column("Tree_ID")
+
+# tree_history <- 
+#   full_join(clean_14, raw_19, by = c("LTREB_Tag_2014", "Species", "Plot_ID"), na_matches = "never") %>% 
+#   select(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag, Species, Plot_ID, Outside_Historic_Plot, Origin_Year) %>% 
+#   arrange(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag) %>% 
+#   filter_all(any_vars(!is.na(.))) 
+
+tree_history <- clean_14 %>% 
+  select(LTREB_Tag_2014, Old_Tag, Species, Plot_ID, Outside_Historic_Plot, Origin_Year, Years_Standing) %>%
+  filter_all(any_vars(!is.na(.)))
 ```
 
 Merge 2014 and 2019 data
 ```{r}
 # match up columns
 agb14 <- clean_14 %>% 
-  select(-Outside_Historic_Plot, -Origin_Year, -Years_Standing)
+  relocate(Distance, .after = "Date") %>% 
+  relocate(Azimuth, .after = "Distance") %>% 
+  relocate(Status, .after = "Azimuth") %>% 
+  relocate(Notes, .after = "Estimated_Height") %>% 
+  mutate(LTREB_Tag_2019 = NA, .before = 1)
 
 agb19 <- raw_19 %>% 
-  mutate(As_Class = NA)
+  mutate(As_Class = "N", .after = "DBH") %>% 
+  mutate(Measure_Year = "2019", .before = "Date")
+
+# get some tree history data from 2014 dataset
+agb19_lookup <- 
+  left_join(agb19, tree_history, by = c("LTREB_Tag_2014", "Species", "Plot_ID"), na_matches = "never") %>% 
+  arrange(LTREB_Tag_2019, LTREB_Tag_2014, Old_Tag)
+
+# fix 3 duplicate rows
+agb19_lookup %>% 
+  group_by(LTREB_Tag_2019, LTREB_Tag_2014, Species, Plot_ID, Measure_Year, Date, Distance, Azimuth, Status, DBH, As_Class, AGB, Estimated_Height, Notes) %>% 
+  filter(n()>1)
+
+agb19_lookup <- agb19_lookup[-c(2687),]
+agb19_lookup %>% filter(LTREB_Tag_2019 == "3760")
+
+agb19_lookup <- agb19_lookup[-c(1303),]
+agb19_lookup %>% filter(LTREB_Tag_2019 == "2293")
+
+agb19_lookup <- agb19_lookup[-c(2611),]
+agb19_lookup %>% filter(LTREB_Tag_2019 == "3683")
+
+# calculate years standing for 2019
+agb19 <-  agb19_lookup %>% 
+  mutate(Years_Standing = as.numeric(Years_Standing) + 5)
+
+# rearrange new columns
+agb19 <- agb19 %>% 
+  relocate(Old_Tag, .after = "LTREB_Tag_2014") %>% 
+  relocate(Outside_Historic_Plot, .after = "Plot_ID") %>% 
+  relocate(Origin_Year, .after = "Status") %>% 
+  relocate(Years_Standing, .after = "Origin_Year")
 
 names(agb14)
 names(agb19)
 
-# look up tree IDs and add column using tree history
+# combine
+agb <- rbind(agb14, agb19) %>% 
+  mutate(Estimated_Height = as.numeric(Estimated_Height)) %>% 
+  mutate(DBH = as.numeric(DBH))
+glimpse(agb)
 
+# make sure missing values are all filled in
+lapply(agb, identifyMissing)
+
+# get rid of tree data without species
+agb <- agb %>% 
+  filter(!is.na(Species))
 ```
 
 Output to CSV
@@ -176,6 +226,8 @@ Output to CSV
 # plots14 <- unique(clean_14$Plot_ID)
 # plots <- append(plots19, plots14)
 # write.csv(plots, file = plots_path, row.names = FALSE)
+
+write.csv(agb, file = output_path, row.names = FALSE)
 ```
 
 

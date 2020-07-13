@@ -12,7 +12,7 @@ path_templates <- "~/Documents/Research/EDI/UMBS_LTREB/metadata/templates"
 path_data <- "~/Documents/Research/EDI/UMBS_LTREB/output"
 path_eml <- "~/Documents/Research/EDI/UMBS_LTREB/output"
 # tables <- c("soils.csv", "agb.csv", "cwd.csv", "saplings.csv")
-tables <- c("soils.csv", "saplings.csv")
+tables <- c("soils.csv", "saplings.csv", "agb.csv")
 
 # Create metadata templates ---------------------------------------------------
 
@@ -65,13 +65,13 @@ EMLassemblyline::make_eml(
   path = path_templates,
   data.path = path_data,
   eml.path = path_eml, 
-  dataset.title = "", 
-  temporal.coverage = c("start", "end"), 
+  dataset.title = "Forest tree, woody debris, and soil inventory data from long-term research plots at the University of Michigan Biological Station", 
+  temporal.coverage = c("1934", "2019"), 
   geographic.description = "University of Michigan Biological Station, Douglas Lake, MI", 
   geographic.coordinates = c(N, E, S, W), 
-  maintenance.description = "complete",
+  maintenance.description = "ongoing",
   data.table = tables, 
-  data.table.name = c("", ""),
+  data.table.name = tables,
   data.table.description = c("These soils were sampled and characterized as part of a long-term project quantifying ecosystem carbon stocks and their controls across forest succession.",),
   other.entity = c("", "src.zip"),
   other.entity.name = c("R script for data formatting and cleaning", "Source data for R script"),
