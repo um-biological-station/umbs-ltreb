@@ -15,7 +15,7 @@ library(dataMaid)
 options(stringsAsFactors = FALSE)
 
 # set these paths for your machine's specifics
-clean_2014_path <- "../edi.243.2/UMBS_LTREB_AboveGroundBiomass.csv"
+clean_2014_path <- "../raw/AGB_2014_clean.csv"
 raw_2019_path <- "../raw/AGB_2019_raw.csv"
 output_path <- "../output/agb.csv"
 output_history_path <- "../output/tree_history.csv"

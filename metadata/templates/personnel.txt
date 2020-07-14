@@ -2,7 +2,7 @@ givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	ro
 Luke		Nave	University of Michigan Biological Station	lukenave@umich.edu		PI			
 Alexandria		Pawlik	University of Michigan Biological Station	apawlik@umich.edu	0000-0001-7806-8206	Data Curator			
 Jason		Tallant	University of Michigan Biological Station	jtallant@umich.edu	0000-0003-4790-8772	Contact			
-Katherine		Hoffmeister	University of Michigan Biological Station			Creator			
+Kathryn		Hofmeister	Michigan Technological University	klhofmei@mtu.edu 		Creator			
 Alina		Drebin	University of Michigan Biological Station			Data Curator			
 Knute		Nadelhoffer	University of Michigan Biological Station			Creator			
 Christopher		Gough	University of Michigan Biological Station			Creator			
