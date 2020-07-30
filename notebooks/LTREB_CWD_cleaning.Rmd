@@ -1,6 +1,6 @@
 ---
 title: "UMBS LTREB Coarse Woody Debris Table Cleaning"
-author: "Alexandria Pawlik"
+author: "Alexandria Pawlik and Alina Drebin"
 output: html_notebook
 ---
 
@@ -16,28 +16,32 @@ options(stringsAsFactors = FALSE)
 
 # set these paths for your machine's specifics
 cwd_path_2014 <- "../raw/CWD_2014_raw.csv"
-cwd_path_2019 <- "../raw/CWD_2019_raw.csv"
+cwd_path_2019 <- "../raw/CWD_2020_raw.csv"
 output_path <- "../output/cwd.csv"
-
-# output site IDs
-plots_path <- "../plots/cwd_plots.csv"
+plots_path <- "../plots/cwd_plots.csv"  # output site IDs
 ```
 
-*2014 data cleaning by Alina Drebin*
-
-Read in 2014 data
+Read in data
 ```{r}
-cwd_data <- read_csv(cwd_path_2014)
-species <- sort(unique(cwd_data$`Species code (if possible)`))
-
+# 2014
+cwd_14 <- read_csv(cwd_path_2014, col_types = "ccc-icddddid----dd")
 # remove row with only NA
-cwd_data <- cwd_data %>% 
+cwd_14 <- cwd_14 %>% 
   filter_all(any_vars(!is.na(.)))
+
+# 2019
+cwd_19 <- read_csv(cwd_path_2019, col_types = "ccicddddid-d--d-")
+# remove row with only NA
+cwd_19 <- cwd_19 %>% 
+  filter_all(any_vars(!is.na(.)))
+
+glimpse(cwd_14)
+glimpse(cwd_19)
 ```
 
 Fix column names to conform to EDI standards
 ```{r}
-cwd_data <- cwd_data %>% 
+cwd_14 <- cwd_14 %>% 
   rename(Stand_Name = `Stand name`) %>% 
   rename(Date = `Date Sampled`) %>% 
   rename(Plot_ID = `Plot ID`) %>% 
@@ -48,118 +52,131 @@ cwd_data <- cwd_data %>%
   rename(Midpoint_Diameter = `Midpoint diameter (cm)`) %>% 
   rename(Endpoint_2_Diamteter = `Endpoint 2 diameter (cm)`) %>% 
   rename(Decay_Class_Whole_Piece = `Decay class of whole piece`) %>% 
-  rename(Avg_Diameter = `Avg. Diameter (cm)`) %>% 
-  rename(Avg_Radius = `Avg. Radius (cm)`) %>% 
-  rename(Avg_Area = `Avg. Area (cm^2)`) %>% 
+  rename(Average_Diameter = `Avg. Diameter (cm)`) %>% 
   rename(Estimated_Volume_Tapered = `Est. Tapered Volume (cm^3)`) %>% 
   rename(Estimated_Biomass_Tapered = `Estimated Biomass (taper) (g)`)
+
+cwd_19 <- cwd_19 %>% 
+  rename(Date = `Date sampled`) %>% 
+  rename(Plot_ID = `Plot`) %>% 
+  rename(CWD_Subplot_ID = `CWD subplot ID`) %>% 
+  rename(Species = `Species code (if possible)`) %>% 
+  rename(Length = `Length (m)`) %>% 
+  rename(Endpoint_1_Diameter = `Endpoint 1 diameter (cm)`) %>% 
+  rename(Midpoint_Diameter = `Midpoint diameter (cm)`) %>% 
+  rename(Endpoint_2_Diamteter = `Endpoint 2 diameter (cm)`) %>% 
+  rename(Decay_Class_Whole_Piece = `Decay class of whole piece`) %>% 
+  rename(Average_Diameter = `Avg diameter (cm)`) %>% 
+  rename(Estimated_Volume_Tapered = `Volume (cm3)`) %>% 
+  rename(Estimated_Biomass_Tapered = `Mass (kg)`) %>% 
+  mutate(Estimated_Biomass_Tapered = Estimated_Biomass_Tapered * 1000) %>% # convert to g
+  mutate(Stand_Name = NA, .before = 1)
+
+glimpse(cwd_14)
+glimpse(cwd_19)
 ```
 
-Create status column to represent if stump or not, and take out of species code column
+Create status column to represent if stump or not and take "stump" out of species code column
 ```{r}
-cwd_data <- cwd_data %>% 
+cwd_14 <- cwd_14 %>% 
   mutate(Status = ifelse(str_sub(Species, 1, 8)=="Stump - ", "Stump", NA))
 
-cwd_data <- cwd_data %>% 
+cwd_14 <- cwd_14 %>% 
   mutate(Species = ifelse(str_sub(Species, 1, 8)=="Stump - ", str_sub(Species, 9, -1), Species))
 
-cwd_data$Status[cwd_data$Species == "Stump Piece - PIST"] <- "Stump Piece"
-cwd_data$Species[cwd_data$Species == "Stump Piece - PIST"] <- "PIST"
+cwd_14$Status[cwd_14$Species == "Stump Piece - PIST"] <- "Stump"
+cwd_14$Species[cwd_14$Species == "Stump Piece - PIST"] <- "PIST"
 
-species <- sort(unique(cwd_data$Species))
+
+cwd_19 <- cwd_19 %>% 
+  mutate(Status = ifelse(str_sub(Species, 1, 5)=="Stump", "Stump", NA))
+
+cwd_19 <- cwd_19 %>% 
+  mutate(Species = ifelse(str_sub(Species, 1, 7)=="Stump- ", str_sub(Species, 8, -1), Species))
 ```
 
-Remove stump from species code + decay class column
+Merge and fix missing values
 ```{r}
-concat <- sort(unique(cwd_data$Species))
+# convert date to standard format
+cwd_14$Date <- mdy(cwd_14$Date)
+cwd_19$Date <- mdy(cwd_19$Date)
 
-cwd_data <- cwd_data %>% 
-  mutate(`Species Code + Decay Class` = ifelse(str_sub(`Species Code + Decay Class`, 1, 8)=="Stump - ", str_sub(`Species Code + Decay Class`, 9, -1), `Species Code + Decay Class`))
+# merge
+cwd_14 <- cwd_14 %>% select(1, 3, 4, 2, 5, 14, 6, 7:14)
+cwd_19 <- cwd_19 %>% select(1, 2, 4, 3, 5, 14, 6, 7:14)
+cwd <- rbind(cwd_14, cwd_19)
 
-cwd_data$`Species Code + Decay Class`[cwd_data$`Species Code + Decay Class` == "Stump Piece - PIST2"] <- "PIST2"
+# missing values
+cwd$Species[str_sub(cwd$Species, 1, 1) == "?"] <- NA
+cwd$Species[cwd$Species == "Unknown"] <- NA
 
-concat <- sort(unique(cwd_data$`Species Code + Decay Class`))
-```
-
-Convert date to standard format
-```{r}
-cwd_data$Date <- mdy(cwd_data$Date)
-```
-
-Reorganize columns
-```{r}
-cwd_data <- cwd_data %>% select(1:3,5,6, 19, 7:14, 16:18)
-```
-
-Fix biomasses
-```{r}
 # change all 0 biomasses to NA when volume isn't 0
-cwd_data$Estimated_Biomass_Tapered[cwd_data$Estimated_Biomass_Tapered == 0] <- NA
+cwd$Estimated_Biomass_Tapered[cwd$Estimated_Biomass_Tapered == 0] <- NA
 
-# remove missing values
-cwd_data$Estimated_Volume_Tapered[cwd_data$Estimated_Volume_Tapered == "#VALUE!"] <- NA
-cwd_data$Estimated_Biomass_Tapered[cwd_data$Estimated_Biomass_Tapered == "#VALUE!"] <- NA
+# fix species values
+identifyLoners(cwd$Species)
 ```
 
-Fix species names, change ? to NA
+Fix plot names
 ```{r}
-cwd_data <- cwd_data %>%  
-  mutate(Species = ifelse(str_sub(Species, 1, 1) == "?", NA, Species))
+cwd$Plot_ID[cwd$Plot_ID == "BS42A&BS42C"] <- "BS42"
+cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"
+cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2"
+cwd$Plot_ID[cwd$Plot_ID == "Wells"] <- "WELLS"
+cwd$Plot_ID[cwd$Plot_ID == "1"] <- "DNR1"
+cwd$Plot_ID[cwd$Plot_ID == "2"] <- "DNR2"
+cwd$Plot_ID[cwd$Plot_ID == "3"] <- "DNR3"
+
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "CP", "IP")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA1972", "PSA")
+
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "#", "")
+cwd$Stand_Name <- str_replace(cwd$Stand_Name, "CP", "IP")
+
+# store plot names
+plots <- unique(cwd$Plot_ID)
 ```
 
-Fix plot names to match AGB
+Generate stand name values for 2019
 ```{r}
-plot_names <- unique(data.frame(cwd_data$Stand_Name, cwd_data$Plot_ID))
+# create a dictionary of stand names
+stand_names <- cwd %>% 
+  distinct(Stand_Name, Plot_ID) %>% 
+  filter(!is.na(Stand_Name))
 
-cwd_data <- cwd_data %>% 
-  add_column(Plot = NA, .before = 1)
-cwd_data$Plot = cwd_data$Plot_ID
-cwd_data$Plot_ID <- as.character(cwd_data$Plot_ID)
+# re-create the stnad-names column
+cwd <- cwd %>% select(-Stand_Name)
+cwd <- merge(cwd, stand_names, by="Plot_ID", x.all = TRUE)
+cwd <- cwd %>% relocate(Stand_Name, .before = 1)
 
-cwd_data$Plot[cwd_data$Plot_ID == "1"] <- "DNR1"
-cwd_data$Plot[cwd_data$Plot_ID == "2"] <- "DNR2"
-cwd_data$Plot[cwd_data$Plot_ID == "3"] <- "DNR3"
-cwd_data$Plot[cwd_data$Plot_ID == "CP#1"] <- "CP1"
-cwd_data$Plot[cwd_data$Plot_ID == "CP#2"] <- "CP2"
-cwd_data$Plot[cwd_data$Plot_ID == "CP#3"] <- "CP3"
-cwd_data$Plot[cwd_data$Plot_ID == "PSA1972#1"] <- "PSA1"
-cwd_data$Plot[cwd_data$Plot_ID == "PSA1972#2"] <- "PSA2"
-cwd_data$Plot[cwd_data$Plot_ID == "PSA1972#3"] <- "PSA3"
-cwd_data$Plot[cwd_data$Plot_ID == "BF1"] <- "BP54#1"
-cwd_data$Plot[cwd_data$Plot_ID == "BF2"] <- "BP54#2"
+# check for duplicates
+test <- cwd %>% select(-Stand_Name) %>% 
+  distinct(.)
 
-us <- unique(cwd_data$Plot)
-
-cwd_data <- cwd_data %>% 
-  select(1, 3, 5:18) %>% 
-  rename(Estimated_Mass_Tapered = Estimated_Biomass_Tapered) %>% 
-  rename(Plot_ID = Plot)
+# stand name seems redundant
+cwd <- cwd %>% 
+  select(-Stand_Name)
 ```
 
-Fix column types
-```{r}
-cwd_14 <- cwd_data %>% 
-  mutate(Length = as.numeric(Length)) %>% 
-  mutate(Estimated_Volume_Tapered = as.numeric(Estimated_Volume_Tapered)) %>% 
-  mutate(Estimated_Mass_Tapered = as.numeric(Estimated_Mass_Tapered))
-
-# output just 2014 data here
-```
-
-*2019 data cleaning by Alexandria Pawlik*
-
-Pull in 2019 data and add date column
-```{r}
-# cwd_19 <- read_csv(cwd_path_2019)
-```
 
 Write csv file
 ```{r}
-# write_csv(cwd_data, path = output_path)
+write.csv(cwd, file = output_path, row.names = FALSE)
 
 # output plot list
-# plots <- unique(cwd_14$Plot_ID)
-# write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 
+Plots
+```{r}
+library(ggplot2)
+# plot diameter vs estimated volume
+# cwd <- cwd %>% mutate(Year = year(Date))
+# ggplot(cwd, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Year)) + 
+#     geom_point(size=2) 
+ggplot(cwd_14, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Status)) +
+    geom_point(size=2)
+ggplot(cwd_19, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Status)) +
+    geom_point(size=2)
+```
 

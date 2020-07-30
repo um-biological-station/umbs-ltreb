@@ -23,12 +23,13 @@
 		8 May 2014 to **
 	Raw data:
 		CWD_2014_raw.csv: raw 2014 measurements and calculations from Luke Nave
-		CWD_2019_raw.csv: raw 2019 measurements and calculations from Luke Nave
+		CWD_2020_raw.csv: raw 2019 measurements and calculations from Luke Nave in 2020
 	Data cleaning:
 		LTREB_CWD_cleaning.Rmd: 2014 data cleaning by Alina Drebin in 2018 as part of package edi.243.2, otherwise cleaned by Alexandria Pawlik
 	Output: 
 		cwd.csv
 	Other related files:
+		** plot file
 
 
 

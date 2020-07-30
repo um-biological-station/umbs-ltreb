@@ -1,6 +1,6 @@
 ---
 title: "UMBS LTREB Saplings Table Cleaning"
-author: "Alexandria Pawlik"
+author: "Alexandria Pawlik and Alina Drebin"
 output: html_notebook
 ---
 

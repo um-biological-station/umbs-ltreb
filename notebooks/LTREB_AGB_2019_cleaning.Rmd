@@ -18,7 +18,7 @@ options(stringsAsFactors = FALSE)
 clean_2014_path <- "../raw/AGB_2014_clean.csv"
 raw_2019_path <- "../raw/AGB_2019_raw.csv"
 output_path <- "../output/agb.csv"
-output_history_path <- "../output/tree_history.csv"
+# output_history_path <- "../output/tree_history.csv"  NEVER FINISHED
 
 # output site IDs
 plots_path <- "../plots/agb_plots.csv"
@@ -136,7 +136,7 @@ raw_19 <- raw_19 %>%
   mutate(LTREB_Tag_2014 = ifelse(!is.na(Notes) & str_sub(Notes, 1, 16)=="NEW TREE", NA, LTREB_Tag_2014))
 ```
 
-Extract tree history to second table
+Extract tree history to second table - NOT COMPLETED?
 ```{r}
 # distinguish between LTREB 14 and 19 tags
 clean_14 <- clean_14 %>% 
@@ -219,15 +219,23 @@ agb <- agb %>%
   filter(!is.na(Species))
 ```
 
+Fix plot names
+```{r}
+agb$Plot_ID[agb$Plot_ID == "BS42A&BS42C"] <- "BS42"
+agb$Plot_ID[agb$Plot_ID == "Wells"] <- "WELLS"
+agb$Plot_ID <- str_replace(agb$Plot_ID, "#", "")
+agb$Plot_ID <- str_replace(agb$Plot_ID, "CP", "IP")
+
+plots <- unique(agb$Plot_ID)
+```
+
+
 Output to CSV
 ```{r}
-# output plot list
-# plots19 <- unique(raw_19$Plot)
-# plots14 <- unique(clean_14$Plot_ID)
-# plots <- append(plots19, plots14)
-# write.csv(plots, file = plots_path, row.names = FALSE)
-
 write.csv(agb, file = output_path, row.names = FALSE)
+
+# output plot list
+write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 
 
