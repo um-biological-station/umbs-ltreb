@@ -103,13 +103,25 @@ soils$Stone_Dry_Mass <- round(soils$Stone_Dry_Mass, digits = 2)
 soils$Stone_Volume <- round(soils$Stone_Volume, digits = 1)
 ```
 
+Fix plot IDs
+```{r}
+soils <- soils %>% 
+  mutate(Profile_ID = str_remove(Profile_ID, Plot_ID))
+soils$Plot_ID <- str_replace(soils$Plot_ID, "#", "")
+soils$Plot_ID <- str_replace(soils$Plot_ID, "CP", "IP")
+soils$Plot_ID[soils$Plot_ID == "BF1"] <- "BP541"  # given by Alina
+soils$Plot_ID[soils$Plot_ID == "BF2"] <- "BP542" # given by Alina
+
+# store plot names
+plots <- unique(soils$Plot_ID) %>% sort(.)
+```
+
 Output CSV
 ```{r}
 write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
 
 # output plot list
-# plots <- unique(soils$Plot_ID)
-# write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 
 

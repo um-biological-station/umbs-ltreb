@@ -10,3 +10,4 @@ plot <- as_tibble(plot)
 plot <- plot %>% rename(Name = value)
 plot <- plot %>% arrange(Name)
 write_csv(plot, "plots/all_plots.csv")
+

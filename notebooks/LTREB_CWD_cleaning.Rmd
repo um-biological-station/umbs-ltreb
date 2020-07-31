@@ -120,21 +120,23 @@ identifyLoners(cwd$Species)
 Fix plot names
 ```{r}
 cwd$Plot_ID[cwd$Plot_ID == "BS42A&BS42C"] <- "BS42"
-cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"
-cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2"
+cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
+cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
 cwd$Plot_ID[cwd$Plot_ID == "Wells"] <- "WELLS"
 cwd$Plot_ID[cwd$Plot_ID == "1"] <- "DNR1"
 cwd$Plot_ID[cwd$Plot_ID == "2"] <- "DNR2"
 cwd$Plot_ID[cwd$Plot_ID == "3"] <- "DNR3"
-
 cwd$Plot_ID <- str_replace(cwd$Plot_ID, "CP", "IP")
 cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA1972", "PSA")
-
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA72", "PSA")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "DNR87", "DNR")
 cwd$Plot_ID <- str_replace(cwd$Plot_ID, "#", "")
+
 cwd$Stand_Name <- str_replace(cwd$Stand_Name, "CP", "IP")
 
 # store plot names
-plots <- unique(cwd$Plot_ID)
+plots <- unique(cwd$Plot_ID) %>% sort(.)
+plots
 ```
 
 Generate stand name values for 2019
@@ -154,8 +156,8 @@ test <- cwd %>% select(-Stand_Name) %>%
   distinct(.)
 
 # stand name seems redundant
-cwd <- cwd %>% 
-  select(-Stand_Name)
+# cwd <- cwd %>% 
+#   select(-Stand_Name)
 ```
 
 

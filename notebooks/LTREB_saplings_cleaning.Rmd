@@ -139,11 +139,10 @@ saplings_tidy %>% filter(is.na(Biomass))
 
 Fix plot names to match AGB
 ```{r}
-saplings_tidy$Plot[saplings_tidy$Plot == "DNR#1"] <- "DNR1"
-saplings_tidy$Plot[saplings_tidy$Plot == "DNR#2"] <- "DNR2"
-saplings_tidy$Plot[saplings_tidy$Plot == "DNR#3"] <- "DNR3"
-plot_names <- unique(saplings_tidy$Plot)
-plot_names
+saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "#", "")
+saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "CP", "IP")
+
+unique(saplings_tidy$Plot)
 ```
 
 Write output file for 2014 data structure
@@ -195,16 +194,6 @@ saplings_19$Tally[is.na(saplings_19$Tally)] <- 0
 
 Fix plot names
 ```{r}
-unique(saplings_19$Plot)
-
-# fix plot names to match AGB
-saplings_19$Plot[saplings_19$Plot == "DNR#1"] <- "DNR1"
-saplings_19$Plot[saplings_19$Plot == "DNR#2"] <- "DNR2"
-saplings_19$Plot[saplings_19$Plot == "DNR#3"] <- "DNR3"
-saplings_19$Plot[saplings_19$Plot == "PSA#1"] <- "PSA1"
-saplings_19$Plot[saplings_19$Plot == "PSA#2"] <- "PSA2"
-saplings_19$Plot[saplings_19$Plot == "PSA#3"] <- "PSA3"
-
 # # add notes column for Q plot name notation
 # saplings_19 <- saplings_19 %>% 
 #   mutate(Notes = NA)
@@ -216,21 +205,15 @@ saplings_19$Plot[saplings_19$Plot == "PSA#3"] <- "PSA3"
 # saplings_19$Notes[saplings_19$Plot == "BP98#1 Q6" | saplings_19$Plot == "BP98#2 Q6"] <- "Q6"
 # saplings_19$Notes[saplings_19$Plot == "BP98#1 Q7" | saplings_19$Plot == "BP98#2 Q7"] <- "Q7"
 
-# remove Q notation from plot names
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q1"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q2"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q3"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q4"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q5"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q6"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#1 Q7"] <- "BP98#1"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q1"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q2"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q3"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q4"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q5"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q6"] <- "BP98#2"
-saplings_19$Plot[saplings_19$Plot == "BP98#2 Q7"] <- "BP98#2"
+# fix plot names to match AGB
+saplings_19$Plot <- str_replace(saplings_19$Plot, "#", "")
+# remove number after Q and sum up over plot
+saplings_19 <- saplings_19 %>%
+  mutate(Plot = ifelse(str_sub(Plot, 1, 4) == "BP98", str_sub(Plot, 1, 5), Plot))
+# saplings_19$Plot <- str_replace(saplings_19$Plot, " ", "")
+saplings_19$Plot <- str_replace(saplings_19$Plot, "CP", "IP")
+
+unique(saplings_19$Plot)
 
 # combine observations from the same plot
 saplings_19 <- saplings_19 %>% 
@@ -282,6 +265,12 @@ saplings <- saplings %>%
   rename(DBH_Size_Class = DBH_size_class) %>% 
   rename(Count = Tally)
 glimpse(saplings)
+
+# fix plot IDs again
+saplings$Plot_ID[saplings$Plot_ID == "Wells"] <- "WELLS"
+saplings$Plot_ID[saplings$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
+saplings$Plot_ID[saplings$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
+plots <- unique(saplings$Plot_ID) %>% sort(.)
 ```
 
 Import biomass calculations from separate Excel file from Luke Nave
@@ -319,7 +308,6 @@ write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
 # saplings %>% filter(is.na(Biomass))
 
 # output plot list
-# plots <- unique(saplings$Plot_ID)
-# write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, row.names = FALSE)
 ```
 
