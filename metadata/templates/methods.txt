@@ -1,1 +1,2 @@
 See soils_procedure.pdf for soil processing procedures.
+See cwd_procedure.pdf for CWD measuring procedures.

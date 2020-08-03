@@ -237,10 +237,10 @@ plots <- unique(agb$Plot_ID)
 
 Output to CSV
 ```{r}
-write.csv(agb, file = output_path, row.names = FALSE)
+write.csv(agb, file = output_path, eol = "\r\n", row.names = FALSE)
 
 # output plot list
-write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
 

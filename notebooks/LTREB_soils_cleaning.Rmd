@@ -106,7 +106,9 @@ soils$Stone_Volume <- round(soils$Stone_Volume, digits = 1)
 Fix plot IDs
 ```{r}
 soils <- soils %>% 
-  mutate(Profile_ID = str_remove(Profile_ID, Plot_ID))
+  mutate(Profile_ID = str_remove(Profile_ID, Plot_ID)) %>% 
+  mutate(Profile_ID = str_remove(Profile_ID, "\\.")) %>% 
+  mutate(C_Concentration_Code = str_remove(C_Concentration_Code, "\\."))
 soils$Plot_ID <- str_replace(soils$Plot_ID, "#", "")
 soils$Plot_ID <- str_replace(soils$Plot_ID, "CP", "IP")
 soils$Plot_ID[soils$Plot_ID == "BF1"] <- "BP541"  # given by Alina
@@ -118,7 +120,11 @@ plots <- unique(soils$Plot_ID) %>% sort(.)
 
 Output CSV
 ```{r}
+# write.csv(soils, file = output_path, row.names = FALSE)
+soils <- soils %>% arrange(Plot_ID, Profile_ID)
+glimpse(soils)
 write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
+# write_csv(soils, output_path)
 
 # output plot list
 write.csv(plots, file = plots_path, row.names = FALSE)

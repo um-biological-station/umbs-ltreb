@@ -18,7 +18,7 @@
 
 2. Course Woody Debris Measurements
 	Methods:
-		** CWD methods
+		cwd_procedure.pdf
 	Temporal coverage:
 		8 May 2014 to **
 	Raw data:

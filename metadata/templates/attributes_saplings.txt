@@ -1,5 +1,5 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Plot_ID	Standardized name of the LTREB plot containing the saplings that were counted.	character				
+Plot_ID	Standardized name of the LTREB plot containing the saplings that were counted. Check the plot descriptions file.	character				
 Species	A four-character code to represent the species of the saplings being counted.	categorical			NA	Unable to determine the species of saplings in this count.
 DBH_Size_Class	Diameter at breast height size class in centimeters (listed as a range of values) of the saplings that were counted.	categorical				
 Year	Year that the sapling count was collected. Note: for dates that were not collected, year is still known.	Date		YYYY		

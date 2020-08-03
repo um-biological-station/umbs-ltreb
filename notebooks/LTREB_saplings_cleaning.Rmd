@@ -308,6 +308,6 @@ write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
 # saplings %>% filter(is.na(Biomass))
 
 # output plot list
-write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 

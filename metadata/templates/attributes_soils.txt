@@ -1,6 +1,6 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
 Archived_Sample_ID	Unique identifier for the soil sample, corresponding to the archived physical sample in the UMBS SAFE.	character				
-Plot_ID	Standardized name of the LTREB long-term plot in which the soil sample was collected.	character				
+Plot_ID	Standardized name of the LTREB long-term plot in which the soil sample was collected. Check the plot descriptions file.	character				
 Profile_ID	Unique identifier for the soil profile (parent) from which the soil sample (child) is derived. Concatenated from the plot ID and the unique soil profile (2 <= n <= 4 per plot).	character				
 Targeted_Sampling_Increment	The horizon or depth increment (in cm) intended to be collected.	character				
 Actual_Sampling_Increment	The horizon or depth increment (in cm) that was actually collected. May differ from targeted depth, e.g., based upon sample slumping out of the bottom of the coring device during sample collections.	character				

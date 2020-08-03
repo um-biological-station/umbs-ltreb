@@ -24,13 +24,13 @@ plots_path <- "../plots/cwd_plots.csv"  # output site IDs
 Read in data
 ```{r}
 # 2014
-cwd_14 <- read_csv(cwd_path_2014, col_types = "ccc-icddddid----dd")
+cwd_14 <- read_csv(cwd_path_2014, col_types = "ccc-icddddid---ddd")
 # remove row with only NA
 cwd_14 <- cwd_14 %>% 
   filter_all(any_vars(!is.na(.)))
 
 # 2019
-cwd_19 <- read_csv(cwd_path_2019, col_types = "ccicddddid-d--d-")
+cwd_19 <- read_csv(cwd_path_2019, col_types = "ccicddddid-d-dd-")
 # remove row with only NA
 cwd_19 <- cwd_19 %>% 
   filter_all(any_vars(!is.na(.)))
@@ -50,11 +50,18 @@ cwd_14 <- cwd_14 %>%
   rename(Length = `Length (m)`) %>% 
   rename(Endpoint_1_Diameter = `Endpoint 1 diameter (cm)`) %>% 
   rename(Midpoint_Diameter = `Midpoint diameter (cm)`) %>% 
-  rename(Endpoint_2_Diamteter = `Endpoint 2 diameter (cm)`) %>% 
+  rename(Endpoint_2_Diameter = `Endpoint 2 diameter (cm)`) %>% 
   rename(Decay_Class_Whole_Piece = `Decay class of whole piece`) %>% 
   rename(Average_Diameter = `Avg. Diameter (cm)`) %>% 
   rename(Estimated_Volume_Tapered = `Est. Tapered Volume (cm^3)`) %>% 
   rename(Estimated_Biomass_Tapered = `Estimated Biomass (taper) (g)`)
+
+# incorrect unit in 2014 Volume - forgot to convert length to cm before multiplying for volume?
+cwd_14 <- cwd_14 %>% 
+  mutate(Estimated_Volume_Tapered = Estimated_Volume_Tapered * 100)
+# subsequent error in 2014 Biomass - input volume was too small
+cwd_14 <- cwd_14 %>% 
+  mutate(Estimated_Biomass_Tapered = Estimated_Biomass_Tapered * 100)
 
 cwd_19 <- cwd_19 %>% 
   rename(Date = `Date sampled`) %>% 
@@ -64,11 +71,12 @@ cwd_19 <- cwd_19 %>%
   rename(Length = `Length (m)`) %>% 
   rename(Endpoint_1_Diameter = `Endpoint 1 diameter (cm)`) %>% 
   rename(Midpoint_Diameter = `Midpoint diameter (cm)`) %>% 
-  rename(Endpoint_2_Diamteter = `Endpoint 2 diameter (cm)`) %>% 
+  rename(Endpoint_2_Diameter = `Endpoint 2 diameter (cm)`) %>% 
   rename(Decay_Class_Whole_Piece = `Decay class of whole piece`) %>% 
   rename(Average_Diameter = `Avg diameter (cm)`) %>% 
   rename(Estimated_Volume_Tapered = `Volume (cm3)`) %>% 
   rename(Estimated_Biomass_Tapered = `Mass (kg)`) %>% 
+  rename(Density = `Density (g cm-3)`) %>% 
   mutate(Estimated_Biomass_Tapered = Estimated_Biomass_Tapered * 1000) %>% # convert to g
   mutate(Stand_Name = NA, .before = 1)
 
@@ -102,8 +110,8 @@ cwd_14$Date <- mdy(cwd_14$Date)
 cwd_19$Date <- mdy(cwd_19$Date)
 
 # merge
-cwd_14 <- cwd_14 %>% select(1, 3, 4, 2, 5, 14, 6, 7:14)
-cwd_19 <- cwd_19 %>% select(1, 2, 4, 3, 5, 14, 6, 7:14)
+cwd_14 <- cwd_14 %>% select(1, 3, 4, 2, 5, 15, 6, 7:14)
+cwd_19 <- cwd_19 %>% select(1, 2, 4, 3, 5, 15, 6, 7:11, 13, 12, 14)
 cwd <- rbind(cwd_14, cwd_19)
 
 # missing values
@@ -146,7 +154,7 @@ stand_names <- cwd %>%
   distinct(Stand_Name, Plot_ID) %>% 
   filter(!is.na(Stand_Name))
 
-# re-create the stnad-names column
+# re-create the stand-names column
 cwd <- cwd %>% select(-Stand_Name)
 cwd <- merge(cwd, stand_names, by="Plot_ID", x.all = TRUE)
 cwd <- cwd %>% relocate(Stand_Name, .before = 1)
@@ -156,29 +164,56 @@ test <- cwd %>% select(-Stand_Name) %>%
   distinct(.)
 
 # stand name seems redundant
-# cwd <- cwd %>% 
-#   select(-Stand_Name)
+cwd <- cwd %>%
+  select(-Stand_Name)
 ```
 
 
 Write csv file
 ```{r}
-write.csv(cwd, file = output_path, row.names = FALSE)
+write.csv(cwd, file = output_path, eol = "\r\n", row.names = FALSE)
 
 # output plot list
-write.csv(plots, file = plots_path, row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+
+glimpse(cwd)
 ```
 
 Plots
 ```{r}
 library(ggplot2)
 # plot diameter vs estimated volume
-# cwd <- cwd %>% mutate(Year = year(Date))
-# ggplot(cwd, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Year)) + 
-#     geom_point(size=2) 
+cwd <- cwd %>% mutate(Year = year(Date))
+ggplot(cwd, aes(x=Average_Diameter, y=Estimated_Biomass_Tapered, color=Year)) +
+    geom_point(size=2)
+
 ggplot(cwd_14, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Status)) +
     geom_point(size=2)
 ggplot(cwd_19, aes(x=Average_Diameter, y=Estimated_Volume_Tapered, color=Status)) +
     geom_point(size=2)
 ```
+
+Check computation
+```{r}
+# Average diameter OK
+cwd <- cwd %>% 
+  mutate(T_Average_Diameter = (Endpoint_1_Diameter + Endpoint_2_Diameter + Midpoint_Diameter) * (1/3), .after="Average_Diameter")
+cwd[cwd$Average_Diameter != round(cwd$T_Average_Diameter, digits = 1), ]
+
+# Tapered volume
+cwd <- cwd %>% 
+  mutate(T_Estimated_Volume_Tapered = (Length * 100) * (T_Average_Diameter / 2)^2 * pi, .after="Estimated_Volume_Tapered")
+cwd[cwd$T_Estimated_Volume_Tapered != cwd$Estimated_Volume_Tapered, ]
+
+# Tapered biomass
+cwd <- cwd %>% 
+  mutate(T_Estimated_Biomass_Tapered = T_Estimated_Volume_Tapered * Density, .after="Estimated_Biomass_Tapered")
+cwd[cwd$T_Estimated_Biomass_Tapered != cwd$Estimated_Biomass_Tapered, ]
+
+
+# which cols have NAs
+unlist(lapply(cwd, function(x) any(is.na(x))))
+```
+
+
 
