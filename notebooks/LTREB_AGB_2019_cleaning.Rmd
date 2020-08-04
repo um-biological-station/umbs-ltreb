@@ -4,6 +4,7 @@ author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
+Usign R version 4.0.1 (2020-06-06)
 **Cleaning for AGB data before 2019 was completed by Alina Drebin for package edi.243.2, however no script exists for that cleaning process**
 
 Required packages and paths
@@ -240,7 +241,7 @@ Output to CSV
 write.csv(agb, file = output_path, eol = "\r\n", row.names = FALSE)
 
 # output plot list
-write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
 

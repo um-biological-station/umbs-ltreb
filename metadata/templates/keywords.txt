@@ -1,1 +1,12 @@
 keyword	keywordThesaurus
+aboveground biomass	LTER Controlled Vocabulary
+soil carbon	LTER Controlled Vocabulary
+soil nitrogen	LTER Controlled Vocabulary
+soil bulk density	LTER Controlled Vocabulary
+soil properties	LTER Controlled Vocabulary
+canopies	LTER Controlled Vocabulary
+coarse woody debris	LTER Controlled Vocabulary
+tree age	LTER Controlled Vocabulary
+diameter at breast height	LTER Controlled Vocabulary
+University of Michigan Biological Station	
+UMBS	

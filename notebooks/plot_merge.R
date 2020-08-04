@@ -11,3 +11,7 @@ plot <- plot %>% rename(Name = value)
 plot <- plot %>% arrange(Name)
 write_csv(plot, "plots/all_plots.csv")
 
+info <- read_csv("plots/plots_info_from_Jason.csv")
+setdiff(plot$Name, info$Plot_ID)
+
+write_csv(info, "output/UMBS_plots.csv")

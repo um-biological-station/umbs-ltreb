@@ -4,6 +4,8 @@ author: "Alexandria Pawlik and Alina Drebin"
 output: html_notebook
 ---
 
+Using R version 4.0.1 (2020-06-06)
+
 Required packages and paths
 ```{r}
 library(tidyverse)
@@ -221,7 +223,7 @@ saplings_19 <- saplings_19 %>%
   dplyr::summarize(Tally = sum(Tally))
 ```
 
-Merge lines of same plot different status in 2014 
+Merge lines of same plot different status in 2014 (no more live vs dead)
 *live and dead not differentiated in 2019
 ```{r}
 saplings_tidy %>% filter(is.na(Date))
@@ -308,6 +310,6 @@ write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
 # saplings %>% filter(is.na(Biomass))
 
 # output plot list
-write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 

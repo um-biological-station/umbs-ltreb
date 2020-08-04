@@ -4,6 +4,8 @@ author: "Alexandria Pawlik"
 output: html_notebook
 ---
 
+Using R version 4.0.1 (2020-06-06)
+
 Required packages and paths
 ```{r}
 library(tidyverse)
@@ -74,7 +76,9 @@ soils <- soils %>%
   rename(Soil_C_Stock = `Soil C stock (Mg C ha-1)`)
 
 # move unique ID column to be first
-soils <- soils %>% relocate(Archived_Sample_ID, .before = 1)
+soils <- soils %>% 
+  relocate(Archived_Sample_ID, .before = 1) %>% 
+  mutate(Collection_Year = 2014, .before = 1)
 
 glimpse(soils)
 ```
@@ -127,7 +131,7 @@ write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
 # write_csv(soils, output_path)
 
 # output plot list
-write.csv(plots, file = plots_path, row.names = FALSE)
+# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
 

@@ -4,6 +4,8 @@ author: "Alexandria Pawlik and Alina Drebin"
 output: html_notebook
 ---
 
+Using R version 4.0.1 (2020-06-06)
+
 Required packages and paths
 ```{r}
 library(tidyverse)
@@ -127,7 +129,7 @@ identifyLoners(cwd$Species)
 
 Fix plot names
 ```{r}
-cwd$Plot_ID[cwd$Plot_ID == "BS42A&BS42C"] <- "BS42"
+cwd$Plot_ID[cwd$Plot_ID == "BS42A&BS42C"] <- NA
 cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
 cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
 cwd$Plot_ID[cwd$Plot_ID == "Wells"] <- "WELLS"
@@ -174,7 +176,7 @@ Write csv file
 write.csv(cwd, file = output_path, eol = "\r\n", row.names = FALSE)
 
 # output plot list
-write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 
 glimpse(cwd)
 ```

@@ -1,4 +1,5 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Collection_Year	Year that the soil was collected from the specified plot.	Date		YYYY		
 Archived_Sample_ID	Unique identifier for the soil sample, corresponding to the archived physical sample in the UMBS SAFE.	character				
 Plot_ID	Standardized name of the LTREB long-term plot in which the soil sample was collected. Check the plot descriptions file.	character				
 Profile_ID	Unique identifier for the soil profile (parent) from which the soil sample (child) is derived. Concatenated from the plot ID and the unique soil profile (2 <= n <= 4 per plot).	character				

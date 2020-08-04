@@ -1,2 +1,6 @@
-See soils_procedure.pdf for soil processing procedures.
+See soils_procedure.pdf for soil processing procedures. 
+A reference manual for analytical methods used on some of the soil samples:	"Hoskins, B.R. 1997. Soil testing handbook for professionals in agriculture, horticulture, nutrient and residuals management. 3rd ed. Maine Forestry and Agricultural Experiment Station, University of Maine, Orono, Maine."	(https://umaine.edu/soiltestinglab/home/faq/)
+
 See cwd_procedure.pdf for CWD measuring procedures.
+
+See UMBS_plots.csv for a list of all University of Michigan Biological Station plots observed in this dataset. Plots can be matched between UMBS_plots.csv, agb.csv, cwd.csv, saplings.csv, and soils.csv using the Plot_ID attribute as a key.

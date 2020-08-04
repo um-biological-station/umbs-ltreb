@@ -12,7 +12,7 @@
 	Output: 
 		agb.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
@@ -29,7 +29,7 @@
 	Output: 
 		cwd.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
@@ -47,7 +47,7 @@
 	Output: 
 		saplings.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
@@ -63,7 +63,7 @@
 	Output: 
 		soils.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
