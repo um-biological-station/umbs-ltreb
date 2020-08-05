@@ -124,10 +124,14 @@ plots <- unique(soils$Plot_ID) %>% sort(.)
 
 Output CSV
 ```{r}
+# replace commas in strings
+soils$Sieving_Comments <- str_replace_all(soils$Sieving_Comments, ",", "\\.")
+soils$Sieving_Comments <- str_replace(soils$Sieving_Comments, "\\*", "")
+
 # write.csv(soils, file = output_path, row.names = FALSE)
 soils <- soils %>% arrange(Plot_ID, Profile_ID)
 glimpse(soils)
-write.csv(soils, file = output_path, eol = "\r\n", row.names = FALSE)
+write.csv(soils, file = output_path, eol = "\r", row.names = FALSE)
 # write_csv(soils, output_path)
 
 # output plot list

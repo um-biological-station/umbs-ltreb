@@ -1,0 +1,22 @@
+attributeName	code	definition
+Species	POGR	Bigtooth aspen (Populus grandidentata)
+Species	ACRU	Red maple (Acer rubrum)
+Species	PIST	Eastern white pine (Pinus strobus)
+Species	QURU	Red oak (Quercus rubra)
+Species	BEPA	Paper birch (Betula papyrifera)
+Species	PIRE	Red pine (Pinus resinosa)
+Species	ACSA	Sugar maple (Acer saccharum)
+Species	FAGR	American beech (Fagus grandifolia)
+Species	TSCA	Eastern hemlock (Tsuga canadensis)
+Decay_Class_Whole_Piece	2	Sapwood beginning to decay but completely present. Bark beginning to crack.
+Decay_Class_Whole_Piece	4	Sapwood and bark mostly gone with heartwood beginning to decay.
+Decay_Class_Whole_Piece	5	Sapwood and bark gone. Heartwood decay substantial. Original shape spreading but still distinguishable from soil.
+Decay_Class_Whole_Piece	3	Sapwood and bark mostly present. Heartwood tissue intact.
+Decay_Class_Whole_Piece	1	Recently downed material. Tissue and bark intact throughout.
+Decay_Class_Whole_Piece	2S	Class 2 stump. Sapwood intact. Half or more of the total stump height still has heartwood.
+Decay_Class_Whole_Piece	4S	"Class 4 stump. Stump starting to lose its shape. Heartwood soft and pieces of sapwood
+starting to break off and fall to the ground around stump (“stump pile”)."
+Decay_Class_Whole_Piece	5S	Class 5 stump. Heartwood decay substantial. Original stump shape spreading but still distinguishable from soil.
+Decay_Class_Whole_Piece	3S	"Class 3 stump. Sapwood intact. Less than half of the total stump height is full of heartwood
+(which is likely very soft)."
+Decay_Class_Whole_Piece	1S	Class 1 stump. Stump intact and possessing firm sapwood and heartwood.

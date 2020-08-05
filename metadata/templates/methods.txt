@@ -1,6 +1,21 @@
 See soils_procedure.pdf for soil processing procedures. 
 A reference manual for analytical methods used on some of the soil samples:	"Hoskins, B.R. 1997. Soil testing handbook for professionals in agriculture, horticulture, nutrient and residuals management. 3rd ed. Maine Forestry and Agricultural Experiment Station, University of Maine, Orono, Maine."	(https://umaine.edu/soiltestinglab/home/faq/)
 
+
+
 See cwd_procedure.pdf for CWD measuring procedures.
+
+
+
+For AGB and Saplings:
+
+Researchers used dbh tapes and / or calipers to measure the diameter at breast height (dbh, 1.37 above ground) of every tree within the boundaries of each plot. For some plots, the location (azimuth and distance) from plot center (or corner post) was determined. For some plots, dbh values were assigned as classes (e.g., 6-8 cm dbh) and the number of stems of each species within each diameter class was recorded.
+
+The equations below are to be used in conjunction with the Allometric_equations.csv file.
+
+Allometry AG biomass = a * dbh^b * height^c
+height = a*dbh^b
+
+
 
 See UMBS_plots.csv for a list of all University of Michigan Biological Station plots observed in this dataset. Plots can be matched between UMBS_plots.csv, agb.csv, cwd.csv, saplings.csv, and soils.csv using the Plot_ID attribute as a key.

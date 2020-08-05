@@ -300,7 +300,7 @@ Export to CSV
 saplings <- saplings %>% 
   arrange(Plot_ID, Species, DBH_Size_Class, Date)
 
-write.csv(saplings, file = output_path_merge, eol = "\r\n", row.names = FALSE)
+write.csv(saplings, file = output_path_merge, eol = "\r", row.names = FALSE)
 
 # saplings %>% filter(is.na(Plot_ID))
 # saplings %>% filter(is.na(Species))

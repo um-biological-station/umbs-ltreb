@@ -1,0 +1,44 @@
+attributeName	code	definition
+Species	ACPE	Striped maple, moose maple (Acer pensylvanicum)
+Species	ACRU	Red maple (Acer rubrum)
+Species	ACSA	Sugar maple (Acer saccharum)
+Species	AMSP	Serviceberry (Amelanchier spp)
+Species	BEPA	Paper birch (Betula papyrifera)
+Species	FAGR	American beech (Fagus grandifolia)
+Species	FRAM	White ash (Fraxinus americana)
+Species	OSVI	Hophornbeam (Ostrya virginiana)
+Species	QURU	Red oak (Quercus rubra)
+Species	TIAM	American basswood (Tilia americana)
+Species	TSCA	Eastern hemlock (Tsuga canadensis)
+Species	ULAM	American elm (Ulmus americana)
+Species	PIRE	Red pine (Pinus resinosa)
+Species	PIST	Eastern white pine (Pinus strobus)
+Species	POGR	Bigtooth aspen (Populus grandidentata)
+Species	POTR	Quaking aspen (Populus tremuloides)
+Species	THOC	Northern white cedar (Thuja occidentalis)
+Species	ABBA	Balsam fir (Abies balsamea)
+Species	PIGL	White spruce (Picea glauca)
+Species	PRSE	Black cherry (Prunus serotina)
+Species	PRPE	Pin cherry (Prunus pennsylvanica)
+Species	BEAL	Yellow birch (Betula alleghaniensis)
+Species	COAL	Pagoda dogwood (Cornus alternifolia)
+Species	RHGL	Smooth sumac (Rhus glabra)
+Species	SASP	Willow (Salix spp)
+Species	CRRO	Red-stemmed cryptantha (Cryptantha rostellata )
+Species	VISP	Viburnum (Viburnum spp)
+Species	PYSP	Pear (Pyrus spp)
+Species	FRNI	Black ash (Fraxinus nigra)
+Species	PIMA	Black spruce (Picea mariana)
+Species	POBA	Balsam poplar (Populus balsamifera)
+Species	OTHER	Species not listed.
+Species	ALIN	Grey alder (Alnus incana)
+Species	LALA	Tamarack (Larix laricina)
+Status	O	Overtopped. Tree is not part of the canopy.
+Status	C	Co-dominant. Tree is part of the overstory. It shares its canopy area with trees around it, not significantly taller than any tree near it.
+Status	D	Dominant. Tree is well above the surrounding canopy, does not share canopy spaces with other trees around it. Dominant trees are very rare. A dominant tree is obviously dominant.
+Status	C/O	Intermediate between co-dominant and overtopped.
+Status	X/D	Dead, dominant. Top of tree still present, clearly above the rest of the canopy. 
+Status	X/C	Dead, co-dominant. Top of tree still present, at the same level as the canopy.
+Status	X/O	Dead, overtopped. Top of tree still present, but under the canopy level.
+Status	X	Dead. Top of tree broken off.
+Status	L	Alive.

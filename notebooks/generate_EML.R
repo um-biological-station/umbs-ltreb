@@ -53,13 +53,13 @@ EMLassemblyline::template_taxonomic_coverage(
 # Once all your metadata templates are complete call this function to create 
 # the EML.
 
-E <- "-84.557386634988"
-N <- "45.580163500439"
-S <- "45.47272902377"
-W <- "-84.777685409063"
+E <- "-84.714524"
+N <- "45.558794"
+S <- "45.558794"
+W <- "-84.714524"
 
 Pid <- "edi."
-Sid <- "edi."
+Sid <- "edi.65.1"
 
 EMLassemblyline::make_eml(
   path = path_templates,
@@ -80,15 +80,15 @@ EMLassemblyline::make_eml(
                              "Saplings counts and biomass estimates from 2014 and 2019.",
                              "Soil makeup and concentration measurements from 2014."),
   other.entity = c("LTREB_README.txt", 
-                   "src.zip", 
+                   "raw.zip", 
                    "notebooks.zip", 
                    "cwd_procedure.pdf", 
                    "soils_procedure.pdf", 
                    "allometric_equations.csv",
                    "UMBS_plots.csv"),
   other.entity.name = c("LTREB README", 
-                        "src.zip", 
-                        "notebooks.zip", 
+                        "Source Data", 
+                        "R Notebooks", 
                         "CWD Procedure", 
                         "Soils Procedure", 
                         "Allometric Equations",

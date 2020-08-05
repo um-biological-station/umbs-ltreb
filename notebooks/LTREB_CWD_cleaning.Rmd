@@ -170,10 +170,16 @@ cwd <- cwd %>%
   select(-Stand_Name)
 ```
 
+Convert Status column to be part of Decay Class
+```{r}
+cwd$Decay_Class_Whole_Piece[!is.na(cwd$Status)] <- paste(cwd$Decay_Class_Whole_Piece[!is.na(cwd$Status)], "S", sep = "")
+cwd <- cwd %>% select(-Status)
+unique(cwd$Decay_Class_Whole_Piece)
+```
 
 Write csv file
 ```{r}
-write.csv(cwd, file = output_path, eol = "\r\n", row.names = FALSE)
+write.csv(cwd, file = output_path, eol = "\r", row.names = FALSE)
 
 # output plot list
 # write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
