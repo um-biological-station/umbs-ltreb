@@ -1,8 +1,7 @@
 
-
 1. Above Ground Biomass Estimates
 	Methods: 
-		none
+		see methods metadata
 	Temporal coverage: 
 		1934 to 2019
 	Raw data: 
@@ -13,15 +12,15 @@
 	Output: 
 		agb.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
 2. Course Woody Debris Measurements
 	Methods:
-		** CWD methods
+		cwd_procedure.pdf
 	Temporal coverage:
-		8 May 2014 to **
+		2014 to 2019
 	Raw data:
 		CWD_2014_raw.csv: raw 2014 measurements and calculations from Luke Nave
 		CWD_2020_raw.csv: raw 2019 measurements and calculations from Luke Nave in 2020
@@ -30,15 +29,15 @@
 	Output: 
 		cwd.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
 3. Sapling Counts
 	Methods:
-		none
+		see methods metadata
 	Temporal coverage:
-		10 June 2014 to 16 August 2019
+		2014 to 2019
 	Raw data:
 		saplings_2014_raw.csv: raw 2014 measurements and calculations from Luke Nave
 		saplings_2019_raw.csv: raw 2019 measurements from Luke Nave
@@ -48,7 +47,7 @@
 	Output: 
 		saplings.csv
 	Other related files:
-		** plot file
+		UMBS_plots.csv
 
 
 
@@ -64,12 +63,4 @@
 	Output: 
 		soils.csv
 	Other related files:
-		** plot file
-
-
-
-
-FOR FUTURE DATA COLLECTION:
-	
-- create a table of all trees, their tags as they change, their plots, and the year they were planted (currently, there is no best way to identify unique trees in the datasets)
-- could I give annotated outlines of the final cleaned tables to give an idea of what format I would recommend data be compatible with in the future?
+		UMBS_plots.csv

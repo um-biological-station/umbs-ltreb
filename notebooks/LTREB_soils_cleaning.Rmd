@@ -113,10 +113,9 @@ soils <- soils %>%
   mutate(Profile_ID = str_remove(Profile_ID, Plot_ID)) %>% 
   mutate(Profile_ID = str_remove(Profile_ID, "\\.")) %>% 
   mutate(C_Concentration_Code = str_remove(C_Concentration_Code, "\\."))
-soils$Plot_ID <- str_replace(soils$Plot_ID, "#", "")
 soils$Plot_ID <- str_replace(soils$Plot_ID, "CP", "IP")
-soils$Plot_ID[soils$Plot_ID == "BF1"] <- "BP541"  # given by Alina
-soils$Plot_ID[soils$Plot_ID == "BF2"] <- "BP542" # given by Alina
+# soils$Plot_ID[soils$Plot_ID == "BF1"] <- "BP541"  # given by Alina
+# soils$Plot_ID[soils$Plot_ID == "BF2"] <- "BP542" # given by Alina
 
 # store plot names
 plots <- unique(soils$Plot_ID) %>% sort(.)
@@ -135,7 +134,7 @@ write.csv(soils, file = output_path, eol = "\r", row.names = FALSE)
 # write_csv(soils, output_path)
 
 # output plot list
-# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
 

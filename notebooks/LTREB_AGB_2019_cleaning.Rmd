@@ -225,14 +225,13 @@ agb <- agb %>%
 
 Fix plot names
 ```{r}
-agb$Plot_ID[agb$Plot_ID == "BS42A&BS42C"] <- "BS42"
+agb$Plot_ID[agb$Plot_ID == "BS42A&BS42C"] <- NA
 agb$Plot_ID[agb$Plot_ID == "Wells"] <- "WELLS"
-agb$Plot_ID[agb$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
-agb$Plot_ID[agb$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
-agb$Plot_ID <- str_replace(agb$Plot_ID, "#", "")
+# agb$Plot_ID[agb$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
+# agb$Plot_ID[agb$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
 agb$Plot_ID <- str_replace(agb$Plot_ID, "CP", "IP")
 
-plots <- unique(agb$Plot_ID)
+plots <- unique(agb$Plot_ID) %>% sort(.)
 ```
 
 
@@ -241,7 +240,7 @@ Output to CSV
 write.csv(agb, file = output_path, eol = "\r", row.names = FALSE)
 
 # output plot list
-# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
 

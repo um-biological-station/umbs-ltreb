@@ -122,6 +122,7 @@ cwd$Species[cwd$Species == "Unknown"] <- NA
 
 # change all 0 biomasses to NA when volume isn't 0
 cwd$Estimated_Biomass_Tapered[cwd$Estimated_Biomass_Tapered == 0] <- NA
+cwd$Estimated_Biomass_Tapered[cwd$Estimated_Volume_Tapered == 0] <- 0
 
 # fix species values
 identifyLoners(cwd$Species)
@@ -130,17 +131,17 @@ identifyLoners(cwd$Species)
 Fix plot names
 ```{r}
 cwd$Plot_ID[cwd$Plot_ID == "BS42A&BS42C"] <- NA
-cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
-cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
+# cwd$Plot_ID[cwd$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
+# cwd$Plot_ID[cwd$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
 cwd$Plot_ID[cwd$Plot_ID == "Wells"] <- "WELLS"
 cwd$Plot_ID[cwd$Plot_ID == "1"] <- "DNR1"
 cwd$Plot_ID[cwd$Plot_ID == "2"] <- "DNR2"
 cwd$Plot_ID[cwd$Plot_ID == "3"] <- "DNR3"
-cwd$Plot_ID <- str_replace(cwd$Plot_ID, "CP", "IP")
-cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA1972", "PSA")
-cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA72", "PSA")
-cwd$Plot_ID <- str_replace(cwd$Plot_ID, "DNR87", "DNR")
-cwd$Plot_ID <- str_replace(cwd$Plot_ID, "#", "")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "CP#", "IP")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "IP#", "IP")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA1972#", "PSA")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "PSA72#", "PSA")
+cwd$Plot_ID <- str_replace(cwd$Plot_ID, "DNR87#", "DNR")
 
 cwd$Stand_Name <- str_replace(cwd$Stand_Name, "CP", "IP")
 
@@ -182,7 +183,7 @@ Write csv file
 write.csv(cwd, file = output_path, eol = "\r", row.names = FALSE)
 
 # output plot list
-# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 
 glimpse(cwd)
 ```

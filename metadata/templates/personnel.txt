@@ -1,9 +1,12 @@
 givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	role	projectTitle	fundingAgency	fundingNumber
-Luke		Nave	University of Michigan Biological Station	lukenave@umich.edu		PI			
+Luke		Nave	University of Michigan Biological Station	lukenave@umich.edu		PI	LTREB Renewal: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).	National Science Foundation	DEB-1856319
 Alexandria		Pawlik	University of Michigan Biological Station	apawlik@umich.edu	0000-0001-7806-8206	Data Curator			
 Jason		Tallant	University of Michigan Biological Station	jtallant@umich.edu	0000-0003-4790-8772	Contact			
-Kathryn		Hofmeister	Michigan Technological University	klhofmei@mtu.edu 		Creator			
-Alina		Drebin	University of Michigan Biological Station			Data Curator			
-Knute		Nadelhoffer	University of Michigan Biological Station			Creator			
-Christopher		Gough	University of Michigan Biological Station			Creator			
+Kathryn		Hofmeister	Michigan Technological University	klhofmei@mtu.edu 		Data Manager			
+Alina		Drebin	University of Michigan Biological Station	ajdrebin@umich.edu		Data Curator			
+Knute		Nadelhoffer	University of Michigan Biological Station	knute@umich.edu		Creator			
+Christopher		Gough	University of Michigan Biological Station	goughcm@umich.edu		Creator			
 Jason		Tallant	University of Michigan Biological Station	jtallant@umich.edu	0000-0003-4790-8772	Data Manager			
+Knute		Nadelhoffer	University of Michigan Biological Station	knute@umich.edu		PI	LTREB: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).	National Science Foundation	DEB-1353908
+Christopher		Gough	University of Michigan Biological Station	goughcm@umich.edu		PI	LTREB: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).	National Science Foundation	DEB-1353908
+Luke		Nave	University of Michigan Biological Station	lukenave@umich.edu		Creator			

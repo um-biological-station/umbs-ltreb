@@ -19,7 +19,7 @@ options(stringsAsFactors = FALSE)
 # set these paths for your machine's specifics
 saplings_path_2014 <- "../raw/saplings_2014_raw.csv"
 saplings_path_2019 <- "../raw/saplings_2019_raw.csv"
-biomass_path <- "../raw/saplings_biomass.csv"
+biomass_path <- "../raw/saplings_biomass_v2.csv"
 
 # create a merged table of 2014 and 19, save copy of Alina's version of 2014
 output_path_2014 <- "../output/saplings_2014.csv"
@@ -141,8 +141,9 @@ saplings_tidy %>% filter(is.na(Biomass))
 
 Fix plot names to match AGB
 ```{r}
-saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "#", "")
 saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "CP", "IP")
+saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "CP#", "IP")
+saplings_tidy$Plot <- str_replace(saplings_tidy$Plot, "DNR#", "DNR")
 
 unique(saplings_tidy$Plot)
 ```
@@ -208,12 +209,14 @@ Fix plot names
 # saplings_19$Notes[saplings_19$Plot == "BP98#1 Q7" | saplings_19$Plot == "BP98#2 Q7"] <- "Q7"
 
 # fix plot names to match AGB
-saplings_19$Plot <- str_replace(saplings_19$Plot, "#", "")
+
 # remove number after Q and sum up over plot
 saplings_19 <- saplings_19 %>%
-  mutate(Plot = ifelse(str_sub(Plot, 1, 4) == "BP98", str_sub(Plot, 1, 5), Plot))
+  mutate(Plot = ifelse(str_sub(Plot, 1, 4) == "BP98", str_sub(Plot, 1, 6), Plot))
 # saplings_19$Plot <- str_replace(saplings_19$Plot, " ", "")
 saplings_19$Plot <- str_replace(saplings_19$Plot, "CP", "IP")
+saplings_19$Plot <- str_replace(saplings_19$Plot, "CP#", "IP")
+saplings_19$Plot <- str_replace(saplings_19$Plot, "PSA#", "PSA")
 
 unique(saplings_19$Plot)
 
@@ -270,8 +273,8 @@ glimpse(saplings)
 
 # fix plot IDs again
 saplings$Plot_ID[saplings$Plot_ID == "Wells"] <- "WELLS"
-saplings$Plot_ID[saplings$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
-saplings$Plot_ID[saplings$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
+# saplings$Plot_ID[saplings$Plot_ID == "BF1"] <- "BP54#1"  # given by Alina
+# saplings$Plot_ID[saplings$Plot_ID == "BF2"] <- "BP54#2" # given by Alina
 plots <- unique(saplings$Plot_ID) %>% sort(.)
 ```
 
@@ -296,6 +299,9 @@ saplings$Species[saplings$Species == "Other"] <- "OTHER"
 
 Export to CSV
 ```{r}
+sum(saplings$Biomass == 0, na.rm = TRUE)
+sum(is.na(saplings$Biomass))
+
 # sort
 saplings <- saplings %>% 
   arrange(Plot_ID, Species, DBH_Size_Class, Date)
@@ -310,6 +316,6 @@ write.csv(saplings, file = output_path_merge, eol = "\r", row.names = FALSE)
 # saplings %>% filter(is.na(Biomass))
 
 # output plot list
-# write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
+write.csv(plots, file = plots_path, eol = "\r\n", row.names = FALSE)
 ```
 
