@@ -1,6 +1,7 @@
 # UMBS LTREB Data Tables
 
 ### 1. Above Ground Biomass Estimates
+
 A. Methods: see methods metadata
 B. Temporal coverage: 1934 to 2019
 C. Raw data: 
@@ -13,6 +14,7 @@ F. Other related files:
 	1. UMBS_plots.csv: information about all observed UMBS plots
 
 ### 2. Course Woody Debris Measurements
+
 A. Methods: cwd_procedure.pdf
 B. Temporal coverage: 2014 to 2019
 C. Raw data:
@@ -25,6 +27,7 @@ F. Other related files:
 	1. UMBS_plots.csv: information about all observed UMBS plots
 		
 ### 3. Sapling Counts
+
 A. Methods: see methods metadata
 B. Temporal coverage: 2014 to 2019
 C. Raw data:
@@ -38,6 +41,7 @@ F. Other related files:
 	1. UMBS_plots.csv: information about all observed UMBS plots
 
 ### 4. Soil Makeup
+
 A. Methods: soils_procedure.pdf
 B. Temporal coverage: 2014 (samples collected in 2014, measured over the following year)
 C. Raw data:
