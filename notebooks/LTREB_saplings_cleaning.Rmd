@@ -19,7 +19,7 @@ options(stringsAsFactors = FALSE)
 # set these paths for your machine's specifics
 saplings_path_2014 <- "../raw/saplings_2014_raw.csv"
 saplings_path_2019 <- "../raw/saplings_2019_raw.csv"
-biomass_path <- "../raw/saplings_biomass_v2.csv"
+biomass_path <- "../raw/saplings_biomass_v3.csv"
 
 # create a merged table of 2014 and 19, save copy of Alina's version of 2014
 output_path_2014 <- "../output/saplings_2014.csv"
@@ -259,9 +259,9 @@ saplings_14 <- saplings_14 %>%
 
 # add Year column for NA dates
 saplings_14 <- saplings_14 %>% 
-  mutate(Year = "2014", .after = 3)
+  mutate(Year = 2014, .after = 3)
 saplings_19 <- saplings_19 %>% 
-  mutate(Year = "2019", .after = 3)
+  mutate(Year = 2019, .after = 3)
 
 # combine
 saplings <- rbind(saplings_14, saplings_19)
@@ -278,18 +278,6 @@ saplings$Plot_ID[saplings$Plot_ID == "Wells"] <- "WELLS"
 plots <- unique(saplings$Plot_ID) %>% sort(.)
 ```
 
-Import biomass calculations from separate Excel file from Luke Nave
-Merge biomass calculations into existing table
-```{r}
-bio <- read_csv(biomass_path)
-bio$Date <- mdy(bio$Date)
-bio <- bio %>% rename(Plot_ID = Plot) %>% rename(Count = Tally) %>% select(-Sort, -`Mid dbh`, -Height) %>% rename(DBH_Size_Class = DBH_size_class)
-
-saplings <- saplings %>% select(-Biomass)
-
-saplings <- left_join(saplings, bio, by = c("Plot_ID", "Species", "DBH_Size_Class", "Date", "Count"))
-```
-
 Fix species codes
 ```{r}
 saplings$Species[saplings$Species == "AMEL"] <- "AMSP"
@@ -297,14 +285,36 @@ saplings$Species[saplings$Species == "Unknown"] <- NA
 saplings$Species[saplings$Species == "Other"] <- "OTHER"
 ```
 
+Import biomass calculations from separate Excel file from Luke Nave
+Merge biomass calculations into existing table
+```{r}
+bio <- read_csv(biomass_path)
+bio$Date <- mdy(bio$Date)
+saplings <- saplings %>% select(-Biomass)
+
+saplings <- merge(saplings, bio, by = c("Plot_ID", "Species", "DBH_Size_Class", "Year", "Date", "Count"), all.x = TRUE)
+```
+
 Export to CSV
 ```{r}
-sum(saplings$Biomass == 0, na.rm = TRUE)
-sum(is.na(saplings$Biomass))
-
 # sort
 saplings <- saplings %>% 
-  arrange(Plot_ID, Species, DBH_Size_Class, Date)
+  arrange(Year, Date, Plot_ID, Species, DBH_Size_Class)
+
+# check
+
+# bio <- bio %>% 
+#   arrange(Year, Date, Plot_ID, Species, DBH_Size_Class)
+
+# all.equal(saplings, bio, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+# saplings %>% filter(is.na(Biomass))
+# bio %>% filter(is.na(Biomass))
+# 
+# sum(saplings$Biomass == 0, na.rm = TRUE)
+# sum(is.na(saplings$Biomass))
+# 
+# sum(bio$Biomass == 0, na.rm = TRUE)
+# sum(is.na(bio$Biomass))
 
 write.csv(saplings, file = output_path_merge, eol = "\r", row.names = FALSE)
 

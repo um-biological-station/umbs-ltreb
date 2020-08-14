@@ -19,6 +19,7 @@ options(stringsAsFactors = FALSE)
 # set these paths for your machine's specifics
 cwd_path_2014 <- "../raw/CWD_2014_raw.csv"
 cwd_path_2019 <- "../raw/CWD_2020_raw.csv"
+cwd_density_biomass_fixes <- "../raw/CWD_density_biomass.csv"
 output_path <- "../output/cwd.csv"
 plots_path <- "../plots/cwd_plots.csv"  # output site IDs
 ```
@@ -178,8 +179,27 @@ cwd <- cwd %>% select(-Status)
 unique(cwd$Decay_Class_Whole_Piece)
 ```
 
+Pull in density and biomass calculation fixed from Luke 8/10/20
+```{r}
+bio <- read_csv(cwd_density_biomass_fixes, col_types = "ciccddddcdddd")
+bio$Date <- mdy(bio$Date)
+
+# merge in new calculations
+cwd <- cwd %>% select(-Density, -Estimated_Volume_Tapered, -Estimated_Biomass_Tapered)
+cwd <- merge(cwd, bio, by = c("Plot_ID", "CWD_Subplot_ID", "Date", "Species", "Length", "Endpoint_1_Diameter", "Midpoint_Diameter", "Endpoint_2_Diameter", "Decay_Class_Whole_Piece", "Average_Diameter"), x.all = TRUE)
+
+# check
+# cwd <- cwd %>% arrange(Plot_ID, CWD_Subplot_ID, Date, Species, Length, Endpoint_1_Diameter, Midpoint_Diameter, Endpoint_2_Diameter, Decay_Class_Whole_Piece, Average_Diameter)
+# bio <- bio %>% arrange(Plot_ID, CWD_Subplot_ID, Date, Species, Length, Endpoint_1_Diameter, Midpoint_Diameter, Endpoint_2_Diameter, Decay_Class_Whole_Piece, Average_Diameter)
+# all.equal(cwd, bio, check.attributes=FALSE, ignore.col.order=TRUE, ignore.row.order=TRUE)
+```
+
 Write csv file
 ```{r}
+# sort
+cwd <- cwd %>% 
+  arrange(Date, Plot_ID, CWD_Subplot_ID, Species)
+
 write.csv(cwd, file = output_path, eol = "\r", row.names = FALSE)
 
 # output plot list
