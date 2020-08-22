@@ -1,5 +1,3 @@
-View the GitHub repo for this dataset at https://github.com/alexandriapawlik/umbs-ltreb
-
 # UMBS LTREB Data Tables
 
 ### 1. Above Ground Biomass Estimates
