@@ -58,7 +58,7 @@ N <- "45.558794"
 S <- "45.558794"
 W <- "-84.714524"
 
-Pid <- "edi."
+Pid <- "edi.243.3"
 Sid <- "edi.65.1"
 
 EMLassemblyline::make_eml(
