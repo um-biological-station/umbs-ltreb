@@ -1,0 +1,2266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml packageId="edi.243.5" system="https://pasta.edirepository.org"
+  xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0"
+  xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0  https://nis.lternet.edu/schemas/EML/eml-2.2.0/xsd/eml.xsd">
+  <access authSystem="https://pasta.edirepository.org/authentication"
+    order="allowFirst" scope="document" system="https://pasta.edirepository.org">
+    <allow>
+      <principal>uid=EDI,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>uid=umbiologicalstat,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <alternateIdentifier system="https://doi.org">doi:10.6073/pasta/3ffd6212b3c446cefcf6becaed9d6d5d</alternateIdentifier>
+    <title>Forest tree, woody debris, and soil inventory data from long-term research plots for LTREB at the University of Michigan Biological Station</title>
+    <creator>
+      <individualName>
+        <givenName>Knute</givenName>
+        <surName>Nadelhoffer</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>knute@umich.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Christopher</givenName>
+        <surName>Gough</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>goughcm@umich.edu</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Luke</givenName>
+        <surName>Nave</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>lukenave@umich.edu</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Alexandria</givenName>
+        <surName>Pawlik</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>apawlik@umich.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0001-7806-8206</userId>
+      <role>Data Curator</role>
+    </associatedParty>
+    <associatedParty>
+      <individualName>
+        <givenName>Kathryn</givenName>
+        <surName>Hofmeister</surName>
+      </individualName>
+      <organizationName>Michigan Technological University</organizationName>
+      <electronicMailAddress>klhofmei@mtu.edu</electronicMailAddress>
+      <role>Data Manager</role>
+    </associatedParty>
+    <associatedParty>
+      <individualName>
+        <givenName>Alina</givenName>
+        <surName>Drebin</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>ajdrebin@umich.edu</electronicMailAddress>
+      <role>Data Curator</role>
+    </associatedParty>
+    <associatedParty>
+      <individualName>
+        <givenName>Jason</givenName>
+        <surName>Tallant</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>jtallant@umich.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0003-4790-8772</userId>
+      <role>Data Manager</role>
+    </associatedParty>
+    <pubDate>2020-10-23</pubDate>
+    <abstract>
+      <para>Disturbances to forests, such as logging or wildfires, typically lead to large losses of carbon and nutrients from both the plants and soils of the ecosystem. Virtually all forests are in some state of recovery from such disturbances, whether caused naturally or by humans. Knowledge of the time required for a forest to recover its original amounts of carbon and nutrients after a disturbance is not complete, nor is an understanding of how regrowing plants, recovering soils and the year to year variation in climate interact to control recovery as a forest ages. This project takes advantage of long existing research plots in forests at the University of Michigan Biological Station to figure out how changes in forest structure, carbon and nitrogen contents of the forests, and variations in climate act together through time to influence how fast trees grow, nitrogen is retained, and carbon is captured and stored in forests. Scientists and students will make regular measurements of the types of trees, their stem sizes and mass, their patterns of leaf arrangement, the amounts of carbon and nitrogen in soils, and other factors in five forest that were cut and burned in 1936, 1948, 1954, 1980, and 1998 and so today range from 20 years to 120 years old. Several nearby much older forests will also be sampled. This will let the project link disturbances, climate and ecology for forests that are broadly representative of those across the northern United States, Canada, Europe and Asia.</para>
+    </abstract>
+    <keywordSet>
+      <keyword>aboveground biomass</keyword>
+      <keyword>soil carbon</keyword>
+      <keyword>soil nitrogen</keyword>
+      <keyword>soil bulk density</keyword>
+      <keyword>soil properties</keyword>
+      <keyword>canopies</keyword>
+      <keyword>coarse woody debris</keyword>
+      <keyword>tree age</keyword>
+      <keyword>diameter at breast height</keyword>
+      <keywordThesaurus>LTER Controlled Vocabulary</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword>University of Michigan Biological Station</keyword>
+      <keyword>UMBS</keyword>
+    </keywordSet>
+    <additionalInfo>
+      <para>Publication based upon soil data, including site description, sampling, processing, and analytical methods, results, and interpretation:	"Nave L.E., Gough C.M., Le Moine J., Nadelhoffer K.J. Multi-decadal trajectories of soil chemistry and nutrient availability following cutting vs. burning disturbances in upper Great Lakes forests. 2019. Canadian Journal of Forest Research 49: 731-742. " DOI 10.1139/cjfr-2018-0211</para>
+    </additionalInfo>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data (\"Data User\" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available \"as is.\" The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.&#xd;
+</para>
+    </intellectualRights>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>University of Michigan Biological Station, Douglas Lake, MI</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-84.714524</westBoundingCoordinate>
+          <eastBoundingCoordinate>-84.714524</eastBoundingCoordinate>
+          <northBoundingCoordinate>45.558794</northBoundingCoordinate>
+          <southBoundingCoordinate>45.558794</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>1934</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2020</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>ongoing; This revision, edi.243.5, updates 20 records in the agb.csv file to account for found errors.</description>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Jason</givenName>
+        <surName>Tallant</surName>
+      </individualName>
+      <organizationName>University of Michigan Biological Station</organizationName>
+      <electronicMailAddress>jtallant@umich.edu</electronicMailAddress>
+      <userId directory="https://orcid.org">https://orcid.org/0000-0003-4790-8772</userId>
+    </contact>
+    <publisher>
+      <organizationName>Environmental Data Initiative</organizationName>
+      <electronicMailAddress>info@environmentaldatainitiative.org</electronicMailAddress>
+      <onlineUrl>https://environmentaldatainitiative.org</onlineUrl>
+    </publisher>
+    <pubPlace>Environmental Data Initiative</pubPlace>
+    <methods>
+      <methodStep>
+        <description>
+          <para>See soils_procedure.pdf for soil processing procedures. &#xd;
+A reference manual for analytical methods used on some of the soil samples: "Hoskins, B.R. 1997. Soil testing handbook for professionals in agriculture, horticulture, nutrient and residuals management. 3rd ed. Maine Forestry and Agricultural Experiment Station, University of Maine, Orono, Maine."	(https://umaine.edu/soiltestinglab/home/faq/)</para>
+          <para>---</para>
+          <para>See cwd_procedure.pdf for CWD measuring procedures.</para>
+          <para>For AGB and Saplings:</para>
+          <para>Researchers used dbh tapes and / or calipers to measure the diameter at breast height (dbh, 1.37 above ground) of every tree within the boundaries of each plot. For some plots, the location (azimuth and distance) from plot center (or corner post) was determined. For some plots, dbh values were assigned as classes (e.g., 6-8 cm dbh) and the number of stems of each species within each diameter class was recorded.</para>
+          <para>The equations below are to be used in conjunction with the Allometric_equations.csv file.</para>
+          <para>Allometry AG biomass = a * dbh^b * height^c&#xd;
+height = a*dbh^b</para>
+          <para>See UMBS_plots.csv for a list of all University of Michigan Biological Station plots observed in this dataset. Plots can be matched between UMBS_plots.csv, agb.csv, cwd.csv, saplings.csv, and soils.csv using the Plot_ID attribute as a key.</para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>LTREB Renewal: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).</title>
+      <personnel>
+        <individualName>
+          <givenName>Luke</givenName>
+          <surName>Nave</surName>
+        </individualName>
+        <organizationName>University of Michigan Biological Station</organizationName>
+        <electronicMailAddress>lukenave@umich.edu</electronicMailAddress>
+        <role>Principal Investigator</role>
+      </personnel>
+      <funding>National Science Foundation DEB-1856319</funding>
+      <relatedProject>
+        <title>LTREB: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).</title>
+        <personnel>
+          <individualName>
+            <givenName>Knute</givenName>
+            <surName>Nadelhoffer</surName>
+          </individualName>
+          <organizationName>University of Michigan Biological Station</organizationName>
+          <electronicMailAddress>knute@umich.edu</electronicMailAddress>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation DEB-1353908</funding>
+      </relatedProject>
+      <relatedProject>
+        <title>LTREB: Drivers of forest carbon storage from canopy closure through successional time (2019- 2024).</title>
+        <personnel>
+          <individualName>
+            <givenName>Christopher</givenName>
+            <surName>Gough</surName>
+          </individualName>
+          <organizationName>University of Michigan Biological Station</organizationName>
+          <electronicMailAddress>goughcm@umich.edu</electronicMailAddress>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>National Science Foundation DEB-1353908</funding>
+      </relatedProject>
+    </project>
+    <dataTable>
+      <entityName>Aboveground Biomass</entityName>
+      <entityDescription>Adult tree measurements and biomass estimates from 1934 to 2019.</entityDescription>
+      <physical>
+        <objectName>agb.csv</objectName>
+        <size unit="bytes">3158519</size>
+        <authentication method="MD5">734597149fee0dda2f2eb2717aeda020</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/785c74e74be871944f7ae50dff3018f0</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>LTREB_Tag_2019</attributeName>
+          <attributeDefinition>Tags installed as part of plot census during LTREB initiation in 2014. Some 2019 tags do not match 2014 tags and are indicated here. Field is NA for all measurements taken before 2019.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Tags installed as part of plot census during LTREB initiation in 2014. Some 2019 tags do not match 2014 tags and are indicated here. Field is NA for all measurements taken before 2019.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>If measurement was recorded before 2019 then no 2019 tag information exists. Otherwise LTREB tag was unknown as of 2019 measurement.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>LTREB_Tag_2014</attributeName>
+          <attributeDefinition>Tags installed as part of plot census during LTREB initiation in 2014. In plots never before sampled, but sampled first in 2014 for LTREB, all trees will have tag IDs. For LTREB plots within older historic plots, all trees within the LTREB 0.1 ha (18 m radius) plot will have these tag IDs and possibly an Old_Tag. LTREB 2019 tags were assumed to match 2014 tags unless otherwise specified.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Tags installed as part of plot census during LTREB initiation in 2014. In plots never before sampled, but sampled first in 2014 for LTREB, all trees will have tag IDs. For LTREB plots within older historic plots, all trees within the LTREB 0.1 ha (18 m radius) plot will have these tag IDs and possibly an Old_Tag. LTREB 2019 tags were assumed to match 2014 tags unless otherwise specified.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>If measurement was recorded before 2019 then tree did not have LTREB tag as of date of measurement. Otherwise tree was planted after 2014 or could not be matched to a 2014 tree record.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Old_Tag</attributeName>
+          <attributeDefinition>Tree tag number (or letter, or combination) assigned as part of historic (pre-2014) plot censuses. In many of the long-term forest inventory plots, trees were never tagged, but were measured as individuals each time a census was performed. For large historic plots, LTREB plots installed within these plots sometimes encountered these old tags and their identities were transcribed into the LTREB plot inventory dataset to enable tracking across past inventory data.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Tree tag number (or letter, or combination) assigned as part of historic (pre-2014) plot censuses. In many of the long-term forest inventory plots, trees were never tagged, but were measured as individuals each time a census was performed. For large historic plots, LTREB plots installed within these plots sometimes encountered these old tags and their identities were transcribed into the LTREB plot inventory dataset to enable tracking across past inventory data.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>If measurement was recorded before 2019 then tree did not have tag prior to LTREB project. Otherwise tree was planted after 2014 or could not be matched to a 2014 tree record.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Species</attributeName>
+          <attributeDefinition>A four-character code to represent the species of the tree being measured.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>ACPE</code>
+                    <definition>Striped maple, moose maple (Acer pensylvanicum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACRU</code>
+                    <definition>Red maple (Acer rubrum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACSA</code>
+                    <definition>Sugar maple (Acer saccharum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>AMSP</code>
+                    <definition>Serviceberry (Amelanchier spp)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BEPA</code>
+                    <definition>Paper birch (Betula papyrifera)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FAGR</code>
+                    <definition>American beech (Fagus grandifolia)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FRAM</code>
+                    <definition>White ash (Fraxinus americana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>OSVI</code>
+                    <definition>Hophornbeam (Ostrya virginiana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QURU</code>
+                    <definition>Red oak (Quercus rubra)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TIAM</code>
+                    <definition>American basswood (Tilia americana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TSCA</code>
+                    <definition>Eastern hemlock (Tsuga canadensis)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ULAM</code>
+                    <definition>American elm (Ulmus americana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIRE</code>
+                    <definition>Red pine (Pinus resinosa)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIST</code>
+                    <definition>Eastern white pine (Pinus strobus)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>POGR</code>
+                    <definition>Bigtooth aspen (Populus grandidentata)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>POTR</code>
+                    <definition>Quaking aspen (Populus tremuloides)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>THOC</code>
+                    <definition>Northern white cedar (Thuja occidentalis)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ABBA</code>
+                    <definition>Balsam fir (Abies balsamea)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIGL</code>
+                    <definition>White spruce (Picea glauca)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PRSE</code>
+                    <definition>Black cherry (Prunus serotina)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PRPE</code>
+                    <definition>Pin cherry (Prunus pennsylvanica)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BEAL</code>
+                    <definition>Yellow birch (Betula alleghaniensis)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>COAL</code>
+                    <definition>Pagoda dogwood (Cornus alternifolia)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>RHGL</code>
+                    <definition>Smooth sumac (Rhus glabra)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>SASP</code>
+                    <definition>Willow (Salix spp)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>CRRO</code>
+                    <definition>Red-stemmed cryptantha (Cryptantha rostellata )</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>VISP</code>
+                    <definition>Viburnum (Viburnum spp)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PYSP</code>
+                    <definition>Pear (Pyrus spp)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FRNI</code>
+                    <definition>Black ash (Fraxinus nigra)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIMA</code>
+                    <definition>Black spruce (Picea mariana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>POBA</code>
+                    <definition>Balsam poplar (Populus balsamifera)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>OTHER</code>
+                    <definition>Species not listed.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ALIN</code>
+                    <definition>Grey alder (Alnus incana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>LALA</code>
+                    <definition>Tamarack (Larix laricina)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Plot_ID</attributeName>
+          <attributeDefinition>Standardized name of the LTREB plot containing the saplings that were counted. Check the plot descriptions file.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Standardized name of the LTREB plot containing the saplings that were counted. Check the plot descriptions file.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Outside_Historic_Plot</attributeName>
+          <attributeDefinition>Denotes whether the observation occurred outside of the historic plot, as a result of plot size standardization activities carried out during LTREB initiation.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Denotes whether the observation occurred outside of the historic plot, as a result of plot size standardization activities carried out during LTREB initiation.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded for 2019 measurement.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Measure_Year</attributeName>
+          <attributeDefinition>Year measurement was taken.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Date</attributeName>
+          <attributeDefinition>Date that measurement was taken.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Date of measurement was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Distance</attributeName>
+          <attributeDefinition>Distance of measured tree from plot center in meters.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.5</minimum>
+                  <maximum exclusive="false">22</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Azimuth</attributeName>
+          <attributeDefinition>Compass direction in degrees with a 6 degree declination.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">385</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Status</attributeName>
+          <attributeDefinition>Type of individual tree. Before 2019, tree status includes live/dead and dominant/codominant/overtopped. In 2019, tree status only includes live/dead.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>O</code>
+                    <definition>Overtopped. Tree is not part of the canopy.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>C</code>
+                    <definition>Co-dominant. Tree is part of the overstory. It shares its canopy area with trees around it, not significantly taller than any tree near it.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>D</code>
+                    <definition>Dominant. Tree is well above the surrounding canopy, does not share canopy spaces with other trees around it. Dominant trees are very rare. A dominant tree is obviously dominant.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>C/O</code>
+                    <definition>Intermediate between co-dominant and overtopped.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X/D</code>
+                    <definition>Dead, dominant. Top of tree still present, clearly above the rest of the canopy.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X/C</code>
+                    <definition>Dead, co-dominant. Top of tree still present, at the same level as the canopy.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X/O</code>
+                    <definition>Dead, overtopped. Top of tree still present, but under the canopy level.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>X</code>
+                    <definition>Dead. Top of tree broken off.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>L</code>
+                    <definition>Alive.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Origin_Year</attributeName>
+          <attributeDefinition>Year of stand initiation. As best as can be determined from historic records or dendrochronology, this is the year that the trees present on a plot became established after some significant disturbance (e.g., clearcutting or stand-replacing fire). Often assumed to be equal to the age of the oldest trees present on the plot.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Years_Standing</attributeName>
+          <attributeDefinition>Calculated number of years standing based on treeâ€™s origin year.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>nominalYear</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">16</minimum>
+                  <maximum exclusive="false">301</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not calculated because Origin_Year was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>DBH</attributeName>
+          <attributeDefinition>Diameter at breast height size class in centimeters.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">100.3</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>As_Class</attributeName>
+          <attributeDefinition>Marks DBH measurements that were taken in the form of a "size class" rather than an actual measurement. â€œYâ€ represents size class, â€œNâ€ represents actual measurement.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Marks DBH measurements that were taken in the form of a "size class" rather than an actual measurement. â€œYâ€ represents size class, â€œNâ€ represents actual measurement.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>AGB</attributeName>
+          <attributeDefinition>Calculated above ground biomass using allometric equations table.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>kilogram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">17836.7</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not calculated.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Estimated_Height</attributeName>
+          <attributeDefinition>Height of stem or dead tree in meters. Dead tree heights estimated to the nearest 0.5 meters. Dead trees indicated by Status attribute.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">31.1</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Notes</attributeName>
+          <attributeDefinition>Additional notes on tree being measured.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Additional notes on tree being measured.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>46658</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>Coarse Woody Debris</entityName>
+      <entityDescription>Measurements and biomass estimates of coarse woody debris longer than 20 centimeters from 2014 and 2020.</entityDescription>
+      <physical>
+        <objectName>cwd.csv</objectName>
+        <size unit="bytes">79191</size>
+        <authentication method="MD5">fc0f10724eb52c13d632d9b5a09c03b9</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/52ba9b83aa29c91e40c49114c0e237fd</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>Plot_ID</attributeName>
+          <attributeDefinition>Standardized name of the LTREB plot containing the debris that was collected. Check the plot descriptions file.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Standardized name of the LTREB plot containing the debris that was collected. Check the plot descriptions file.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>CWD_Subplot_ID</attributeName>
+          <attributeDefinition>Indicates which of the 3, 6mx6m subplots located in each LTREB 18m radius plot. As viewed from the plot center, subplots are located 6 m from plot center at compass headings of 0, 120, and 240 degrees. The innermost right-hand corner of each subplot is 6 m from plot center; thence, plots extend 6 m further out the transect.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">240</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Date</attributeName>
+          <attributeDefinition>Date that measurement was taken.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Species</attributeName>
+          <attributeDefinition>A four-character code to represent the species of the tree being measured.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>POGR</code>
+                    <definition>Bigtooth aspen (Populus grandidentata)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACRU</code>
+                    <definition>Red maple (Acer rubrum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIST</code>
+                    <definition>Eastern white pine (Pinus strobus)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QURU</code>
+                    <definition>Red oak (Quercus rubra)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BEPA</code>
+                    <definition>Paper birch (Betula papyrifera)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIRE</code>
+                    <definition>Red pine (Pinus resinosa)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACSA</code>
+                    <definition>Sugar maple (Acer saccharum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FAGR</code>
+                    <definition>American beech (Fagus grandifolia)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TSCA</code>
+                    <definition>Eastern hemlock (Tsuga canadensis)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not recorded or unknown.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Length</attributeName>
+          <attributeDefinition>Length of the piece of coarse woody debris in m. Lengths are either for the entire piece, if located entirely in the subplot, or for pieces that extend outside the subplot, the amount of length of the piece that is located within the subplot.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>meter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.2</minimum>
+                  <maximum exclusive="false">6.05</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not recorded.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Endpoint_1_Diameter</attributeName>
+          <attributeDefinition>Diameter, in cm, at one end of the piece of coarse woody debris. Measured to the nearest 0.1 cm using a caliper.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">77</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Midpoint_Diameter</attributeName>
+          <attributeDefinition>Diameter, in cm, at the midpoint (center) of the piece of coarse woody debris. If the piece extends outside the subplot, this is the diameter at the midpoint relative to the portion of the piece that is within the subplot.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">85</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Endpoint_2_Diameter</attributeName>
+          <attributeDefinition>Diameter, in cm, at the other end of the piece of coarse woody debris. Measured to the nearest 0.1 cm using a caliper.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">154.5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Decay_Class_Whole_Piece</attributeName>
+          <attributeDefinition>The observer's assigned decay class of the whole piece of coarse woody debris (i.e. visually "averaged" to best represent the decay class of the whole piece even when it consists of portions of differing decay classes). Also denotes whether the piece is a stump.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>2</code>
+                    <definition>Sapwood beginning to decay but completely present. Bark beginning to crack.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4</code>
+                    <definition>Sapwood and bark mostly gone with heartwood beginning to decay.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>5</code>
+                    <definition>Sapwood and bark gone. Heartwood decay substantial. Original shape spreading but still distinguishable from soil.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3</code>
+                    <definition>Sapwood and bark mostly present. Heartwood tissue intact.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Recently downed material. Tissue and bark intact throughout.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2S</code>
+                    <definition>Class 2 stump. Sapwood intact. Half or more of the total stump height still has heartwood.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4S</code>
+                    <definition>Class 4 stump. Stump starting to lose its shape. Heartwood soft and pieces of sapwood&#xd;
+starting to break off and fall to the ground around stump (â€œstump pileâ€).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>5S</code>
+                    <definition>Class 5 stump. Heartwood decay substantial. Original stump shape spreading but still distinguishable from soil.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3S</code>
+                    <definition>Class 3 stump. Sapwood intact. Less than half of the total stump height is full of heartwood&#xd;
+(which is likely very soft).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>1S</code>
+                    <definition>Class 1 stump. Stump intact and possessing firm sapwood and heartwood.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Average_Diameter</attributeName>
+          <attributeDefinition>The average diameter in cm of the piece of coarse woody debris within the subplot, as computed from the three measured diameter.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">105.5</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Density</attributeName>
+          <attributeDefinition>The estimated specific density of coarse woody debris for that species and decay class combination. Estimated densities are based upon direct measurements of ACRU, BEPA, POGR, and QURU coarse woody debris across decay classes at UMBS~Flux AmeriFlux site in the late 1990s - early 2000's; these data are available upon request.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gramsPerCubicCentimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.067965232</minimum>
+                  <maximum exclusive="false">0.8035</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not known.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Estimated_Volume_Tapered</attributeName>
+          <attributeDefinition>The computed volume of the piece of coarse woody debris in cubic cm based on the length and average diameter.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>cubicCentimeter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">392.6990817</minimum>
+                  <maximum exclusive="false">619504.9391</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not calculated.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Estimated_Biomass_Tapered</attributeName>
+          <attributeDefinition>The product of volume in cubic cm and density in grams per cubic cm for that piece of coarse woody debris.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">44.588974</minimum>
+                  <maximum exclusive="false">207919.3029</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not calculated.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>984</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>Sapling Counts</entityName>
+      <entityDescription>Saplings counts and biomass estimates from 2014 and 2019.</entityDescription>
+      <physical>
+        <objectName>saplings.csv</objectName>
+        <size unit="bytes">71784</size>
+        <authentication method="MD5">bc444d3c1b2f62ed70eed71e675db77c</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/6bd3ad4d7fbf50054cb2d93630c928dc</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>Plot_ID</attributeName>
+          <attributeDefinition>Standardized name of the LTREB plot containing the saplings that were counted. Check the plot descriptions file.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Standardized name of the LTREB plot containing the saplings that were counted. Check the plot descriptions file.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Species</attributeName>
+          <attributeDefinition>A four-character code to represent the species of the saplings being counted.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>ACRU</code>
+                    <definition>Red maple (Acer rubrum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIRE</code>
+                    <definition>Red pine (Pinus resinosa)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIST</code>
+                    <definition>Eastern white pine (Pinus strobus)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>QURU</code>
+                    <definition>Northern red oak (Quercus rubra)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>FAGR</code>
+                    <definition>American beech (Fagus grandifolia)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>POGR</code>
+                    <definition>Bigtooth aspen (Populus grandidentata)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ABBA</code>
+                    <definition>Balsam fir (Abies balsamea)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>OTHER</code>
+                    <definition>Species not listed.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>AMSP</code>
+                    <definition>Serviceberry (Amelanchier spp)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIBA</code>
+                    <definition>Jack pine (Pinus banksiana)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>BEPA</code>
+                    <definition>Paper birch (Betula papyrifera)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACSA</code>
+                    <definition>Sugar maple (Acer saccharum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>COCO</code>
+                    <definition>Beaked hazelnut (Corylus cornuta)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>POTR</code>
+                    <definition>Quaking aspen (Populus tremuloides)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>ACPE</code>
+                    <definition>Striped maple, moose maple (Acer pensylvanicum)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PIGL</code>
+                    <definition>White spruce (Picea glauca)</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>TSCA</code>
+                    <definition>Eastern hemlock (Tsuga canadensis)</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Unable to determine the species of saplings in this count.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>DBH_Size_Class</attributeName>
+          <attributeDefinition>Diameter at breast height size class in centimeters (listed as a range of values) of the saplings that were counted.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>0_to_2</code>
+                    <definition>Diameter breast height is between 0 cm and 2 cm.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2_to_4</code>
+                    <definition>Diameter breast height is between 2 cm and 4 cm.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4_to_6</code>
+                    <definition>Diameter breast height is between 4 cm and 6 cm.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>6_to_8</code>
+                    <definition>Diameter breast height is between 6 cm and 8 cm.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Year</attributeName>
+          <attributeDefinition>Year that the sapling count was collected. Note: for dates that were not recorded, year is still known.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Date</attributeName>
+          <attributeDefinition>Date that the sapling count was collected.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY-MM-DD</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not recorded for this sapling count.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Count</attributeName>
+          <attributeDefinition>Number of both dead and alive saplings observed on the given date in the given plot of the given species with the given DBH size class.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>whole</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">396</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Biomass</attributeName>
+          <attributeDefinition>Total calculated biomass in kilograms as a sum of the individual biomasses of each sapling involved in the given count.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>kilogram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">2161.293322</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute was not calculated for this sapling count.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>1464</numberOfRecords>
+    </dataTable>
+    <dataTable>
+      <entityName>Soil Inventory</entityName>
+      <entityDescription>Soil makeup and concentration measurements from 2014.</entityDescription>
+      <physical>
+        <objectName>soils.csv</objectName>
+        <size unit="bytes">88265</size>
+        <authentication method="MD5">03a44d4e3853f2899ee9dbef27fbee29</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\r</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/84b422894e2c0e0f999b0b5a0726c37e</url>
+          </online>
+        </distribution>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>Collection_Year</attributeName>
+          <attributeDefinition>Year that the soil was collected from the specified plot.</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Archived_Sample_ID</attributeName>
+          <attributeDefinition>Unique identifier for the soil sample, corresponding to the archived physical sample in the UMBS SAFE.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Unique identifier for the soil sample, corresponding to the archived physical sample in the UMBS SAFE.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Plot_ID</attributeName>
+          <attributeDefinition>Standardized name of the LTREB long-term plot in which the soil sample was collected. Check the plot descriptions file.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Standardized name of the LTREB long-term plot in which the soil sample was collected. Check the plot descriptions file.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Profile_ID</attributeName>
+          <attributeDefinition>Unique identifier for the soil profile (parent) from which the soil sample (child) is derived. Concatenated from the plot ID and the unique soil profile (2 &lt;= n &lt;= 4 per plot).</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Unique identifier for the soil profile (parent) from which the soil sample (child) is derived. Concatenated from the plot ID and the unique soil profile (2 &lt;= n &lt;= 4 per plot).</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Targeted_Sampling_Increment</attributeName>
+          <attributeDefinition>The horizon or depth increment (in cm) intended to be collected.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The horizon or depth increment (in cm) intended to be collected.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Actual_Sampling_Increment</attributeName>
+          <attributeDefinition>The horizon or depth increment (in cm) that was actually collected. May differ from targeted depth, e.g., based upon sample slumping out of the bottom of the coring device during sample collections.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The horizon or depth increment (in cm) that was actually collected. May differ from targeted depth, e.g., based upon sample slumping out of the bottom of the coring device during sample collections.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Sampling_Increment_Thickness</attributeName>
+          <attributeDefinition>Thickness (in cm) of the sampled depth increment.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>centimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">15</minimum>
+                  <maximum exclusive="false">60</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Thicknesses not measured for O and A horizons because they were collected as genetic horizons.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Sample_Volume</attributeName>
+          <attributeDefinition>Calculated volume (in cubic cm) of the sample based upon its thickness and the diameter of the corer used to collect it.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>cubicCentimeter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">318.4</minimum>
+                  <maximum exclusive="false">1273.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>No sample volume calculated because thickness was not measured.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Fine_Earth_Dry_Mass</attributeName>
+          <attributeDefinition>Measured dry mass (in g) of the fine earth fraction (soil materials passing 2 mm sieve). Air-dried and weighed to the nearest 0.01 g.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">4.32</minimum>
+                  <maximum exclusive="false">1852.17</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Root_Dry_Mass</attributeName>
+          <attributeDefinition>Measured dry mass (in g) of fine roots (less than 2 mm in diameter). Air-dried and weighed to the nearest 0.01 g.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">86.97</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Wood_Dry_Mass</attributeName>
+          <attributeDefinition>Measured dry mass (in g) of woody roots (greater than 2 mm in diameter) and woody materials not passing 2 mm sieve (e.g., bark pieces, twigs, acorn fragments). Air-dried and weighed to the nearest 0.01 g.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">28.69</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Stone_Dry_Mass</attributeName>
+          <attributeDefinition>Air dry mass of stones not passing 2 mm sieve.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gram</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">247.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Stone_Volume</attributeName>
+          <attributeDefinition>Calculated volume of stones (in cubic cm) assuming stones have specific density of 2.5 g per cubic cm.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>cubicCentimeter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">99</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Sieving_Comments</attributeName>
+          <attributeDefinition>Comments noted by the individual while sieving the soil sample.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Comments noted by the individual while sieving the soil sample.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>No additional comments on sieving for this observation.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Fine_Earth_Mass_Density</attributeName>
+          <attributeDefinition>The mass density of the fine earth fraction for O and A horizons, which were sampled by a 15x15 cm template. Calculated from the mass (g) of fine earth per 225 square cm, scaled to mass in Mg (= 1000000 g) and area in ha (10000000 square cm).</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>megagramsPerHectare</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">1.92</minimum>
+                  <maximum exclusive="false">283.81</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for mineral soil depth increments, only O and A horizons.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Fine_Earth_Bulk_Density</attributeName>
+          <attributeDefinition>The bulk density of the fine earth fraction for mineral soil depth increments, sampled with a 2.6 cm inside diameter corer. Calculated as the g of fine earth per cubic cm of fine earth. Cubic centimeters of fine earth is calculated as the difference between the core volume and the stone volume.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>gramsPerCubicCentimeter</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.89</minimum>
+                  <maximum exclusive="false">2.22</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for O and A horizons, only mineral soil depth increments.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Bulk_Density_Code</attributeName>
+          <attributeDefinition>Code indicating how Fine_Earth_Bulk_Density attribute was collected.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>M</code>
+                    <definition>Measured.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>G</code>
+                    <definition>Gap-filled. The mean of measurements for that depth increment.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for O and A horizons, only mineral soil depth increments.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Texture</attributeName>
+          <attributeDefinition>Texture class of the fine earth fraction, assessed using feel and judgment.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Texture class of the fine earth fraction, assessed using feel and judgment.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>PH</attributeName>
+          <attributeDefinition>pH of the sample in a 1:1 soil:distilled water paste. Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Described in standard pH scale 0-14.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">3.58</minimum>
+                  <maximum exclusive="false">6.71</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Percent_Loss_On_Ignition</attributeName>
+          <attributeDefinition>Percent mass loss of the oven-dried fine earth fraction after heating to 375 degrees Celsius. Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.2</minimum>
+                  <maximum exclusive="false">67.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Percent_C_Concentration</attributeName>
+          <attributeDefinition>Percent total carbon of the oven-dried fine earth fraction analyzed with an elemental analyzer.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>dimensionless</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">61.9</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>C_Concentration_Code</attributeName>
+          <attributeDefinition>Code indicating how Percent_C_Concentration attribute was collected.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>UMBS</code>
+                    <definition>samples run in the UMBS Analytical Chemistry Laboratory in 2017 on a Costech Analytical CHN Analyzer.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>JML</code>
+                    <definition>Samples run in 2015 in the Kling/Nadelhoffer Lab on a Perkin-Elmer 2400 CHNSO elemental analyzer.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>AVG</code>
+                    <definition>Average of JML and UMBS values when sample was run in duplicate; 10 samples total. Duplicated samples were correlated at R2=0.982 across the two instruments.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PLOTXDEPTH EST</code>
+                    <definition>Missing value. Gap-filled as a point-estimate from a single other measured value for that plot x depth combination.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>PLOTXDEPTH MEAN</code>
+                    <definition>Missing value. Gap-filled with the mean of measured values for that plot x depth combination.</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>Ca_Concentration</attributeName>
+          <attributeDefinition>Exchangeable calcium concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">4</minimum>
+                  <maximum exclusive="false">1891</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>K_Concentration</attributeName>
+          <attributeDefinition>Exchangeable potassium concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">3</minimum>
+                  <maximum exclusive="false">786</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Mg_Concentration</attributeName>
+          <attributeDefinition>Exchangeable magnesium concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">238</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>P_Concentration</attributeName>
+          <attributeDefinition>Exchangeable phosphorus concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.2</minimum>
+                  <maximum exclusive="false">69.9</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Al_Concentration</attributeName>
+          <attributeDefinition>Exchangeable aluminum concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5</minimum>
+                  <maximum exclusive="false">174.2</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Cu_Concentration</attributeName>
+          <attributeDefinition>Exchangeable copper concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">8.6</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Fe_Concentration</attributeName>
+          <attributeDefinition>Exchangeable iron concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">1.8</minimum>
+                  <maximum exclusive="false">58</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Mn_Concentration</attributeName>
+          <attributeDefinition>Exchangeable manganese concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">694</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Na_Concentration</attributeName>
+          <attributeDefinition>Exchangeable sodium concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.1</minimum>
+                  <maximum exclusive="false">23.1</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>S_Concentration</attributeName>
+          <attributeDefinition>Exchangeable sulfur concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">1.1</minimum>
+                  <maximum exclusive="false">90.3</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Zn_Concentration</attributeName>
+          <attributeDefinition>Exchangeable zinc concentration, measured using a modified Morgan extraction (pH 4.8 ammonium acetate). Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in mg per kg.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milligramsPerKilogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.4</minimum>
+                  <maximum exclusive="false">36</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Acidity</attributeName>
+          <attributeDefinition>Exchangeable acidity, measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in milliequivalents per 100 g.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milliequivalentsPerHectogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">6.3</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>ECEC</attributeName>
+          <attributeDefinition>Effective cation exchange capacity, calculated by summation of exchangeable bases and acidity. Measured by the Maine Soil Testing Service according to methods described in Hoskins et al. 1997. Expressed in milliequivalents per 100 g.</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>milliequivalentsPerHectogram</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">14.4</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Root_C_Stock</attributeName>
+          <attributeDefinition>Calculated fine root (less than 2 mm diameter) carbon stock, based on sample fine root dry mass (g) and assuming a 47% carbon concentration. For O and A horizons, computation is fine root dry carbon mass (g) of the sample, collected from a 15x15 cm (= 225 square cm) template, scaled to mass in Mg (= 1000000 g) and area in ha (10000000 square cm). For mineral soil horizons collected with a corer, calculated as the volumetric root mass (g roots per cubic cm of fine earth), converted to carbon mass, divided by the thickness of the increment to get g of root carbon per square cm of soil, scaled to mass in Mg (= 1000000 g) and area in ha (10000000 square cm).</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>megagramsPerHectare</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0</minimum>
+                  <maximum exclusive="false">18.17</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+          <missingValueCode>
+            <code>NA</code>
+            <codeExplanation>Attribute not collected for this sample.</codeExplanation>
+          </missingValueCode>
+        </attribute>
+        <attribute>
+          <attributeName>Soil_C_Stock</attributeName>
+          <attributeDefinition>Calculated soil carbon stock (for the less than 2 mm fine earth fraction). For O and A horizons, computation is the carbon concentration times the mass density of the fine earth fraction, collected from a 225 square cm template, scaled to mass in Mg (= 1000000 g) and area in ha (10000000 square cm). For mineral soil increments, calculated as the product of the carbon concentration times the bulk density (g per cubic cm) times the increment thickness (cm) to yield g of carbon per square cm, scaled to mass in Mg (= 1000000 g) and area in ha (10000000 square cm).</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>megagramsPerHectare</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>natural</numberType>
+                <bounds>
+                  <minimum exclusive="false">1</minimum>
+                  <maximum exclusive="false">53</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>522</numberOfRecords>
+    </dataTable>
+    <otherEntity>
+      <entityName>LTREB README</entityName>
+      <entityDescription>README file for table structure</entityDescription>
+      <physical>
+        <objectName>LTREB_README.txt</objectName>
+        <size unit="bytes">2162</size>
+        <authentication method="MD5">97e6ab849fde1850011f1e0724b4581b</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/plain</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/6882995db81fb1675931b002103d24fa</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>Source Data</entityName>
+      <entityDescription>Source data for R scripts</entityDescription>
+      <physical>
+        <objectName>raw.zip</objectName>
+        <size unit="bytes">1310344</size>
+        <authentication method="MD5">26bf4274527117cb74927053751962ad</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/zip</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/9c20448eb13ae72a8aa4099a6db7b092</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>R Notebooks</entityName>
+      <entityDescription>R notebooks for data formatting and cleaning</entityDescription>
+      <physical>
+        <objectName>notebooks.zip</objectName>
+        <size unit="bytes">20648</size>
+        <authentication method="MD5">846adc7c6a47e8ac2e328af04006ee93</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/zip</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/5effcd568df67a5582726125dde335a8</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>CWD Procedure</entityName>
+      <entityDescription>Course Woody Debris procedures</entityDescription>
+      <physical>
+        <objectName>cwd_procedure.pdf</objectName>
+        <size unit="bytes">258731</size>
+        <authentication method="MD5">1257b37a2df832babe2751e40ccd5599</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/pdf</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/47012861cdcb6a1e60508ca1b56f035a</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>Soils Procedure</entityName>
+      <entityDescription>Soil inventory procedure</entityDescription>
+      <physical>
+        <objectName>soils_procedure.pdf</objectName>
+        <size unit="bytes">83838</size>
+        <authentication method="MD5">07c1a43c72e46cd018311549cff2616b</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/pdf</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/6e5fa5def3d07ed97c486fa01bc9e6d8</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>Allometric Equations</entityName>
+      <entityDescription>Allometric equations for tree calculations</entityDescription>
+      <physical>
+        <objectName>allometric_equations.csv</objectName>
+        <size unit="bytes">829</size>
+        <authentication method="MD5">aeaee8ad2ae6c400396a9b26e2ed91a8</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/csv</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/08ef7d94763fb9c4f7a32e499b3d8558</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+    <otherEntity>
+      <entityName>UMBS Plot Information</entityName>
+      <entityDescription>Master list of land plots at University of Michigan Biological Station</entityDescription>
+      <physical>
+        <objectName>UMBS_plots.csv</objectName>
+        <size unit="bytes">2681</size>
+        <authentication method="MD5">21fc8f82b1651438f128cfd4da7e7cdd</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>text/csv</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/edi/243/5/4eb0defbc13d46fb7047251acadd61b6</url>
+          </online>
+        </distribution>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="cubicCentimeter" multiplierToSI="0.000001"
+          name="cubicCentimeter" parentSI="cubicMeter" unitType="volume">
+          <description>cubic centimeters</description>
+        </unit>
+        <unit id="megagramsPerHectare" multiplierToSI="0.1"
+          name="megagramsPerHectare" parentSI="kilogramsPerSquareMeter" unitType="arealMassDensity">
+          <description>megagrams per hectare</description>
+        </unit>
+        <unit id="milligramsPerKilogram" multiplierToSI="0.000001"
+          name="milligramsPerKilogram" parentSI="gramsPerGram" unitType="massPerMass">
+          <description>milligrams per kilogram</description>
+        </unit>
+        <unit id="milliequivalentsPerHectogram" multiplierToSI="0.01"
+          name="milliequivalentsPerHectogram"
+          parentSI="molesPerKilogram" unitType="amountOfSubstanceWeight">
+          <description>milliequivalents per 100 grams</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

@@ -1,4 +1,5 @@
 View the GitHub repo for this dataset at https://github.com/alexandriapawlik/umbs-ltreb
+View the most recent version of the data repository at https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=243
 
 # UMBS LTREB Data Tables
 

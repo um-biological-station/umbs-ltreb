@@ -58,7 +58,7 @@ N <- "45.558794"
 S <- "45.558794"
 W <- "-84.714524"
 
-Pid <- "edi.243.3"
+Pid <- "edi.243.5"
 Sid <- "edi.65.1"
 
 EMLassemblyline::make_eml(
@@ -100,6 +100,6 @@ EMLassemblyline::make_eml(
                                "Soil inventory procedure",
                                "Allometric equations for tree calculations",
                                "Master list of land plots at University of Michigan Biological Station"),
-  user.id = "apawlik",
+  user.id = "umbiologicalstat",
   user.domain = "EDI", 
   package.id = Sid)
