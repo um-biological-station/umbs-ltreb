@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 View the GitHub repo for this dataset at https://github.com/alexandriapawlik/umbs-ltreb
 View the most recent version of the data repository at https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=243
 
-=======
->>>>>>> b0c6dc8162eb76ab23a74ff29736b2d6afab91ef
 # UMBS LTREB Data Tables
 
 ### 1. Above Ground Biomass Estimates
